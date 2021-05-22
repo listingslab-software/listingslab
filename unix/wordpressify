@@ -1,0 +1,10 @@
+#!/bin/bash
+# chmod ug+x wordpressify
+clear
+
+echo 'wordpressify...'
+
+cd ./react/pwa && yarn build
+cd ../wp-admin && yarn build
+
+

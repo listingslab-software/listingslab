@@ -1,0 +1,43 @@
+#!/bin/bash
+# chmod ug+x zip
+clear
+
+echo 'Creating WordPress Plugin zip...'
+echo '(might take a couple of minutes)'
+rm -rf ~/Desktop/listingslab
+cp -r ~/Desktop/Node/listingslab ~/Desktop/
+
+rm -rf ~/Desktop/listingslab/.git
+rm -rf ~/Desktop/listingslab/.github
+rm -rf ~/Desktop/listingslab/.gitignore
+rm -rf ~/Desktop/listingslab/node_modules
+rm -rf ~/Desktop/listingslab/listingslab.zip
+rm -rf ~/Desktop/listingslab/yarn.lock
+
+rm -rf ~/Desktop/listingslab/react/widget/yarn.lock
+rm -rf ~/Desktop/listingslab/react/widget/package.json
+rm -rf ~/Desktop/listingslab/react/widget/.env.production
+rm -rf ~/Desktop/listingslab/react/widget/.env.development
+rm -rf ~/Desktop/listingslab/react/widget/.gitignore
+rm -rf ~/Desktop/listingslab/react/widget/src
+rm -rf ~/Desktop/listingslab/react/widget/public
+rm -rf ~/Desktop/listingslab/react/widget/node_modules
+
+rm -rf ~/Desktop/listingslab/react/wp-admin/.gitignore
+rm -rf ~/Desktop/listingslab/react/wp-admin/yarn.lock
+rm -rf ~/Desktop/listingslab/react/wp-admin/node_modules
+rm -rf ~/Desktop/listingslab/react/wp-admin/package.json
+rm -rf ~/Desktop/listingslab/react/wp-admin/.env.production
+rm -rf ~/Desktop/listingslab/react/wp-admin/.env.development
+rm -rf ~/Desktop/listingslab/react/wp-admin/src
+rm -rf ~/Desktop/listingslab/react/wp-admin/public
+
+rm -rf ~/Desktop/listingslab/unix
+rm -rf ~/Desktop/listingslab/package.json
+cd ~/Desktop 
+
+zip -r listingslab.zip listingslab
+
+mv listingslab.zip ~/Desktop/Node/listingslab
+
+rm -rf ~/Desktop/listingslab
