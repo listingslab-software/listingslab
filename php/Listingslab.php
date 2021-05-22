@@ -17,18 +17,16 @@
                     'manage_options',
                     __FILE__, 
                     array($this, 'RenderAdmin'), 
-                    plugins_url('/listingslab/php/assets/listingslab_nav.png'),
+                    plugins_url('/listingslab/php/assets/png/listingslab_nav.png'),
                     30
               );
         }
 
         public function RenderAdmin(){ ?>
-              <a href="/" target="_self" style="width: 25px; height: 25px;">
-                <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/home.png'); ?>" />
-              </a>
-              <a href="https://github.com/listingslab-software/listingslab/" target="_blank" style="width: 25px; height: 25px;">
-                <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/github.png'); ?>" />
-              </a>
+              <a href="/" target="_self">
+                <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/svg/garmin.svg'); ?>" /></a>
+              <a href="https://github.com/listingslab-software/listingslab/" target="_blank">
+                <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/png/github.png'); ?>" /></a>
        <?php }
 
     static function GetInstance(){
