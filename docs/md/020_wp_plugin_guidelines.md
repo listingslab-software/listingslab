@@ -1,4 +1,6 @@
 
+[Home](../../)
+
 ## Wordpress Plugin Directory
 
 ## Guidelines
@@ -21,3 +23,5 @@
 16. A complete plugin must be available at the time of submission.
 17. Plugins must respect trademarks, copyrights, and project names.
 18. We reserve the right to maintain the Plugin Directory to the best of our ability. 
+
+[WP Guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/)

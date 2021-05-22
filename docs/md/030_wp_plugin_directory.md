@@ -1,6 +1,8 @@
 
 ## Wordpress Plugin Directory
 
+[WordPress Plgin Directory](https://wordpress.org/plugins)
+
 The goal of the WordPress Plugin Directory is to provide a safe place for all WordPress users – from the non-technical to the developer – to download plugins that are consistent with the goals of the WordPress project.
 
 To that end, we want to ensure a simple and transparent process for developers to submit plugins for the directory. As part of our ongoing efforts to make the plugin directory inclusion process more transparent, we have created a list of developer guidelines. We strive to create a level playing field for all developers.
