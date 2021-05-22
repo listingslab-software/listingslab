@@ -1,4 +1,4 @@
-![Logo](../media/svg/avatars/chix.svg)  
+![Logo](./media/svg/avatars/chix.svg)  
 ## @listingslab WordPress Plugin
 
 #### Aims & Goals 
