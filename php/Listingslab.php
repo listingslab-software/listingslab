@@ -55,7 +55,6 @@
                 echo '<script>';
                 echo 'var wpData = ' . json_encode( $wpData ) . ';';
                 echo '</script>';
-
                 $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/wp-admin/build/index.html');
                 $html = str_replace('href="/static', 'href="'. plugin_dir_url( __DIR__ ) .
               'react/wp-admin/build/static', $html);
@@ -66,7 +65,7 @@
 
           <div class="admin-footer">
             <a href="https://github.com/listingslab-software/listingslab/" target="_blank" style="width: 25px; height: 25px;">
-              <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/github.png'); ?>" />
+              <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/png/github.png'); ?>" />
             </a>
           </div>
          </div>

@@ -2,7 +2,7 @@
 # chmod ug+x wordpressify
 clear
 
-echo 'wordpressify...'
+echo 'Prepares /react/wp-admin & /react/pwa for WordPress'
 
 cd ./react/wp-admin && yarn build
-# cd ../pwa && yarn build
+cd ../pwa && yarn build
