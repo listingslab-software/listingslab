@@ -7,6 +7,8 @@
 	"license": "MIT",
 	"scripts": {
 		"setup": "$PWD/unix/setup",
-		"git": "$PWD/unix/git"
+		"git": "$PWD/unix/git",
+		"wordpressify": "$PWD/unix/wordpressify",
+		"zip": "$PWD/unix/zip"
 	}
 }
