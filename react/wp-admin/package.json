@@ -7,9 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "build": "react-scripts build"
   },
   "dependencies": {
     "@firebase/app": "^0.6.15",

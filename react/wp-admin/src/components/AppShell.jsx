@@ -6,9 +6,9 @@ import {
     Avatar,
     Card,
     CardHeader,
-    CardContent,
+    // CardContent,
     Badge,
-    Typography,
+    // Typography,
 } from '@material-ui/core/'
 
 const useStyles = makeStyles(theme => ({
@@ -38,19 +38,23 @@ export default function AppShell( props ) {
 				}}>
 				<Card className={ clsx( classes.card ) } >
 					<CardHeader 
-						title={ `from ${ `name` }` }
-						subheader={ `subject` }
+						title={ `Wei Zang` }
+						subheader={ `将react app添加到WordPress管理页面` }
 						avatar={<Badge 
 									color={ `secondary` }
 									badgeContent={ 2 } >
 									<Avatar src={ `` }/>
 								</Badge>}
 					/>
-					<CardContent>
+					
+				</Card>
+			</ButtonBase>
+}
+
+/*
+<CardContent>
 						<Typography variant={ `body2` }>
 							{ `body` }
 						</Typography>
 					</CardContent>
-				</Card>
-			</ButtonBase>
-}
+*/

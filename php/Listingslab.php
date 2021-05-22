@@ -23,10 +23,53 @@
         }
 
         public function RenderAdmin(){ ?>
-              <a href="/" target="_self">
-                <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/svg/garmin.svg'); ?>" /></a>
-              <a href="https://github.com/listingslab-software/listingslab/" target="_blank">
-                <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/png/github.png'); ?>" /></a>
+
+            <div class='none'>
+              <style type="text/css">
+                .admin-footer{
+                  margin-top: 25px;
+                  text-align: center;
+                }
+                .admin-footer a {
+                  text-decoration: none;
+                  color: #444;
+                }
+                .admin-footer a:hover {
+                  text-decoration: none;
+                  color: #2075d0;
+                }
+              </style>
+          
+              <?php 
+                $wpData = array();
+                $fields = array(
+                    'name', 
+                    'description', 
+                    'url', 
+                    'admin_email'
+                );
+                foreach($fields as $field) {
+                    $wpData[$field] = get_bloginfo($field);
+                }
+                $wpData[ 'avatar' ] = get_site_icon_url();
+                echo '<script>';
+                echo 'var wpData = ' . json_encode( $wpData ) . ';';
+                echo '</script>';
+
+                $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/wp-admin/build/index.html');
+                $html = str_replace('href="/static', 'href="'. plugin_dir_url( __DIR__ ) .
+              'react/wp-admin/build/static', $html);
+                $html = str_replace('src="/static', 'src="'. plugin_dir_url( __DIR__ ) .
+              'react/wp-admin/build/static', $html);
+                echo $html;
+              ?>
+
+          <div class="admin-footer">
+            <a href="https://github.com/listingslab-software/listingslab/" target="_blank" style="width: 25px; height: 25px;">
+              <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/github.png'); ?>" />
+            </a>
+          </div>
+         </div>
        <?php }
 
     static function GetInstance(){
