@@ -1,9 +1,13 @@
 <?php
 
+// Dokumentation?
+
   class Listingslab {
     
         private static $instance;
         private $listingslab_screen; 
+
+
 
         public function InitPlugin(){
           add_filter('show_admin_bar', '__return_false');
