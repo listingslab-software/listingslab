@@ -4,7 +4,5 @@ clear
 
 echo 'wordpressify...'
 
-cd ./react/pwa && yarn build
-cd ../wp-admin && yarn build
-
-
+cd ./react/wp-admin && yarn build
+# cd ../pwa && yarn build

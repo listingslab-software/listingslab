@@ -11,6 +11,7 @@
 		"build:wp-admin": "$PWD/unix/build react/wp-admin",
 		"git": "$PWD/unix/git",
 		"wordpressify": "$PWD/unix/wordpressify",
-		"zip": "$PWD/unix/zip"
+		"zip": "$PWD/unix/zip",
+		"pub": "yarn wordpressify && yarn zip && yarn git"
 	}
 }
