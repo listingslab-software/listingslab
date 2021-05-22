@@ -1,0 +1,8 @@
+#!/bin/bash
+# chmod ug+x dev
+clear
+
+echo 'Starts dev server' $1
+cd ./$1
+yarn
+yarn start
