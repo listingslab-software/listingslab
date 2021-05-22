@@ -14,14 +14,14 @@ rm -rf ~/Desktop/listingslab/node_modules
 rm -rf ~/Desktop/listingslab/listingslab.zip
 rm -rf ~/Desktop/listingslab/yarn.lock
 
-rm -rf ~/Desktop/listingslab/react/widget/yarn.lock
-rm -rf ~/Desktop/listingslab/react/widget/package.json
-rm -rf ~/Desktop/listingslab/react/widget/.env.production
-rm -rf ~/Desktop/listingslab/react/widget/.env.development
-rm -rf ~/Desktop/listingslab/react/widget/.gitignore
-rm -rf ~/Desktop/listingslab/react/widget/src
-rm -rf ~/Desktop/listingslab/react/widget/public
-rm -rf ~/Desktop/listingslab/react/widget/node_modules
+# rm -rf ~/Desktop/listingslab/react/pwa/yarn.lock
+# rm -rf ~/Desktop/listingslab/react/pwa/package.json
+# rm -rf ~/Desktop/listingslab/react/pwa/.env.production
+# rm -rf ~/Desktop/listingslab/react/pwa/.env.development
+# rm -rf ~/Desktop/listingslab/react/pwa/.gitignore
+# rm -rf ~/Desktop/listingslab/react/pwa/src
+# rm -rf ~/Desktop/listingslab/react/pwa/public
+# rm -rf ~/Desktop/listingslab/react/pwa/node_modules
 
 rm -rf ~/Desktop/listingslab/react/wp-admin/.gitignore
 rm -rf ~/Desktop/listingslab/react/wp-admin/yarn.lock
