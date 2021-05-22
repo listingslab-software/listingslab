@@ -1,0 +1,6 @@
+#!/bin/bash
+# chmod ug+x setup
+clear
+
+echo 'Setup installs dependencis with yarn...'
+yarn

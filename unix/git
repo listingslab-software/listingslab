@@ -1,0 +1,8 @@
+#!/bin/bash
+# chmod ug+x git
+clear
+
+echo 'Stages & commits changes to current branch and pushes to origin'
+echo '( BTW... This is really not considered good practice )'
+
+git add . && git commit -m $1 && git push

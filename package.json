@@ -1,0 +1,11 @@
+{
+	"name": "listingslab",
+	"version": "14.0.0",
+	"repository": "https://github.com/listingslab-software/listingslab",
+	"author": "listingslab <listingslab@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"setup": "$PWD/unix/setup",
+		"git": "$PWD/unix/git 14.0.0"
+	}
+}
