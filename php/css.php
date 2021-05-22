@@ -1,3 +1,10 @@
+<?php 
+
+  $pwa = array();
+  $pwa[ 'primaryColor' ] = '#421c5d';
+  $pwa[ 'secondaryColor' ] = '#333';
+
+?>
 <style>
 	html {
       height: 100%;
@@ -25,8 +32,6 @@
         font-size: 1rem;
         /*background: radial-gradient(circle, #fcfcfc 0%, #FFFFFF 100%);*/
       }
-
-      .listingslab-plugin {
-        /*border: 1px solid limegreen;*/
+      .pwa{
       }
 </style>

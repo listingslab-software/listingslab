@@ -8,10 +8,25 @@ import {
     CardHeader,
     // CardContent,
     Badge,
-    // Typography,
+    Typography,
 } from '@material-ui/core/'
 
 const useStyles = makeStyles(theme => ({
+	appShell:{
+		background: 'white',
+		borderRadius: theme.spacing( 0.5 ),
+		border: '1px solid rgba(0,0,0,0.25)',
+		padding: theme.spacing( 2 ),
+		marginTop: theme.spacing( 2 ),
+		marginRight: theme.spacing( 2 ),
+	},
+	title:{
+		marginBottom: theme.spacing( 2 ),
+		fontWeight: 'lighter',
+		borderBottom: '1px solid rgba(0,0,0,0.15)',
+		paddingBottom: theme.spacing( 2 ),
+		textAlign: 'right',
+	},
 	btn:{
 		width: '100%',
 		display: 'block',
@@ -30,25 +45,34 @@ export default function AppShell( props ) {
 	
 	const classes = useStyles() 
 
-	return	<ButtonBase 
-				color={ `primary` }
-				className={ clsx( classes.btn ) } 
-				onClick={ (e) => {
-					e.preventDefault()
-				}}>
-				<Card className={ clsx( classes.card ) } >
-					<CardHeader 
-						title={ `Wei Zang` }
-						subheader={ `将react app添加到WordPress管理页面` }
-						avatar={<Badge 
-									color={ `secondary` }
-									badgeContent={ 2 } >
-									<Avatar src={ `` }/>
-								</Badge>}
-					/>
-					
-				</Card>
-			</ButtonBase>
+	return	<React.Fragment>
+				<div className={ clsx( classes.appShell ) } >
+					<Typography 
+						variant={ `h4` }
+						className={ clsx( classes.title ) }
+					>
+						@listingslab
+					</Typography>
+					<ButtonBase 
+						color={ `primary` }
+						className={ clsx( classes.btn ) } 
+						onClick={ (e) => {
+							e.preventDefault()
+						}}>
+						<Card className={ clsx( classes.card ) } >
+							<CardHeader 
+								title={ `Messages` }
+								subheader={ `将react app添加到WordPress管理页面` }
+								avatar={<Badge 
+											color={ `secondary` }
+											badgeContent={ 1 } >
+											<Avatar src={ `http://localhost:8888/logo.png` }/>
+										</Badge>}
+							/>
+						</Card>
+					</ButtonBase>
+				</div>
+			</React.Fragment>
 }
 
 /*
