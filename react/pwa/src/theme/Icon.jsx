@@ -13,7 +13,7 @@ import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
 import IconDashboard from '@material-ui/icons/Dashboard'
-import IconGreyBeard from '@material-ui/icons/ImportantDevices'
+import IconPWA from '@material-ui/icons/ImportantDevices'
 import IconDefault from '@material-ui/icons/Help'
 import IconPost from '@material-ui/icons/Description'
 import IconOldskool from '@material-ui/icons/DesktopAccessDisabled'
@@ -135,8 +135,8 @@ class Icon extends Component {
             case `dashboard`:
                 return (<IconDashboard color={iconColor} />)  
 
-            case `greybeard`:
-                return (<IconGreyBeard color={iconColor} />)  
+            case `pwa`:
+                return (<IconPWA color={iconColor} />)  
 
             case `plugins`:
                 return (<IconPlugins color={iconColor} />)  
