@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigateTo } from '../redux/app/actions'
 import {
     withStyles,
     useTheme,
@@ -19,7 +20,7 @@ const StyledMenu = withStyles({
 })(( props ) => (
   <Menu
     elevation={0}
-    getContentAnchorEl={null}
+    getContentAnchorEl={ null }
     anchorOrigin={{
       vertical: 'bottom',
       horizontal: 'center',
@@ -64,7 +65,7 @@ export default function CustomizedMenus() {
       
       <IconButton
         style={{
-          zIndex:123456,
+          zIndex: 123456,
           position: 'absolute',
           right: theme.spacing( 2 ),
           top: theme.spacing( 2 ),
@@ -83,9 +84,24 @@ export default function CustomizedMenus() {
           open={ Boolean(anchorEl) }
           onClose={ handleClose }>
 
+
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            console.log ( 'Dashboard') 
+            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `pwa` } color={ `inherit` } />
+            </ListItemIcon>
+            <ListItemText primary={`@listingslab settings` } />
+          </StyledMenuItem>
+
+
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            // console.log ( 'Dashboard') 
+            navigateTo( `/wp-admin/`, `_self` )
             handleClose()
           }}>
             <ListItemIcon>
@@ -94,9 +110,10 @@ export default function CustomizedMenus() {
             <ListItemText primary={`Dashboard` } />
           </StyledMenuItem>
 
+
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            console.log ( 'Plugins') 
+            navigateTo( `/wp-admin/plugins.php`, `_self` )
             handleClose()
           }}>
             <ListItemIcon>
@@ -108,7 +125,7 @@ export default function CustomizedMenus() {
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            console.log ( 'Theme') 
+            navigateTo( `/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlistingslab%252Fphp%252FListingslab.php`, `_self` )
             handleClose()
           }}>
             <ListItemIcon>
@@ -116,8 +133,6 @@ export default function CustomizedMenus() {
             </ListItemIcon>
             <ListItemText primary={`Theme` } />
           </StyledMenuItem>
-
-          
 
         </StyledMenu>
     </div>

@@ -1,14 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
-// import {
-//   gotoURL,
-// } from '../redux/pingpong/actions'
 import {
 	makeStyles,
-    List,
-    ListItem,
-    ListItemText,
-    ListItemAvatar,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
 } from '@material-ui/core/'
 import { 
   Icon,

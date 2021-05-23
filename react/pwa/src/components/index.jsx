@@ -3,6 +3,7 @@ import Collapsing from './Collapsing'
 import SettingsMenu from './SettingsMenu'
 import AppShell from './AppShell'
 import CustomizedMenus from './CustomizedMenus'
+import Overlay from './Overlay'
 
 export {
 	WordpressMenu,
@@ -10,4 +11,5 @@ export {
 	SettingsMenu, 
 	AppShell, 
 	CustomizedMenus,
+	Overlay,
 }
