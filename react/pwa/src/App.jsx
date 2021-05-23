@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core/'
 import { 
   CustomizedMenus, 
+  Overlay,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +25,8 @@ export default function App() {
     const classes = useStyles()
 
     return <MuiThemeProvider theme={ createMuiTheme(theme) }>
-            <CssBaseline />
+              <CssBaseline />
+              <Overlay />
               <div className={ clsx( classes.appWrap ) }>
                 <CustomizedMenus />
               </div>

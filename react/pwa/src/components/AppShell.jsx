@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import {
   makeStyles, 
   useTheme, 
@@ -18,7 +17,6 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core/'
-
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MenuIcon from '@material-ui/icons/Menu'
 

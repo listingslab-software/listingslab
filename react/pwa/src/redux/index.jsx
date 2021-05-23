@@ -1,14 +1,15 @@
+
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
-import { greybeardReducer, greybeardSlice } from './greybeard/reducer'
+import { appReducer, appSlice } from './app/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
-    greybeard: greybeardReducer,
+    app: appReducer,
   })
 
   const preloadedState = {
-    greybeard: greybeardSlice,
+    app: appSlice,
   }
   
   const middleware = [
