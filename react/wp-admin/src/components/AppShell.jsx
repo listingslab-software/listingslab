@@ -3,19 +3,20 @@ import clsx from 'clsx'
 import {
     makeStyles,
     ButtonBase,
-    Avatar,
+    // Avatar,
     Card,
-    CardHeader,
+    // CardHeader,
     // CardContent,
-    Badge,
+    // Badge,
     Typography,
 } from '@material-ui/core/'
+import { Host } from './'
 
 const useStyles = makeStyles(theme => ({
 	appShell:{
 		background: 'white',
 		borderRadius: theme.spacing( 0.5 ),
-		border: '1px solid rgba(0,0,0,0.25)',
+		// border: '1px solid rgba(0,0,0,0.25)',
 		padding: theme.spacing( 2 ),
 		marginTop: theme.spacing( 2 ),
 		marginRight: theme.spacing( 2 ),
@@ -23,9 +24,9 @@ const useStyles = makeStyles(theme => ({
 	title:{
 		marginBottom: theme.spacing( 2 ),
 		fontWeight: 'lighter',
-		borderBottom: '1px solid rgba(0,0,0,0.15)',
+		// borderBottom: '1px solid rgba(0,0,0,0.15)',
 		paddingBottom: theme.spacing( 2 ),
-		textAlign: 'right',
+		textAlign: 'center',
 	},
 	btn:{
 		width: '100%',
@@ -51,7 +52,7 @@ export default function AppShell( props ) {
 						variant={ `h4` }
 						className={ clsx( classes.title ) }
 					>
-						@listingslab
+						@listingslab plugin
 					</Typography>
 					<ButtonBase 
 						color={ `primary` }
@@ -60,7 +61,16 @@ export default function AppShell( props ) {
 							e.preventDefault()
 						}}>
 						<Card className={ clsx( classes.card ) } >
-							<CardHeader 
+							<Host />
+						</Card>
+					</ButtonBase>
+				</div>
+			</React.Fragment>
+}
+
+/*
+
+<CardHeader 
 								title={ `Messages` }
 								subheader={ `将react app添加到WordPress管理页面` }
 								avatar={<Badge 
@@ -69,13 +79,6 @@ export default function AppShell( props ) {
 											<Avatar src={ `http://localhost:8888/logo.png` }/>
 										</Badge>}
 							/>
-						</Card>
-					</ButtonBase>
-				</div>
-			</React.Fragment>
-}
-
-/*
 <CardContent>
 						<Typography variant={ `body2` }>
 							{ `body` }

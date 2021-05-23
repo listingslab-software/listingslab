@@ -5,4 +5,4 @@ clear
 echo 'Stages & commits changes to current branch and pushes to origin'
 echo '( BTW... This is really not considered good practice )'
 
-git add . && git commit -m "14.0.4" && git push
+git add . && git commit -m "14.0.5" && git push

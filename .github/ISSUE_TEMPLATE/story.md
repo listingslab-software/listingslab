@@ -1,10 +1,10 @@
 ---
 name: Story
-about: Tell us your story
+about: Tell your story
 title: STORY
-labels: admin
+labels: 
 assignees: listingslab
 
 ---
 
-As a < type of user >, I want < some goal > so that < some reason >.
+As a **type of user**, I want **some goal** so that **some reason**
