@@ -1,17 +1,17 @@
-// import pJSON from '../../../package.json'
 import { createReducer } from '@reduxjs/toolkit'
 import {
   error,
 } from "./actions"
 
-
 let wpData = {
 	name: 'Local Dev',
 	description: `Tagline`,
+	admin_email: `admin_email@wordpress.com`,
+	avatar: `avatar.svg`,
+	url: `http://`
 }
-if ( window.wpData ){
-	wpData = window.wpData
-}
+
+if ( window.wpData ) wpData = window.wpData 
 
 export const hostSlice = {
   error: null,
