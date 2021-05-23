@@ -22,6 +22,7 @@ import {
 	WordpressMenu,
 	Collapsing, 
 	SettingsMenu, 
+	CustomizedMenus, 
 } from '../components'
 // import { AnimatedSVG } from '../animation'
 
@@ -70,56 +71,7 @@ export default function GreyBeardDialog( props ) {
 					maxWidth={ `sm` }
 					onClose={ () => {  }}>
 				<DialogContent>
-					<div>
-						<Grid container>
-							<Grid item xs={ 12 } sm={ 6 } md={ 9 } >
-									<CardHeader 
-										title={ wpSiteTitle }
-										subheader={ wpSiteTagline }
-										avatar={ <IconButton
-													onClick={ (e) => {
-														e.preventDefault()
-														console.log ('go home')
-													}}>
-													<Avatar src={ wpSiteAvatar } />
-												</IconButton> }/>
-			                </Grid>
-
-			                <Grid item xs={ 12 } sm={ 6 } md={ 3 } className={ clsx( classes.rightCol )}>
-				                <Card>
-					                
-					                <Collapsing options={{
-					                	title: `WordPress`,
-					                	icon: `wordpress`,
-					                	iconColor: primaryColor,
-					                }}>
-					                	<WordpressMenu />
-					                </Collapsing>
-
-					                <Collapsing options={{
-					                	title: `Settings`,
-					                	icon: `settings`,
-					                	iconColor: `primary`,
-					                }}>
-					                	<SettingsMenu />
-					                </Collapsing>
-				                </Card>
-			                </Grid>
-			                
-		                </Grid>
-		                
-						<IconButton
-							className={ clsx( classes.closeTrigger )}
-		        			variant={ `text` }
-		        			color={ `primary` }
-		        			onClick={ (e) => {
-		        				e.preventDefault()
-		        				toggleOpen( false )
-		        			}}>
-		        			<Icon icon={ `oldskool` } color={ `inherit` } />				
-						</IconButton>
-					</div>
-					<div className={ clsx( classes.grow )} />
+					ashf
 				</DialogContent>
 			</Dialog>
 
