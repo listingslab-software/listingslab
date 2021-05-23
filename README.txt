@@ -4,7 +4,7 @@ Tags: pwa, react
 Requires at least: 5.6
 Tested up to: 5.6
 Requires PHP: 5.6.20
-Stable tag: 14.0.3
+Stable tag: 14.0.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
