@@ -1,13 +1,8 @@
 <?php
-
-// Dokumentation?
-
   class Listingslab {
     
         private static $instance;
         private $listingslab_screen; 
-
-
 
         public function InitPlugin(){
           add_filter('show_admin_bar', '__return_false');
@@ -15,54 +10,9 @@
           add_action( 'wp_body_open', array( $this, 'RenderPWA' ));
         } 
 
-        public function RenderPWA(){
-            $pwa = array();
-            $pwa[ 'primaryColor' ] = '#421c5d';
-            $pwa[ 'secondaryColor' ] = '#333';
-            $fields = array(
-              'name', 
-              'description',
-              'url', 
-              'admin_email', 
-            );
-            foreach($fields as $field) {
-              $pwa[$field] = get_bloginfo($field);
-            }
-            $logoId = get_theme_mod( 'custom_logo' );
-            $img = wp_get_attachment_image_src( $logoId , 'full' );
-            $customLogo = false;
-            if ( isset($img[0]) ){
-              $customLogo = $img[0];
-            }
-            $pwa[ 'logo' ] = $customLogo;
-          ?>
-
-          <div class="pwa">
-
-            
-
-            <script>
-              var pwa = <?php echo json_encode( $pwa ); ?>;
-            </script>
-            <?php 
-              require_once 'css.php'; 
-              $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/pwa/build/index.html');
-              $html = str_replace('href="/static', 'href="'. plugin_dir_url( __DIR__ ) .
-            'react/pwa/build/static', $html);
-              $html = str_replace('src="/static', 'src="'. plugin_dir_url( __DIR__ ) .
-            'react/pwa/build/static', $html);
-              $html = str_replace('<meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">', '', $html);
-              echo $html;
-            ?>
-           </div>
-
-           <?php 
-        }
-
-
         public function AdminMenu(){
            $this->listingslab_screen = add_menu_page(
-                    '@listingslablistingslab Admin', 
+                    '@listingslab Admin', 
                     '@listingslab', 
                     'manage_options',
                     __FILE__, 
@@ -73,7 +23,6 @@
         }
 
         public function RenderAdmin(){ ?>
-
             <div class='none'>
               <style type="text/css">
                 .admin-footer{
@@ -89,7 +38,6 @@
                   color: #2075d0;
                 }
               </style>
-          
               <?php 
                 $wpData = array();
                 $fields = array(
@@ -122,7 +70,43 @@
        <?php }
 
 
-
+        public function RenderPWA(){
+                $pwa = array();
+                $pwa[ 'primaryColor' ] = '#421c5d';
+                $pwa[ 'secondaryColor' ] = '#333';
+                $fields = array(
+                  'name', 
+                  'description',
+                  'url', 
+                  'admin_email', 
+                );
+                foreach($fields as $field) {
+                  $pwa[$field] = get_bloginfo($field);
+                }
+                $logoId = get_theme_mod( 'custom_logo' );
+                $img = wp_get_attachment_image_src( $logoId , 'full' );
+                $customLogo = false;
+                if ( isset($img[0]) ){
+                  $customLogo = $img[0];
+                }
+                $pwa[ 'logo' ] = $customLogo;
+          ?>
+          <div class="pwa">
+            <script>
+              var pwa = <?php echo json_encode( $pwa ); ?>;
+            </script>
+            <?php 
+              require_once 'css.php'; 
+              $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/pwa/build/index.html');
+              $html = str_replace('href="/static', 'href="'. plugin_dir_url( __DIR__ ) .
+            'react/pwa/build/static', $html);
+              $html = str_replace('src="/static', 'src="'. plugin_dir_url( __DIR__ ) .
+            'react/pwa/build/static', $html);
+              $html = str_replace('<meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">', '', $html);
+              echo $html;
+            ?>
+           </div>
+           <?php }
 
     static function GetInstance(){
       if (!isset(self::$instance)) {
