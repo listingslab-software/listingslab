@@ -93,7 +93,7 @@ export default function CustomizedMenus() {
             <ListItemIcon>
               <Icon icon={ `pwa` } color={ `inherit` } />
             </ListItemIcon>
-            <ListItemText primary={`@listingslab settings` } />
+            <ListItemText primary={`@listingslab` } />
           </StyledMenuItem>
 
 

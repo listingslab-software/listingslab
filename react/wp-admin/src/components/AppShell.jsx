@@ -9,6 +9,7 @@ import {
 import { 
 	Host,
 	Debugger,
+	API,
 } from './'
 
 const useStyles = makeStyles(theme => ({
@@ -37,6 +38,11 @@ export default function AppShell( props ) {
      	debug,
     } = appSlice
 
+    const apiSlice = useSelector(state => state.api)
+	const {
+     	api,
+    } = apiSlice
+
 	return	<React.Fragment>
 				<div className={ clsx( classes.appShell ) } >
 					
@@ -48,15 +54,17 @@ export default function AppShell( props ) {
 								@listingslab plugin
 							</Typography>
 						</Grid>
-						{ debug ? <Grid item xs={ 6 }>
+						{ debug ? <Grid item xs={ 12 }  md={ 6 }>
 							<Debugger />
 						</Grid> : null }
-						
 
+						{ api ? <Grid item xs={ 12 } md={ 6 }>
+							<API />
+						</Grid> : null }
+						
 						<Grid item xs={ 6 }>
 							<Host />
 						</Grid>
-
 					</Grid>
 					
 				</div>
