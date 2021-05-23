@@ -1,6 +1,6 @@
 {
   "name": "wp-admin",
-  "version": "14.0.2",
+  "version": "14.0.3",
   "description": "@listingslab WordPress Admin Page",
   "repository": "https://github.com/listingslab-software/listingslab",
   "author": "listingslab <listingslab@gmail.com>",
