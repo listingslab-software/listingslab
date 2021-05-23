@@ -1,4 +1,6 @@
 import pJSON from '../../../package.json'
+import { createAction } from '@reduxjs/toolkit'
+// import { getStore, getHistory } from '../../'
 
 export const localDev = {
     "url": "/",
@@ -25,3 +27,5 @@ export const getEnvironment = () => {
 			assetPath: `/wp-content/plugins/pingpong/react/wp-admin/build/`,
 	}
 }
+
+export const error = createAction(`HOST/ERROR`)

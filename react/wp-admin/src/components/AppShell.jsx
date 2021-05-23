@@ -5,7 +5,10 @@ import {
     Typography,
     Grid,
 } from '@material-ui/core/'
-import { Host } from './'
+import { 
+	Host,
+	Debugger,
+} from './'
 
 const useStyles = makeStyles(theme => ({
 	appShell:{
@@ -42,8 +45,13 @@ export default function AppShell( props ) {
 						</Grid>
 
 						<Grid item xs={ 6 }>
+							<Debugger />
+						</Grid>
+
+						<Grid item xs={ 6 }>
 							<Host />
 						</Grid>
+
 					</Grid>
 					
 				</div>

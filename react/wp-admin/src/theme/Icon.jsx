@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-
 import ToolKit from './jsx/ToolKit'
 import WordPress from './jsx/WordPress'
 import IconDefault from '@material-ui/icons/Help'
@@ -70,6 +69,9 @@ import IconNotConnected from '@material-ui/icons/WifiOff'
 import IconLocale from '@material-ui/icons/PersonPin'
 import IconSearch from '@material-ui/icons/Search'
 import IconCart from '@material-ui/icons/AddShoppingCart'
+import IconBug from '@material-ui/icons/BugReport'
+import IconHost from '@material-ui/icons/SettingsApplications'
+
 
 const styles = theme => ({
     iconButton: {
@@ -112,6 +114,13 @@ class Icon extends Component {
 
             case `cart`:
                 return (<IconCart color={iconColor} />)   
+
+            case `host`:
+                return (<IconHost color={iconColor} />)   
+
+
+            case `bug`:
+                return (<IconBug color={iconColor} />)  
 
             case `connected`:
                 return (<IconConnected color={iconColor} />)   
