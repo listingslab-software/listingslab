@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     useTheme,
+    Avatar,
     Card,
     CardHeader,
     CardContent,
@@ -17,6 +18,10 @@ const useStyles = makeStyles(theme => ({
 		border: '1px solid rgba(0,0,0,0.25)',
 		boxShadow: 'none',
 		borderRadius: 'none',
+	},
+	avatar: {
+		height: 100,
+		width: 100,
 	},
 }))
 
@@ -33,6 +38,9 @@ export default function Host( props ) {
     const {
     	name,
     	description,
+    	admin_email,
+    	avatar,
+    	url,
     } = wpData
     
 	return	<Card className={ clsx( classes.host ) }>
@@ -41,8 +49,19 @@ export default function Host( props ) {
 					title={ `WordPress` }
 				/>
 				<CardContent>
+				
+					<Avatar src={avatar} className={ clsx( classes.avatar ) } />
+					
 					<Typography variant={ `body1` } >
-						{ `${name} ${description}` }
+						{ `${ name } ${ description }` }
+					</Typography>
+
+					<Typography variant={ `body1` } >
+						{ `${ admin_email }` }
+					</Typography>
+
+					<Typography variant={ `body1` } >
+						{ `${ url }` }
 					</Typography>
 				</CardContent>
 			</Card>

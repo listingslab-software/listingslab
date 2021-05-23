@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Typography,
@@ -31,6 +32,10 @@ const useStyles = makeStyles(theme => ({
 export default function AppShell( props ) {
 	
 	const classes = useStyles() 
+	const appSlice = useSelector(state => state.app)
+	const {
+     	debug,
+    } = appSlice
 
 	return	<React.Fragment>
 				<div className={ clsx( classes.appShell ) } >
@@ -43,10 +48,10 @@ export default function AppShell( props ) {
 								@listingslab plugin
 							</Typography>
 						</Grid>
-
-						<Grid item xs={ 6 }>
+						{ debug ? <Grid item xs={ 6 }>
 							<Debugger />
-						</Grid>
+						</Grid> : null }
+						
 
 						<Grid item xs={ 6 }>
 							<Host />
