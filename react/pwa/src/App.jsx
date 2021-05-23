@@ -10,8 +10,8 @@ import {
   CssBaseline,
 } from '@material-ui/core/'
 import { 
-  GreyBeardDialog, 
-} from './GreyBeard'
+  CustomizedMenus, 
+} from './components'
 
 const useStyles = makeStyles((theme) => ({
   appWrap: {
@@ -26,7 +26,7 @@ export default function App() {
     return <MuiThemeProvider theme={ createMuiTheme(theme) }>
             <CssBaseline />
               <div className={ clsx( classes.appWrap ) }>
-                <GreyBeardDialog />
+                <CustomizedMenus />
               </div>
             </MuiThemeProvider> 
 }
