@@ -4,8 +4,18 @@ import {
   error,
 } from "./actions"
 
+
+let wpData = {
+	name: 'Local Dev',
+	description: `Tagline`,
+}
+if ( window.wpData ){
+	wpData = window.wpData
+}
+
 export const hostSlice = {
   error: null,
+  wpData,
 }
 
 const hostReducer = createReducer( hostSlice, {
