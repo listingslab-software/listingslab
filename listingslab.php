@@ -17,6 +17,7 @@
  * Domain Path:       /languages
  */
 
+
 defined( 'ABSPATH' ) or die( 'Really?' );
 define( 'listingslab_VERSION', '14.0.3' );
 
