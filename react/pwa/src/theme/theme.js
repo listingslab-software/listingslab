@@ -26,6 +26,11 @@ const {
 export const theme = { 
   palette: {
     type: 'light',
+    background: {
+      default: `#fff`,
+      paper: `#fff`,
+
+    },
     primary: {
       main: primaryColor,
     },

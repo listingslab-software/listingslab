@@ -33,9 +33,10 @@ const useStyles = makeStyles((theme) => ({
   	marginTop: theme.spacing(3),
   },
   closeTrigger: {
+  	zIndex:123456,
     position: 'absolute',
-    right: theme.spacing(),
-    bottom: theme.spacing(),
+    right: theme.spacing(2),
+    top: theme.spacing(2),
     background: 'white',
   },
   hTag: {
@@ -133,7 +134,7 @@ export default function GreyBeardDialog( props ) {
 		        				e.preventDefault()
 		        				toggleOpen( true )
 		        			}}>
-		        			<Icon icon={ `greybeard` } color={ `inherit` } />				
+		        			<Icon icon={ `pwa` } color={ `inherit` } />				
 						</IconButton>
 	
 }
