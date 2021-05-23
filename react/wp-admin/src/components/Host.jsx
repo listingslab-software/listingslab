@@ -38,7 +38,7 @@ export default function Host( props ) {
     const {
     	name,
     	description,
-    	admin_email,
+    	
     	avatar,
     	url,
     } = wpData
@@ -56,9 +56,7 @@ export default function Host( props ) {
 						{ `${ name } ${ description }` }
 					</Typography>
 
-					<Typography variant={ `body1` } >
-						{ `${ admin_email }` }
-					</Typography>
+					
 
 					<Typography variant={ `body1` } >
 						{ `${ url }` }
@@ -66,3 +64,9 @@ export default function Host( props ) {
 				</CardContent>
 			</Card>
 }
+
+/*
+<Typography variant={ `body1` } >
+						{ `${ admin_email }` }
+					</Typography>
+*/
