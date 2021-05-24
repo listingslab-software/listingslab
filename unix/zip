@@ -3,7 +3,7 @@
 clear
 
 echo 'Creating WordPress Plugin zip...'
-echo '(Take a couple of minutes)'
+echo '(Takes a couple of minutes)'
 
 rm -rf ~/Desktop/listingslab
 cp -r ~/Desktop/Node/listingslab ~/Desktop/
