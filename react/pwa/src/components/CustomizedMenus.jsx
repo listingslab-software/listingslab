@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { navigateTo } from '../redux/app/actions'
 import {
     withStyles,
@@ -15,7 +16,7 @@ import {
 
 const StyledMenu = withStyles({
   paper: {
-    // border: '1px solid #d3d4d5',
+    border: '1px solid #d3d4d5',
   },
 })(( props ) => (
   <Menu
@@ -34,7 +35,14 @@ const StyledMenu = withStyles({
 ))
 
 const StyledMenuItem = withStyles((theme) => ({
-  root: {
+  root: { 
+    paddingRight: 50,
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.main,
+      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+        color: theme.palette.common.white,
+      },
+    },
     '&:focus': {
       backgroundColor: theme.palette.primary.main,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
@@ -46,11 +54,21 @@ const StyledMenuItem = withStyles((theme) => ({
 
 export default function CustomizedMenus() {
   
+  const wordpressSlice = useSelector(state => state.wordpress)
+  const {
+    pwaData,
+  } = wordpressSlice
+  const { 
+    postData 
+  } = pwaData
+  let postId = null
+  if ( postData ){
+    const { ID } = postData
+    postId = ID
+  }
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
-
   const primaryColor = theme.palette.primary.main
-
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -77,13 +95,15 @@ export default function CustomizedMenus() {
         <Icon icon={ `wordpress` } color={ primaryColor } />
       </IconButton>
         
-        <StyledMenu
+        <StyledMenu 
+          style={{
+            zIndex: 1234568,
+          }}
           id={ `wordpress-menu` }
           anchorEl={ anchorEl }
           keepMounted
           open={ Boolean(anchorEl) }
           onClose={ handleClose }>
-
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
@@ -105,7 +125,7 @@ export default function CustomizedMenus() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `dashboard` } color={ `inherit` } />
+              <Icon icon={ `dashboard` } color={ `primary` } />
             </ListItemIcon>
             <ListItemText primary={`Dashboard` } />
           </StyledMenuItem>
@@ -117,7 +137,7 @@ export default function CustomizedMenus() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `plugins` } color={ `inherit` } />
+              <Icon icon={ `plugins` } color={ `primary` } />
             </ListItemIcon>
             <ListItemText primary={`Plugins` } />
           </StyledMenuItem>
@@ -129,18 +149,26 @@ export default function CustomizedMenus() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `theme` } color={ `inherit` } />
+              <Icon icon={ `theme` } color={ `primary` } />
             </ListItemIcon>
             <ListItemText primary={`Theme` } />
           </StyledMenuItem>
+
+          { postId ? <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin/post.php?post=${postId}&action=edit`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `edit` } color={ `primary` } />
+            </ListItemIcon>
+            <ListItemText primary={`Edit` } />
+          </StyledMenuItem> : null }
 
         </StyledMenu>
     </div>
   )
 }
 
-
 /*
-// gotoURL(`/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dgreybeard%252Fphp%252FGreyBeard.php`, `_self`)
-
 */
