@@ -15,6 +15,6 @@ It\'s a Plugin which takes any tired old WordPress site and magically turns it i
 
 https://developer.wordpress.org/plugins/wordpress-org/how-your-readme-txt-works/
 
-Doucumention: 
+Doucumention: ./docs/README.md
 
-More Doucumention: 
+More Doucumention: https://github.com/listingslab-software/docs/tree/master/docs
