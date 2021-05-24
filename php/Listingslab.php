@@ -71,9 +71,9 @@
 
 
         public function RenderPWA(){
-                $pwa = array();
-                $pwa[ 'primaryColor' ] = '#421c5d';
-                $pwa[ 'secondaryColor' ] = '#333';
+                $pwaData = array();
+                $pwaData[ 'primaryColor' ] = '#421c5d';
+                $pwaData[ 'secondaryColor' ] = '#333';
                 $fields = array(
                   'name', 
                   'description',
@@ -81,7 +81,7 @@
                   'admin_email', 
                 );
                 foreach($fields as $field) {
-                  $pwa[$field] = get_bloginfo($field);
+                  $pwaData[$field] = get_bloginfo($field);
                 }
                 $logoId = get_theme_mod( 'custom_logo' );
                 $img = wp_get_attachment_image_src( $logoId , 'full' );
@@ -89,11 +89,16 @@
                 if ( isset($img[0]) ){
                   $customLogo = $img[0];
                 }
-                $pwa[ 'logo' ] = $customLogo;
+                $pwaData[ 'logo' ] = $customLogo;
+                if (is_single()){
+                  $pwaData[ 'postData' ] = get_post();
+                } else {
+                  $pwaData[ 'postData' ] = false;
+                }
           ?>
           <div class="pwa">
             <script>
-              var pwa = <?php echo json_encode( $pwa ); ?>;
+              var pwaData = <?php echo json_encode( $pwaData ); ?>;
             </script>
             <?php 
               require_once 'css.php'; 
