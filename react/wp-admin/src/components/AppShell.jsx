@@ -40,7 +40,7 @@ export default function AppShell( props ) {
 
     const apiSlice = useSelector(state => state.api)
 	const {
-     	api,
+     	apiOpen,
     } = apiSlice
 
 	return	<React.Fragment>
@@ -58,7 +58,7 @@ export default function AppShell( props ) {
 							<Debugger />
 						</Grid> : null }
 
-						{ api ? <Grid item xs={ 12 } md={ 6 }>
+						{ apiOpen ? <Grid item xs={ 12 } md={ 6 }>
 							<API />
 						</Grid> : null }
 						

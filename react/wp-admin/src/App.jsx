@@ -1,4 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux' 
+import {
+  firstRunAPI,
+} from './redux/api/actions'
 import {
   theme, 
 } from './theme'
@@ -10,10 +14,18 @@ import {
   AppShell,
 } from './components'
 
+export default function App() { 
 
-export default function App() {
-     
-    return <MuiThemeProvider theme={createMuiTheme(theme)}>
-              <AppShell />
-            </MuiThemeProvider> 
+	const apiSlice = useSelector( state => state.api )
+  React.useEffect(() => {
+    const {
+      fetching,
+      fetched,
+    } = apiSlice
+    if (!fetching && !fetched) firstRunAPI()
+  }, [apiSlice])
+
+  return <MuiThemeProvider theme={createMuiTheme(theme)}>
+            <AppShell />
+         </MuiThemeProvider> 
 }

@@ -5,6 +5,9 @@ import {
     makeStyles,
     Card,
     CardHeader,
+    CardContent,
+    LinearProgress,
+    Typography,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 
@@ -15,6 +18,9 @@ const useStyles = makeStyles(theme => ({
 		boxShadow: 'none',
 		borderRadius: 'none',
 	},
+	historyItem:{
+		// border: '1px solid rgba(0,0,0,0.25)',
+	},
 	avatar: {
 		height: 100,
 		width: 100,
@@ -24,25 +30,43 @@ const useStyles = makeStyles(theme => ({
 export default function API( props ) {
 	
 	const classes = useStyles() 
-
 	const apiSlice = useSelector(state => state.api)
 	const {
-     	api,
+     	apiOpen,
+     	fetching,
+     	history,
     } = apiSlice
-
-	if (!api) return null
+	if (!apiOpen) return null
 
 	return	<Card className={ clsx( classes.host ) }>
 				<CardHeader 
 					avatar={ <Icon icon={ `api` } color={ `primary` } /> }
 					title={ `API` }
 				/>
-				
+				{ fetching ? <LinearProgress /> : null }
+				<CardContent>
+				<Typography variant={`body1`}>
+					history
+				</Typography>
+
+				{ history.map(( item, i ) => {
+					const { 
+						message,
+						time,
+					} = item
+					return <div 
+								key={ `item_${i}` }
+								className={ clsx( classes.historyItem ) }
+							>
+								<Typography variant={`body2`}>
+									{time} { message }
+								</Typography>
+							</div>
+				})}
+
+				</CardContent>
 			</Card>
 }
 
 /*
-<Typography variant={ `body1` } >
-						{ `${ admin_email }` }
-					</Typography>
 */
