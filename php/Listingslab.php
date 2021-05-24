@@ -77,8 +77,7 @@
                 $fields = array(
                   'name', 
                   'description',
-                  'url', 
-                  'admin_email', 
+                  'url',
                 );
                 foreach($fields as $field) {
                   $pwaData[$field] = get_bloginfo($field);

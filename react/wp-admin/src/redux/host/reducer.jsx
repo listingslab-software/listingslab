@@ -4,11 +4,9 @@ import {
 } from "./actions"
 
 let wpData = {
-	name: 'Local Dev',
-	description: `Tagline`,
-	admin_email: `admin_email@wordpress.com`,
+	name: 'localhost',
 	avatar: `avatar.svg`,
-	url: `http://`
+	url: `http://localhost`
 }
 
 if ( window.wpData ) wpData = window.wpData 
