@@ -1,6 +1,6 @@
 {
 	"name": "listingslab",
-	"version": "14.0.5",
+	"version": "14.0.6",
 	"description": "Magically turns a WordPress Site into a way superior React Progressive Web App",
 	"repository": "https://github.com/listingslab-software/listingslab",
 	"author": "listingslab <listingslab@gmail.com>",

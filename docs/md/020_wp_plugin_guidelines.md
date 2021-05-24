@@ -1,9 +1,7 @@
+[Home](../README.md)
+## Wordpress Plugin Directory Guidelines 
 
-[Home](../../)
-
-## Wordpress Plugin Directory
-
-## Guidelines
+[WP Guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/)
 
 1. Plugins must be compatible with the GNU General Public License
 2. Developers are responsible for the contents and actions of their plugins
@@ -24,4 +22,4 @@
 17. Plugins must respect trademarks, copyrights, and project names.
 18. We reserve the right to maintain the Plugin Directory to the best of our ability. 
 
-[WP Guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/)
+

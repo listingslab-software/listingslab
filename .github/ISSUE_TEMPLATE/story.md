@@ -1,9 +1,7 @@
 ---
-name: Story
+name: Agile Story
 about: Tell your story
-title: STORY
-labels: 
-assignees: listingslab
+title: CATEGORY > 
 
 ---
 
