@@ -52,7 +52,7 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem)
 
-export default function CustomizedMenus() {
+export default function WordpressMenu() {
   
   const wordpressSlice = useSelector(state => state.wordpress)
   const {
@@ -164,6 +164,18 @@ export default function CustomizedMenus() {
             </ListItemIcon>
             <ListItemText primary={`Edit` } />
           </StyledMenuItem> : null }
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin/post-new.php`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `add` } color={ `primary` } />
+            </ListItemIcon>
+            <ListItemText primary={`New Post` } />
+          </StyledMenuItem>
+
 
         </StyledMenu>
     </div>
