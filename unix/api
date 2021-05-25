@@ -1,0 +1,8 @@
+#!/bin/bash
+# chmod ug+x api
+clear
+
+echo 'Starting API ~/Desktop/Node/api'
+cd  ~/Desktop/Node/api
+yarn start
+
