@@ -1,6 +1,6 @@
-## @listingslab Plugin Docs
+## @listingslab Docs
 
-This Plugin which takes any tired old WordPress site and magically turns it into a way superior React Progressive Web App 
+This Plugin takes any tired old WordPress site and magically turns it into a way superior React Progressive Web App. A Progressive WordPress App
 
 #### Contents
 
