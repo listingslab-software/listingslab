@@ -23,5 +23,7 @@ define( 'listingslab_VERSION', '14.1.0' );
 
 require_once 'php/Listingslab.php';
 
+
+
 $Listingslab = Listingslab::GetInstance();
 $Listingslab->InitPlugin();
