@@ -10,7 +10,7 @@ import {
   CssBaseline,
 } from '@material-ui/core/'
 import { 
-  CustomizedMenus, 
+  WordpressMenu, 
   Overlay,
 } from './components'
 
@@ -28,7 +28,7 @@ export default function App() {
               <CssBaseline />
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
-                <CustomizedMenus />
+                <WordpressMenu />
               </div>
             </MuiThemeProvider> 
 }
