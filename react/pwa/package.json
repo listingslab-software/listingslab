@@ -1,7 +1,7 @@
 {
   "name": "pwa",
   "version": "14.0.9",
-  "description": "@listingslab WordPress PWA",
+  "description": "Progressive WordPress App",
   "repository": "https://github.com/listingslab-software/listingslab",
   "author": "listingslab <listingslab@gmail.com>",
   "license": "MIT",

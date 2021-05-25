@@ -1,5 +1,6 @@
-[Home](../README.md)
+![header](../media/png/header.png) 
 ## Wordpress Plugin Directory Guidelines 
+[Home](../README.md)
 
 [WP Guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/)
 

@@ -1,4 +1,4 @@
-![Logo](../media/png/greybeard_header.png)  
+![header](../media/png/header.png)  
 ## Jira
 [Home](../../README.md) 
 

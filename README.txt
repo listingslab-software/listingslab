@@ -8,10 +8,8 @@ Requires PHP: 5.6.20
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
-Magically turns it into a way superior React Progressive Web App
-
 == Description ==
-It\'s a Plugin which takes any tired old WordPress site and magically turns it into a way superior React Progressive Web App 
+Progressive WordPress App. @listingslab is a plugin which takes any tired old WordPress site and magically turns it into a way superior Progressive Web App 
 
 == Documentation ==
 

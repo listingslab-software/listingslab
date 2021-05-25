@@ -1,5 +1,5 @@
 ![header](./media/png/header.png)  
-## @listingslab Docs
+## @listingslab
 
 This Plugin takes any tired old WordPress site and magically turns it into a way superior React Progressive Web App. A Progressive WordPress App
 
@@ -8,7 +8,6 @@ This Plugin takes any tired old WordPress site and magically turns it into a way
 - [Install](./md/010_install.md) 
 - [Wordpress Plugin Directory](./md/030_wp_plugin_directory.md) 
 - [Directory Guidelines](./md/020_wp_plugin_guidelines.md) 
-
 
 #### Roadmap
 
