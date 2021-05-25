@@ -1,4 +1,9 @@
 <?php
+
+if( ! defined( 'LISTINGSLAB' ) ) {
+  define( 'LISTINGSLAB', '14.1.0' );
+}
+
   class Listingslab {
     
         private static $instance;
@@ -8,7 +13,31 @@
           add_filter('show_admin_bar', '__return_false');
           add_action('admin_menu', array( $this, 'AdminMenu' ));
           add_action( 'wp_body_open', array( $this, 'RenderPWA' ));
+
+          // add_action( 'admin_notices', array( $this, 'plugin_activation' ) ) ;
         } 
+
+        public function plugin_deactivation() {
+          delete_option( 'listingslab' );
+          $html = '<div class="error">';
+          $html .= '<p>';
+          $html .= __( 'Boo, you unistalled @listingslab ' );
+          $html .= __( LISTINGSLAB );
+          $html .= '</p>';
+          $html .= '</div>';
+          echo $html;
+        }
+
+        public function plugin_activation() {
+          add_option( 'listingslab', LISTINGSLAB );
+          $html = '<div class="updated">';
+          $html .= '<p>';
+          $html .= __( 'Installed @listingslab ' );
+          $html .= __( LISTINGSLAB );
+          $html .= '</p>';
+          $html .= '</div>';
+          echo $html;
+        }
 
         public function AdminMenu(){
            $this->listingslab_screen = add_menu_page(
