@@ -139,6 +139,18 @@ export default function GithubMenu() {
           </StyledMenuItem>
 
 
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `https://github.com/listingslab-software/listingslab/raw/develop/listingslab.zip`, `_blank` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `download` } color={ `inherit` } />
+            </ListItemIcon>
+            <ListItemText primary={`Download` } />
+          </StyledMenuItem>
+
+
         </StyledMenu>
     </div>
   )

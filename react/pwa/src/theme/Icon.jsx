@@ -12,6 +12,7 @@ import IconSend from '@material-ui/icons/Send'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
+import IconDownload from '@material-ui/icons/GetApp'
 import IconAddBold from '@material-ui/icons/AddBox'
 import IconDashboard from '@material-ui/icons/Dashboard'
 import IconPWA from '@material-ui/icons/ImportantDevices'
@@ -363,6 +364,9 @@ class Icon extends Component {
 
             case `agile`:
                 return (<IconAgile color={iconColor} />)
+
+            case `download`:
+                return (<IconDownload color={iconColor} />)
 
 
             default: {

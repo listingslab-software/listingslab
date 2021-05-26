@@ -5,9 +5,9 @@
  * @package           listingslab
  *
  * @wordpress-plugin
- * Version:           14.0.8
+ * Version:           14.1.0
  * Plugin Name:       @listingslab
- * Description:       Magically turns a WordPress Site into a way superior React Progressive Web App
+ * Description:       Magically turn any WordPress Site into a much superior React Progressive WordPress App
  * Plugin URI:        https://github.com/listingslab-software/listingslab
  * Author:            listingslab
  * Author URI:        https://listingslab.com
@@ -19,7 +19,7 @@
 
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'listingslab_VERSION', '14.0.8' );
+define( 'listingslab_VERSION', '14.1.0' );
 
 require_once 'php/Listingslab.php';
 
