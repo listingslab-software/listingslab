@@ -6,8 +6,10 @@ export const open = createAction(`APP/OPEN`)
 export const overlay = createAction(`APP/OVERLAY`) 
 
 export const navigateTo = ( url, target ) => {
-	toggleOverlay( true )
 	window.open( url, target )
+	if ( target === `_self`){
+		toggleOverlay( true )
+	}
 	return true
 }
 

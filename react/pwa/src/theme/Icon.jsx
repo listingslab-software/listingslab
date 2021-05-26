@@ -15,12 +15,13 @@ import IconMail from '@material-ui/icons/Mail'
 import IconAddBold from '@material-ui/icons/AddBox'
 import IconDashboard from '@material-ui/icons/Dashboard'
 import IconPWA from '@material-ui/icons/ImportantDevices'
+import IconAgile from '@material-ui/icons/SupervisorAccount'
 import IconDefault from '@material-ui/icons/Help'
 import IconPost from '@material-ui/icons/Description'
 import IconOldskool from '@material-ui/icons/DesktopAccessDisabled'
 import IconFingerprint from '@material-ui/icons/Fingerprint'
 import IconSkip from '@material-ui/icons/SkipNextRounded'
-import IconXML from '@material-ui/icons/Code'
+import IconCode from '@material-ui/icons/Code'
 import IconImport from '@material-ui/icons/ImportExport'
 import IconFood from '@material-ui/icons/Fastfood'
 import IconFullscreen from '@material-ui/icons/Fullscreen'
@@ -241,8 +242,8 @@ class Icon extends Component {
             case `work`:
                 return (<IconWork color={iconColor} />) 
 
-            case `xml`:
-                return (<IconXML color={iconColor} />)
+            case `code`:
+                return (<IconCode color={iconColor} />)
 
             case `post`:
                 return (<IconPost color={iconColor} />)
@@ -359,6 +360,10 @@ class Icon extends Component {
 
             case `menu`:
                 return (<IconMenu color={iconColor} />)
+
+            case `agile`:
+                return (<IconAgile color={iconColor} />)
+
 
             default: {
                 return (<IconDefault color={iconColor} />)
