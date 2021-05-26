@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { navigateTo } from '../redux/app/actions'
 import {
     withStyles,
@@ -9,6 +9,7 @@ import {
     MenuItem,
     ListItemIcon,
     ListItemText,
+    Typography,
 } from '@material-ui/core/'
 import { 
   Icon,
@@ -30,6 +31,7 @@ const StyledMenu = withStyles({
       vertical: 'top',
       horizontal: 'right',
     }}
+    
     {...props}
   />
 ))
@@ -54,18 +56,6 @@ const StyledMenuItem = withStyles((theme) => ({
 
 export default function GithubMenu() {
   
-  const wordpressSlice = useSelector(state => state.wordpress)
-  const {
-    pwaData,
-  } = wordpressSlice
-  const { 
-    postData 
-  } = pwaData
-  let postId = null
-  if ( postData ){
-    const { ID } = postData
-    postId = ID
-  }
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
   const primaryColor = theme.palette.primary.main
@@ -85,14 +75,14 @@ export default function GithubMenu() {
         style={{
           zIndex: 123456,
           position: 'absolute',
-          right: 100,
-          top: theme.spacing( 2 ),
+          right: theme.spacing( 7 ),
+          top: theme.spacing( 1 ),
           background: 'white',
         }}
         aria-controls={`wordpress-menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
-        <Icon icon={ `wordpress` } color={ primaryColor } />
+        <Icon icon={ `github` } color={ primaryColor } />
       </IconButton>
         
         <StyledMenu 
@@ -105,75 +95,47 @@ export default function GithubMenu() {
           open={ Boolean(anchorEl) }
           onClose={ handleClose }>
 
-          <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
-            handleClose()
+          <Typography 
+            variant={ `button`} 
+            style={{
+            padding: 16,
+            marginBottom: 16,
           }}>
-            <ListItemIcon>
-              <Icon icon={ `pwa` } color={ `inherit` } />
-            </ListItemIcon>
-            <ListItemText primary={`@listingslab` } />
-          </StyledMenuItem>
-
-
+            Open Source
+          </Typography>
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            // console.log ( 'Dashboard') 
-            navigateTo( `/wp-admin/`, `_self` )
+            navigateTo( `https://github.com/listingslab-software/listingslab`, `_blank` )
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `dashboard` } color={ `primary` } />
+              <Icon icon={ `code` } color={ `inherit` } />
             </ListItemIcon>
-            <ListItemText primary={`Dashboard` } />
+            <ListItemText primary={`GitHub` } />
           </StyledMenuItem>
 
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            navigateTo( `/wp-admin/plugins.php`, `_self` )
+            navigateTo( `https://github.com/listingslab-software/listingslab/projects/1`, `_blank` )
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `plugins` } color={ `primary` } />
+              <Icon icon={ `agile` } color={ `inherit` } />
             </ListItemIcon>
-            <ListItemText primary={`Plugins` } />
-          </StyledMenuItem>
-
-
-          <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlistingslab%252Fphp%252FListingslab.php`, `_self` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `theme` } color={ `primary` } />
-            </ListItemIcon>
-            <ListItemText primary={`Theme` } />
-          </StyledMenuItem>
-
-          { postId ? <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `/wp-admin/post.php?post=${postId}&action=edit`, `_self` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `edit` } color={ `primary` } />
-            </ListItemIcon>
-            <ListItemText primary={`Edit` } />
-          </StyledMenuItem> : null }
+            <ListItemText primary={`Kanban Board` } />
+          </StyledMenuItem> 
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            navigateTo( `/wp-admin/post-new.php`, `_self` )
+            navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `add` } color={ `primary` } />
+              <Icon icon={ `add` } color={ `inherit` } />
             </ListItemIcon>
-            <ListItemText primary={`New Post` } />
+            <ListItemText primary={`New Issue` } />
           </StyledMenuItem>
 
 

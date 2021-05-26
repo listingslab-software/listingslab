@@ -9,6 +9,7 @@ import {
     MenuItem,
     ListItemIcon,
     ListItemText,
+    Typography,
 } from '@material-ui/core/'
 import { 
   Icon,
@@ -85,8 +86,8 @@ export default function WordpressMenu() {
         style={{
           zIndex: 123456,
           position: 'absolute',
-          right: theme.spacing( 2 ),
-          top: theme.spacing( 2 ),
+          right: theme.spacing( 1 ),
+          top: theme.spacing( 1 ),
           background: 'white',
         }}
         aria-controls={`wordpress-menu`}
@@ -105,16 +106,26 @@ export default function WordpressMenu() {
           open={ Boolean(anchorEl) }
           onClose={ handleClose }>
 
-          <StyledMenuItem onClick={(e) => {
+          <Typography 
+            variant={ `button`} 
+            style={{
+            padding: 16,
+            marginBottom: 16,
+          }}>
+            WordPress
+          </Typography>
+
+
+          { postId ? <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
+            navigateTo( `/wp-admin/post.php?post=${postId}&action=edit`, `_self` )
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `pwa` } color={ `inherit` } />
+              <Icon icon={ `edit` } color={ `primary` } />
             </ListItemIcon>
-            <ListItemText primary={`@listingslab` } />
-          </StyledMenuItem>
+            <ListItemText primary={`Edit` } />
+          </StyledMenuItem> : null }
 
 
 
@@ -128,6 +139,17 @@ export default function WordpressMenu() {
               <Icon icon={ `dashboard` } color={ `primary` } />
             </ListItemIcon>
             <ListItemText primary={`Dashboard` } />
+          </StyledMenuItem>
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `pwa` } color={ `inherit` } />
+            </ListItemIcon>
+            <ListItemText primary={`@listingslab` } />
           </StyledMenuItem>
 
 
@@ -154,16 +176,7 @@ export default function WordpressMenu() {
             <ListItemText primary={`Theme` } />
           </StyledMenuItem>
 
-          { postId ? <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `/wp-admin/post.php?post=${postId}&action=edit`, `_self` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `edit` } color={ `primary` } />
-            </ListItemIcon>
-            <ListItemText primary={`Edit` } />
-          </StyledMenuItem> : null }
+
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
