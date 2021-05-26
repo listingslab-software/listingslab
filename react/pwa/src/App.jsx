@@ -12,6 +12,7 @@ import {
 import { 
   WordpressMenu, 
   Overlay,
+  GithubMenu,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +30,7 @@ export default function App() {
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
                 <WordpressMenu />
+                <GithubMenu />
               </div>
             </MuiThemeProvider> 
 }
