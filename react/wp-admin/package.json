@@ -1,7 +1,7 @@
 {
   "name": "wp-admin",
-  "version": "14.1.2",
-  "description": "Progressive WordPress App",
+  "version": "14.1.3",
+  "description": "@listingslab",
   "repository": "https://github.com/listingslab-software/listingslab",
   "author": "listingslab <listingslab@gmail.com>",
   "license": "MIT",

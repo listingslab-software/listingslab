@@ -36,8 +36,12 @@ export default function AppShell( props ) {
 	const appSlice = useSelector(state => state.app)
 	const {
      	debug,
+     	pJSON,
     } = appSlice
-
+    const {
+    	description,
+    	version,
+    } = pJSON
     const apiSlice = useSelector(state => state.api)
 	const {
      	apiOpen,
@@ -49,9 +53,9 @@ export default function AppShell( props ) {
 					<Grid container>
 						<Grid item xs={ 12 }>
 							<Typography 
-								variant={ `h4` }
+								variant={ `body1` }
 								className={ clsx( classes.title ) }>
-								@listingslab plugin
+								{ description } { version }
 							</Typography>
 						</Grid>
 						{ debug ? <Grid item xs={ 12 }  md={ 6 }>
