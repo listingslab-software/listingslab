@@ -1,6 +1,6 @@
 ---
-name: Agile Story
-about: Tell your story
+name: Story
+about: The smallest, easiest and most useful way to describe something in an agile compatible way
 title: CATEGORY > 
 
 ---
