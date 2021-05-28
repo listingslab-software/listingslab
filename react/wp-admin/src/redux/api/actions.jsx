@@ -18,7 +18,7 @@ export const firstRunAPI = () => {
 			const store = getStore()
 			store.dispatch({type: `API/FETCHING`, fetching: false })
 			store.dispatch({type: `API/FETCHED`, fetched: true })
-			console.log ('response.data', res.data.response.data)
+			// console.log ('response.data', res.data.response.data)
 			return true
 		})
 		.catch(function( error ) {
