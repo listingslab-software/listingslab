@@ -164,6 +164,16 @@ export default function WordpressMenu() {
             <ListItemText primary={`Plugins` } />
           </StyledMenuItem>
 
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin//nav-menus.php`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `menu` } color={ `primary` } />
+            </ListItemIcon>
+            <ListItemText primary={`Menus` } />
+          </StyledMenuItem>
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
