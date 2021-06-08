@@ -130,11 +130,11 @@ if( ! defined( 'LISTINGSLAB' ) ) {
             </script>
             <?php 
               require_once 'css.php'; 
-              $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/pwa/build/index.html');
+              $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/wp-pwa/build/index.html');
               $html = str_replace('href="/static', 'href="'. plugin_dir_url( __DIR__ ) .
-            'react/pwa/build/static', $html);
+            'react/wp-pwa/build/static', $html);
               $html = str_replace('src="/static', 'src="'. plugin_dir_url( __DIR__ ) .
-            'react/pwa/build/static', $html);
+            'react/wp-pwa/build/static', $html);
               $html = str_replace('<meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">', '', $html);
               echo $html;
             ?>
