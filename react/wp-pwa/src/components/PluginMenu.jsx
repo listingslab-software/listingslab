@@ -69,7 +69,7 @@ export default function WordpressMenu() {
   }
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
-  const primaryColor = theme.palette.primary.main
+  // const primaryColor = theme.palette.primary.main
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -79,8 +79,7 @@ export default function WordpressMenu() {
     setAnchorEl( null )
   }
 
-  return (
-    <div>
+  return <React.Fragment>
       
       <IconButton
         style={{
@@ -93,7 +92,7 @@ export default function WordpressMenu() {
         aria-controls={`wordpress-menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
-        <Icon icon={ `wordpress` } color={ primaryColor } />
+        <Icon icon={ `menu` } color={ `secondary` } />
       </IconButton>
         
         <StyledMenu 
@@ -115,18 +114,16 @@ export default function WordpressMenu() {
             WordPress
           </Typography>
 
-
-          { postId ? <StyledMenuItem onClick={(e) => {
+          <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            navigateTo( `/wp-admin/post.php?post=${postId}&action=edit`, `_self` )
+            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `edit` } color={ `primary` } />
+              <Icon icon={ `pwa` } color={ `inherit` } />
             </ListItemIcon>
-            <ListItemText primary={`Edit` } />
-          </StyledMenuItem> : null }
-
+            <ListItemText primary={`@listingslab` } />
+          </StyledMenuItem>
 
 
           <StyledMenuItem onClick={(e) => {
@@ -141,16 +138,28 @@ export default function WordpressMenu() {
             <ListItemText primary={`Dashboard` } />
           </StyledMenuItem>
 
+
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
+            navigateTo( `/wp-admin/post-new.php`, `_self` )
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `pwa` } color={ `inherit` } />
+              <Icon icon={ `add` } color={ `primary` } />
             </ListItemIcon>
-            <ListItemText primary={`@listingslab` } />
+            <ListItemText primary={`New Post` } />
           </StyledMenuItem>
+
+          { postId ? <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin/post.php?post=${postId}&action=edit`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `edit` } color={ `primary` } />
+            </ListItemIcon>
+            <ListItemText primary={`Edit` } />
+          </StyledMenuItem> : null }
 
 
           <StyledMenuItem onClick={(e) => {
@@ -166,17 +175,6 @@ export default function WordpressMenu() {
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            navigateTo( `/wp-admin//nav-menus.php`, `_self` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `menu` } color={ `primary` } />
-            </ListItemIcon>
-            <ListItemText primary={`Menus` } />
-          </StyledMenuItem>
-
-          <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
             navigateTo( `/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlistingslab%252Fphp%252FListingslab.php`, `_self` )
             handleClose()
           }}>
@@ -186,23 +184,65 @@ export default function WordpressMenu() {
             <ListItemText primary={`Theme` } />
           </StyledMenuItem>
 
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin//nav-menus.php`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `menu` } color={ `primary` } />
+            </ListItemIcon>
+            <ListItemText primary={`Menus` } />
+          </StyledMenuItem>          
+
+          <Typography 
+            variant={ `button`} 
+            style={{
+            padding: 16,
+            marginTop: 16,
+            marginBottom: 16,
+          }}>
+            GitHub
+          </Typography>
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `https://github.com/orgs/listingslab-software/projects/14?fullscreen=true`, `_blank` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `github` } color={ `black` } />
+            </ListItemIcon>
+            <ListItemText primary={`OSM` }
+            secondary={ `Open Soure Management` } />
+          </StyledMenuItem>
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `github` } color={ `black` } />
+            </ListItemIcon>
+            <ListItemText primary={`New Issue` } />
+          </StyledMenuItem> 
 
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            navigateTo( `/wp-admin/post-new.php`, `_self` )
+            navigateTo( `https://github.com/listingslab-software/listingslab`, `_blank` )
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `add` } color={ `primary` } />
+              <Icon icon={ `github` } color={ `black` } />
             </ListItemIcon>
-            <ListItemText primary={`New Post` } />
+            <ListItemText primary={`Download Free` } />
           </StyledMenuItem>
 
-
         </StyledMenu>
-    </div>
-  )
+
+    </React.Fragment>
 }
 
 /*
