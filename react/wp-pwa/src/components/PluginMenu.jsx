@@ -92,7 +92,7 @@ export default function WordpressMenu() {
         aria-controls={`wordpress-menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
-        <Icon icon={ `menu` } color={ `secondary` } />
+        <Icon icon={ `menu` } color={ `primary` } />
       </IconButton>
         
         <StyledMenu 
@@ -120,7 +120,8 @@ export default function WordpressMenu() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `pwa` } color={ `inherit` } />
+            
+              <Icon icon={ `pwa` } color={ `primary` } />
             </ListItemIcon>
             <ListItemText primary={`@listingslab` } />
           </StyledMenuItem>
