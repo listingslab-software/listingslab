@@ -8,8 +8,8 @@
 	"scripts": {
 		"setup": "$PWD/unix/setup",
 		"api": "$PWD/unix/api",
-		"dev:pwa": "$PWD/unix/dev react/pwa",
-		"build:pwa": "$PWD/unix/build react/pwa",
+		"dev:wp-pwa": "$PWD/unix/dev react/wp-pwa",
+		"build:wp-pwa": "$PWD/unix/build react/wp-pwa",
 		"dev:wp-admin": "$PWD/unix/dev react/wp-admin",
 		"build:wp-admin": "$PWD/unix/build react/wp-admin",
 		"wordpressify": "$PWD/unix/wordpressify",

@@ -1,15 +1,15 @@
 import Collapsing from './Collapsing'
 import SettingsMenu from './SettingsMenu'
 import AppShell from './AppShell'
-import WordpressMenu from './WordpressMenu'
 import Overlay from './Overlay'
 import GithubMenu from './GithubMenu'
+import PluginMenu from './PluginMenu'
 
 export {
 	Collapsing, 
 	SettingsMenu, 
 	AppShell, 
-	WordpressMenu,
 	GithubMenu,
 	Overlay,
+	PluginMenu,
 }
