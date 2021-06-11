@@ -7,7 +7,7 @@
 	html {
       height: 100%;
         --scrollbarBG: #fff;
-        --thumbBG: <?php echo $pwa[ 'secondaryColor' ]; ?>;
+        --thumbBG: <?php echo $pwa[ 'primaryColor' ]; ?>;
       }
       body::-webkit-scrollbar {
         width: 6px;
