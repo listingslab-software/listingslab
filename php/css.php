@@ -1,9 +1,7 @@
 <?php 
-
   $pwa = array();
-  $pwa[ 'primaryColor' ] = '#421c5d';
-  $pwa[ 'secondaryColor' ] = '#333';
-
+  $pwa[ 'primaryColor' ] = '#ccd31f';
+  $pwa[ 'secondaryColor' ] = '#e05717';
 ?>
 <style>
 	html {
@@ -20,7 +18,6 @@
       body::-webkit-scrollbar-thumb {
         background-color: var(--thumbBG) ;
         border-radius: 0;
-        /*border: 2px solid var(--scrollbarBG);*/
       }      
       body {
         scrollbar-width: thin;
@@ -30,8 +27,5 @@
         -moz-osx-font-smoothing: grayscale;
         font-family: sans-serif;
         font-size: 1rem;
-        /*background: radial-gradient(circle, #fcfcfc 0%, #FFFFFF 100%);*/
-      }
-      .pwa{
       }
 </style>
