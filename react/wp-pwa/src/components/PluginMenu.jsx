@@ -10,6 +10,7 @@ import {
     ListItemIcon,
     ListItemText,
     Typography,
+    Badge,
 } from '@material-ui/core/'
 import { 
   Icon,
@@ -92,8 +93,11 @@ export default function WordpressMenu() {
         aria-controls={`wordpress-menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
-        <Icon icon={ `menu` } color={ `primary` } />
+        <Badge badgeContent={ `!` } color={ `secondary` }>
+          <Icon icon={ `menu` } color={ `primary` } />
+        </Badge>
       </IconButton>
+      
         
         <StyledMenu 
           style={{
