@@ -26,6 +26,6 @@ export default function App() {
   }, [apiSlice])
 
   return <MuiThemeProvider theme={createMuiTheme(theme)}>
-            <AppShell />
+            AppShell
          </MuiThemeProvider> 
 }
