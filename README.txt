@@ -1,7 +1,7 @@
 === @listingslab ===
 Contributors: listingslab
-Tags: pwa, react, localify, docsify
-Stable tag: 14.1.6
+Tags: pwa, react, @localify, @docsify
+Stable tag: 14.1.7
 Requires at least: 5.6
 Tested up to: 5.6
 Requires PHP: 5.6.20
@@ -17,9 +17,8 @@ License URI: https://opensource.org/licenses/MIT
 > *Open Source Development*
  
 [GitHub Repository](https://github.com/listingslab-software/listingslab) 
-[Kanban Board](https://github.com/listingslab-software/listingslab/projects/1) 
+[Kanban Board](https://github.com/orgs/listingslab-software/projects/14?fullscreen=true&card_filter_query=label%3A%40listingslab) 
 [New Issue](https://github.com/listingslab-software/listingslab/issues/new/choose) 
-[@docsify](https://react-docsify.web.app ) 
 
 == Installation ==
 
