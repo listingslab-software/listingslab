@@ -11,8 +11,11 @@ import {
 } from '@material-ui/core/'
 import {
   Overlay,
-  PluginMenu,
+  PWAMenu,
 } from './components'
+import {
+  SkipIntro,
+} from './packages'
 
 const useStyles = makeStyles((theme) => ({
   appWrap: {
@@ -28,7 +31,21 @@ export default function App() {
               <CssBaseline />
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
-                <PluginMenu />
+                <PWAMenu />
+                <SkipIntro options={{
+                            centerize: true,
+                            title: `SkipIntro`,
+                            btnTxt: `Click Me`,
+                            onClick: (e) => {
+                              e.preventDefault()
+                              console.log ('clisked me')
+                            },
+                            borderColor: `orange`,
+                            background: `yellow`,
+                            height: 400,
+                            width: 400,
+
+                }}/>
               </div>
             </MuiThemeProvider> 
 }

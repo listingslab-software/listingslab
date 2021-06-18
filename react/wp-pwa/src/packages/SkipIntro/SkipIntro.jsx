@@ -34,6 +34,7 @@ export default function SkipIntro( props ) {
         title,
         btnTxt,
         onClick,
+        background,
         borderColor,
         height,
         width,
@@ -43,16 +44,19 @@ export default function SkipIntro( props ) {
     return <div className={ clsx( centerize ? classes.centerize : null ) }>
                 <div className={ clsx( classes.skipIntro) }
                     style={{
+                        background: background,
                         border: '1px solid ' + borderColor,
                         height,
                         width,
                     }}>
+
                     <Typography variant={ `h4` } className={ clsx( classes.htags) }>
                         { title }
                     </Typography>
+
                     <Button
-                        variant={ `text` }
-                        color={ `secondary` }
+                        variant={ `contained` }
+                        color={ `primary` }
                         onClick={ onClick }>
                         { btnTxt }
                     </Button>

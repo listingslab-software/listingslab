@@ -54,7 +54,7 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem)
 
-export default function WordpressMenu() {
+export default function PWAMenu() {
   
   const wordpressSlice = useSelector(state => state.wordpress)
   const {
@@ -108,6 +108,57 @@ export default function WordpressMenu() {
           keepMounted
           open={ Boolean(anchorEl) }
           onClose={ handleClose }>
+
+
+          <Typography 
+            variant={ `button`} 
+            style={{
+            padding: 16,
+            marginTop: 16,
+            marginBottom: 16,
+          }}>
+            GitHub
+          </Typography>
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `https://github.com/orgs/listingslab-software/projects/14?fullscreen=true`, `_blank` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `github` } color={ `black` } />
+            </ListItemIcon>
+            <ListItemText 
+              primary={`Open Soure Management` }
+              // secondary={ `Open Soure Management` } 
+            />
+          </StyledMenuItem>
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `github` } color={ `black` } />
+            </ListItemIcon>
+            <ListItemText primary={`New Issue` } />
+          </StyledMenuItem> 
+
+
+          <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `https://github.com/listingslab-software/listingslab`, `_blank` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `github` } color={ `black` } />
+            </ListItemIcon>
+            <ListItemText primary={`Download Free` } />
+          </StyledMenuItem>
+
+
+
 
           <Typography 
             variant={ `button`} 
@@ -200,51 +251,7 @@ export default function WordpressMenu() {
             <ListItemText primary={`Menus` } />
           </StyledMenuItem>          
 
-          <Typography 
-            variant={ `button`} 
-            style={{
-            padding: 16,
-            marginTop: 16,
-            marginBottom: 16,
-          }}>
-            GitHub
-          </Typography>
-
-          <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `https://github.com/orgs/listingslab-software/projects/14?fullscreen=true`, `_blank` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `github` } color={ `black` } />
-            </ListItemIcon>
-            <ListItemText primary={`OSM` }
-            secondary={ `Open Soure Management` } />
-          </StyledMenuItem>
-
-          <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `github` } color={ `black` } />
-            </ListItemIcon>
-            <ListItemText primary={`New Issue` } />
-          </StyledMenuItem> 
-
-
-          <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `https://github.com/listingslab-software/listingslab`, `_blank` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `github` } color={ `black` } />
-            </ListItemIcon>
-            <ListItemText primary={`Download Free` } />
-          </StyledMenuItem>
-
+          
         </StyledMenu>
 
     </React.Fragment>
