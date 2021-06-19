@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Blokey from './jsx/Blokey'
 import WordPress from './jsx/WordPress'
-import IconGithub from './jsx/Github'
+import IconGithub from '@material-ui/icons/GitHub'
 import IconToolKit from '@material-ui/icons/Extension'
 import IconPlugins from '@material-ui/icons/Extension'
 import IconGDPR from '@material-ui/icons/Security'
@@ -117,7 +117,7 @@ class Icon extends Component {
                 return <WordPress className={classes.iconButton} color={iconColor} />
 
             case 'github': 
-                return <IconGithub className={classes.iconButton} color={iconColor} />
+                return <IconGithub color={iconColor} />
 
             case 'privacy': 
                 return <Account className={classes.iconButton} color={iconColor} />

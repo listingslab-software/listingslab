@@ -98,39 +98,33 @@ export default function PWAMenu() {
         zIndex: 1234568,
       }}>
 
-      <StyledMenuItem onClick={(e) => {
-        e.preventDefault()
-        toggleSkipIntroOpen( true )
-        handleClose()
-      }}>
-        <ListItemIcon>
-          <Icon icon={ `skip` } color={ `inherit` } />
-        </ListItemIcon>
-        <ListItemText 
-          primary={`Skip Intro` }
-          // secondary={ `Open Soure Management` } 
-        />
-      </StyledMenuItem>
+        <StyledMenuItem onClick={(e) => {
+          e.preventDefault()
+          toggleSkipIntroOpen( true )
+          handleClose()
+        }}>
+          <ListItemIcon>
+            <Icon icon={ `skip` } color={ `inherit` } />
+          </ListItemIcon>
+          <ListItemText 
+            primary={`Skip Intro` }
+          />
+        </StyledMenuItem>
 
-      <StyledMenuItem onClick={(e) => {
-        e.preventDefault()
-        navigateTo( `https://github.com/listingslab-software/listingslab/releases`, `_blank`)
-        handleClose()
-      }}>
-        <ListItemIcon>
-          <Icon icon={ `code` } color={ `inherit` } />
-        </ListItemIcon>
-        <ListItemText 
-          primary={`Open Source` }
-        />
-      </StyledMenuItem>
-
-
+        <StyledMenuItem onClick={(e) => {
+          e.preventDefault()
+          navigateTo( `https://github.com/listingslab-software/listingslab/releases`, `_blank`)
+          handleClose()
+        }}>
+          <ListItemIcon>
+            <Icon icon={ `github` } color={ `inherit` } />
+          </ListItemIcon>
+          <ListItemText 
+            primary={`Open Source` }
+          />
+        </StyledMenuItem>
             
       </StyledMenu>
 
     </React.Fragment>
 }
-
-/*
-*/
