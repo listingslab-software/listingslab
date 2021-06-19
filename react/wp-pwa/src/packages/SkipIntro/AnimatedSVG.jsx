@@ -2,11 +2,11 @@ import React from 'react'
 import clsx from 'clsx'
 import {
     makeStyles,
-    Button,
+    // Button,
 } from '@material-ui/core/'
 import {
-    Icon
-} from '../../theme'
+    BlueSky,
+} from './jsxSVG'
 
 const useStyles = makeStyles( theme => ({
     skipIntro:{
@@ -37,33 +37,48 @@ export default function AnimatedSVG( props ) {
     } = props
 
     const {
-        btnTxt,
-        onClick,
+        // btnTxt,
+        // onClick,
         background,
         borderColor,
-        height,
-        width,
+        // height,
+        // width,
         centerize,
     } = options
+
+    let screenSize = {
+        w: document.documentElement.clientWidth,
+        h: document.documentElement.clientHeight
+    }
 
     return <div className={ clsx( centerize ? classes.centerize : null ) }>
                 <div className={ clsx( classes.skipIntro) }
                     style={{
                         background: background,
                         border: '1px solid ' + borderColor,
-                        height,
-                        minWidth: width,
+                        minWidth: screenSize.w,
                     }}>
-                    <Button
-                        variant={ `contained` }
-                        color={ `secondary` }
-                        onClick={ onClick }>
-                        <Icon icon={`skip`} />
-                        <span className={ clsx( classes.btnTxt )}>
-                            { btnTxt }
-                        </span>
-                        
-                    </Button>
+                    <BlueSky />
+                    
+                    
                </div>
            </div>
 }
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+<pre>
+                    { JSON.stringify(screenSize, null, 2 ) } 
+                    </pre>
+*/

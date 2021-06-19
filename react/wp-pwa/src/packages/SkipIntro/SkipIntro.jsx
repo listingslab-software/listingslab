@@ -4,11 +4,15 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Dialog,
+    Button,
 } from '@material-ui/core/'
 import {
     AnimatedSVG,
 } from './'
 import { toggleSkipIntroOpen } from './redux/actions'
+import {
+    Icon
+} from '../../theme'
 
 const useStyles = makeStyles( theme => ({
     dialog:{
@@ -32,17 +36,23 @@ export default function SkipIntro() {
                 fullScreen
                 fullWidth={ true }
                 maxWidth={ `xl` }>
-                <AnimatedSVG options={{
-                    centerize: true,
-                    btnTxt: `Skip Intro?`,
-                    borderColor: `none`,
-                    // background: `rgba(0,0,0,0.025)`,
-                    height: 600,
-                    width: 360,
-                    onClick: (e) => {
+                <Button
+                    fullWidth
+                    variant={ `text` }
+                    color={ `primary` }
+                    onClick={(e) => {
                       e.preventDefault()
                       toggleSkipIntroOpen( false )
-                    },
+                    }}>
+                    <Icon icon={`skip`} />
+                    <span className={ clsx( classes.btnTxt )}>
+                        Skip Intro?
+                    </span>
+                </Button>
+                <AnimatedSVG options={{
+                    centerize: false,
+                    btnTxt: `Skip Intro?`,
+                    
                 }}/>
             </Dialog>
            </div>
