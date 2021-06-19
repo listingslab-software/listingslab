@@ -1,11 +1,14 @@
 # Packages
 
 
-## React Components 
+#### React
 
 ![Skip Intro](./SkipIntro/png/skip-intro.png) 
 
-## Common library
+- [SkipIntro.jsx](./SkipIntro/SkipIntro.jsx)
+- [AnimatedSVG.jsx](./SkipIntro/AnimatedSVG.jsx)
+
+#### Vanilla JS
 
 - [lib](./lib/index.jsx)
 

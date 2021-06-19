@@ -32,20 +32,7 @@ export default function App() {
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
                 <PWAMenu />
-                <SkipIntro options={{
-                            centerize: true,
-                            title: `SkipIntro`,
-                            btnTxt: `Click Me`,
-                            onClick: (e) => {
-                              e.preventDefault()
-                              console.log ('clisked me')
-                            },
-                            borderColor: `orange`,
-                            background: `yellow`,
-                            height: 400,
-                            width: 400,
-
-                }}/>
+                <SkipIntro />
               </div>
             </MuiThemeProvider> 
 }
