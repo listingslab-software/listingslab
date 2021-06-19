@@ -5,7 +5,7 @@ import {
 } from "./actions"
 
 export const skipIntroSlice = {
-  open: true,
+  open: false,
   error: null,
 }
 

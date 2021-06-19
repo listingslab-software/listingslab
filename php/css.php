@@ -1,7 +1,7 @@
 <?php 
   $pwa = array();
-  $pwa[ 'primaryColor' ] = '#ccd31f';
-  $pwa[ 'secondaryColor' ] = '#e05717';
+  $pwa[ 'primaryColor' ] = '#d1d1d1';
+  $pwa[ 'secondaryColor' ] = '#e4e4e4';
 ?>
 <style>
 	html {

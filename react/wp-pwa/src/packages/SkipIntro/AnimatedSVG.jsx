@@ -56,7 +56,7 @@ export default function AnimatedSVG( props ) {
                     }}>
                     <Button
                         variant={ `contained` }
-                        color={ `primary` }
+                        color={ `secondary` }
                         onClick={ onClick }>
                         <Icon icon={`skip`} />
                         <span className={ clsx( classes.btnTxt )}>

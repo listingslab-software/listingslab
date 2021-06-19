@@ -76,10 +76,10 @@ export default function PWAMenu() {
           top: theme.spacing( 1 ),
           background: 'white',
         }}
-        aria-controls={`wordpress-menu`}
+        aria-controls={`menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
-        <Badge badgeContent={ `!` } color={ `secondary` }>
+        <Badge badgeContent={ `!` } color={ `primary` }>
           <Icon icon={ `menu` } color={ `primary` } />
         </Badge>
       </IconButton>
