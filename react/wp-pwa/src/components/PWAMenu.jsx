@@ -78,7 +78,6 @@ export default function PWAMenu() {
           right: theme.spacing( 1 ),
           top: theme.spacing( 1 ),
           background: 'white',
-          border: '1px solid ' + primaryColor,
         }}
         aria-controls={`menu`}
         aria-haspopup="true"

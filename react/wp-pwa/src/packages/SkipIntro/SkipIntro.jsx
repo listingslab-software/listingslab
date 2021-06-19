@@ -7,8 +7,8 @@ import {
     Button,
 } from '@material-ui/core/'
 import {
-    AnimatedSVG,
-} from './'
+    Listingslab,
+} from './scenes'
 import { toggleSkipIntroOpen } from './redux/actions'
 import {
     Icon
@@ -46,7 +46,7 @@ export default function SkipIntro() {
                     <Button
                         className={ clsx( classes.ctaBtn )}
                         fullWidth
-                        variant={ `contained` }
+                        variant={ `text` }
                         color={ `primary` }
                         onClick={(e) => {
                           e.preventDefault()
@@ -59,7 +59,7 @@ export default function SkipIntro() {
                     </Button>
                 </div>
 
-                <AnimatedSVG />
+                <Listingslab />
             </Dialog>
            </div>
 }

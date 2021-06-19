@@ -1,7 +1,4 @@
-import slugify from './lib/slugify'
-import ordinalSuffix from './lib/ordinalSuffix'
-import scrollToTop from './lib/scrollToTop'
-import { SkipIntro } from './SkipIntro/'
+import SkipIntro from './SkipIntro/SkipIntro'
 import { 
 	skipIntroSlice,
 	skipIntroReducer,
@@ -10,13 +7,16 @@ import {
 	toggleSkipIntroOpen,
 } from './SkipIntro/redux/actions'
 
+import slugify from './lib/slugify'
+import ordinalSuffix from './lib/ordinalSuffix'
+import scrollToTop from './lib/scrollToTop'
+
 export {
 
-	toggleSkipIntroOpen,
-	
 	SkipIntro,
 	skipIntroSlice,
 	skipIntroReducer,
+	toggleSkipIntroOpen,
 
 	slugify,
 	ordinalSuffix,
