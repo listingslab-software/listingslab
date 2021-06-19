@@ -113,7 +113,7 @@ export default function PWAMenu() {
 
         <StyledMenuItem onClick={(e) => {
           e.preventDefault()
-          navigateTo( `https://github.com/listingslab-software/listingslab/releases`, `_blank`)
+          navigateTo( `https://github.com/listingslab-software/listingslab`, `_blank`)
           handleClose()
         }}>
           <ListItemIcon>

@@ -20,7 +20,6 @@ const useStyles = makeStyles( theme => ({
 export default function SkipIntro() {
 
     const classes = useStyles() 
-
     const skipIntroSlice = useSelector(state => state.skipIntro)
     const {
         open,
