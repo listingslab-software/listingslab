@@ -13,6 +13,9 @@ import {
   Icon,
 } from '../theme'
 import { toggleSkipIntroOpen } from '../packages'
+import {
+  navigateTo,
+} from '../redux/app/actions'
 
 const StyledMenu = withStyles({
   paper: {
@@ -108,6 +111,21 @@ export default function PWAMenu() {
           // secondary={ `Open Soure Management` } 
         />
       </StyledMenuItem>
+
+      <StyledMenuItem onClick={(e) => {
+        e.preventDefault()
+        navigateTo( `https://github.com/listingslab-software/listingslab/releases`, `_blank`)
+        handleClose()
+      }}>
+        <ListItemIcon>
+          <Icon icon={ `code` } color={ `inherit` } />
+        </ListItemIcon>
+        <ListItemText 
+          primary={`Open Source` }
+        />
+      </StyledMenuItem>
+
+
             
       </StyledMenu>
 
