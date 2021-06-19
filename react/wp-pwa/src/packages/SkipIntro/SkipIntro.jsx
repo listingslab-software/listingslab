@@ -16,8 +16,13 @@ import {
 
 const useStyles = makeStyles( theme => ({
     dialog:{
-        border: 'none',
-        // background: 'none',
+    },
+    cta:{
+        // border: '1px solid red',
+    },
+    ctaBtn:{
+        borderRadius: 0,
+        boxShadow: 'none',
     },
 }))
 
@@ -36,24 +41,25 @@ export default function SkipIntro() {
                 fullScreen
                 fullWidth={ true }
                 maxWidth={ `xl` }>
-                <Button
-                    fullWidth
-                    variant={ `text` }
-                    color={ `primary` }
-                    onClick={(e) => {
-                      e.preventDefault()
-                      toggleSkipIntroOpen( false )
-                    }}>
-                    <Icon icon={`skip`} />
-                    <span className={ clsx( classes.btnTxt )}>
-                        Skip Intro?
-                    </span>
-                </Button>
-                <AnimatedSVG options={{
-                    centerize: false,
-                    btnTxt: `Skip Intro?`,
-                    
-                }}/>
+
+                <div className={ clsx( classes.cta ) }>
+                    <Button
+                        className={ clsx( classes.ctaBtn )}
+                        fullWidth
+                        variant={ `contained` }
+                        color={ `primary` }
+                        onClick={(e) => {
+                          e.preventDefault()
+                          toggleSkipIntroOpen( false )
+                        }}>
+                        <span className={ clsx( classes.btnTxt )}>
+                            Skip Intro
+                        </span>
+                        <Icon icon={`skip`}  color={ `inherit` }/>
+                    </Button>
+                </div>
+
+                <AnimatedSVG />
             </Dialog>
            </div>
 }

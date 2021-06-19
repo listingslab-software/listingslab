@@ -1,16 +1,22 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import {
     makeStyles,
-    // Button,
 } from '@material-ui/core/'
 import {
-    BlueSky,
+    ScrollingWorld,
+    CloudsMidLayer,
+    Sun,
+    House1,
+    House2,
+    Tree,
 } from './jsxSVG'
+import { animateScrollingWorld } from './animation'
+import { toggleSkipIntroOpen } from './redux/actions'
 
 const useStyles = makeStyles( theme => ({
-    skipIntro:{
-        // border: '1px solid ' + theme.palette.secondary.main,
+    skipIntro: {
     },
     htags: {
         fontWeight: 'lighter',
@@ -19,66 +25,116 @@ const useStyles = makeStyles( theme => ({
         marginLeft: theme.spacing(),
         marginRight: theme.spacing(),
     },
-    centerize: {
-      minHeight: 'calc( 100vh - 75px )',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      margin: 'auto',
-    }
 }))
+
+const skipIntro = () => {
+    toggleSkipIntroOpen( false )
+    return true
+}
 
 export default function AnimatedSVG( props ) {
 
-    const classes = useStyles()
-    const {
-        options,
-    } = props
-
-    const {
-        // btnTxt,
-        // onClick,
-        background,
-        borderColor,
-        // height,
-        // width,
-        centerize,
-    } = options
-
+    const classes = useStyles() 
+    const skipIntroSlice = useSelector(state => state.skipIntro)
     let screenSize = {
         w: document.documentElement.clientWidth,
-        h: document.documentElement.clientHeight
+        h: document.documentElement.clientHeight,
     }
 
-    return <div className={ clsx( centerize ? classes.centerize : null ) }>
-                <div className={ clsx( classes.skipIntro) }
+    React.useEffect(() => {
+        animateScrollingWorld(`init`, `#scrollingWorld`, skipIntro ) 
+    }, [screenSize, skipIntroSlice])
+
+    
+    return <div className={ clsx( classes.skipIntro) }
                     style={{
-                        background: background,
-                        border: '1px solid ' + borderColor,
                         minWidth: screenSize.w,
+                        height: screenSize.h,
+                        overflow: 'hidden',
                     }}>
-                    <BlueSky />
                     
-                    
+                   <div id={`animatedSVG`} 
+                        style={{ 
+                            width: screenSize.w,
+                            height: screenSize.h,
+                        }}>
+
+
+                        <div
+                            id={`sun`}
+                            style={{
+                                zIndex: 10021,
+                                width: 99,
+                                top: 100,
+                                position: 'absolute',
+                            }}>
+                            <Sun />
+                        </div> 
+                        
+
+                        <div
+                            id={`clouds`}
+                            style={{
+                                zIndex: 10201,
+                                width: 700,
+                                position: 'absolute',
+                            }}>
+                            <CloudsMidLayer />
+                        </div> 
+
+
+                        <div
+                            id={`tree`}
+                            style={{
+                                zIndex: 10081,
+                                width: 48,
+                                position: 'absolute',
+                                bottom: 4,
+                                right: 16,
+                            }}>
+                            <Tree />
+                            
+                        </div> 
+
+                        <div
+                            id={`house2`}
+                            style={{
+                                zIndex: 10031,
+                                width: 106,
+                                position: 'absolute',
+                                bottom: 0,
+                                left: 64,
+                            }}>
+                            <House2 />
+                            
+                        </div> 
+                        <div
+                            id={`house1`}
+                            style={{
+                                zIndex: 10011,
+                                width: 74,
+                                position: 'absolute',
+                                left: 8,
+                                bottom: 0,
+                            }}>
+                            <House1 />
+
+                        </div> 
+
+
+                        <div
+                            id={`scrollingWorld`}
+                            style={{
+                                postition: `absolute`,
+                                width: 900,
+                                zIndex: 9999,
+                            }}>
+                            <ScrollingWorld color={{
+                                bg: `white`,
+                                cloud: `white`,
+                            }} />
+                        </div>  
+                        
+                    </div>
                </div>
-           </div>
 }
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-<pre>
-                    { JSON.stringify(screenSize, null, 2 ) } 
-                    </pre>
-*/

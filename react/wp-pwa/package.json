@@ -20,6 +20,7 @@
     "algoliasearch": "^4.8.5",
     "axios": "^0.21.1",
     "fast-xml-parser": "^3.17.6",
+    "gsap": "^3.7.0",
     "history": "^5.0.0",
     "mapbox-gl": "^2.1.1",
     "react": "16.12.0",

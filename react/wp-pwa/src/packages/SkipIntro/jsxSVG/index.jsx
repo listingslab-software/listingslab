@@ -5,6 +5,7 @@ import House2 from './House2'
 import Tree from './Tree'
 import BlueSky from './BlueSky'
 import CloudsMidLayer from './CloudsMidLayer'
+import ScrollingWorld from './ScrollingWorld'
 
 export {
 	GithubSVG,
@@ -14,4 +15,5 @@ export {
 	Tree,
 	BlueSky,
 	CloudsMidLayer,
+	ScrollingWorld,
 }

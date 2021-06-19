@@ -59,7 +59,7 @@ export default function PWAMenu() {
   
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
-  // const primaryColor = theme.palette.primary.main
+  const primaryColor = theme.palette.primary.main
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -78,6 +78,7 @@ export default function PWAMenu() {
           right: theme.spacing( 1 ),
           top: theme.spacing( 1 ),
           background: 'white',
+          border: '1px solid ' + primaryColor,
         }}
         aria-controls={`menu`}
         aria-haspopup="true"
@@ -89,7 +90,7 @@ export default function PWAMenu() {
       
 
     <StyledMenu 
-      id={ `wordpress-menu` }
+      id={ `menu` }
       anchorEl={ anchorEl }
       keepMounted
       open={ Boolean(anchorEl) }
