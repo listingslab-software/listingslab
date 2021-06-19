@@ -2,7 +2,6 @@ import React from 'react'
 import clsx from 'clsx'
 import {
     makeStyles,
-    Typography,
     Button,
 } from '@material-ui/core/'
 
@@ -31,7 +30,6 @@ export default function AnimatedSVG( props ) {
     } = props
 
     const {
-        title,
         btnTxt,
         onClick,
         background,
@@ -47,13 +45,8 @@ export default function AnimatedSVG( props ) {
                         background: background,
                         border: '1px solid ' + borderColor,
                         height,
-                        width,
+                        minWidth: width,
                     }}>
-
-                    <Typography variant={ `h4` } className={ clsx( classes.htags) }>
-                        { title }
-                    </Typography>
-
                     <Button
                         variant={ `contained` }
                         color={ `primary` }

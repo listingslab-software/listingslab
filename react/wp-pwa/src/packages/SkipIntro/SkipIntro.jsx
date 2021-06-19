@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Dialog,
@@ -7,6 +8,7 @@ import {
 import {
     AnimatedSVG,
 } from './'
+import { toggleOpen } from './redux/actions'
 
 const useStyles = makeStyles( theme => ({
     dialog:{
@@ -18,28 +20,31 @@ const useStyles = makeStyles( theme => ({
 export default function SkipIntro() {
 
     const classes = useStyles() 
+
+    const skipIntroSlice = useSelector(state => state.skipIntro)
+    const {
+        open,
+    } = skipIntroSlice
+
     return <div className={ clsx( classes.skipIntro ) }>
             <Dialog
-                open
+                className={ clsx( classes.dialog ) }
+                open={ open }
                 fullScreen
                 fullWidth={ true }
-                maxWidth={ `xl` }        
-                className={ clsx( classes.dialog ) }
-            >
+                maxWidth={ `xl` }>
                 <AnimatedSVG options={{
                     centerize: true,
-                    title: `SkipIntro`,
-                    btnTxt: `Click Me`,
+                    btnTxt: `Skip Intro?`,
+                    borderColor: `rgba(0,0,0,0.25)`,
+                    background: `rgba(0,0,0,0.025)`,
+                    height: 600,
+                    width: 360,
                     onClick: (e) => {
                       e.preventDefault()
-                      console.log ('clicked me')
+                      toggleOpen( false )
                     },
-                    borderColor: `orange`,
-                    background: `yellow`,
-                    height: 400,
-                    width: 400,
                 }}/>
-
             </Dialog>
            </div>
 }
