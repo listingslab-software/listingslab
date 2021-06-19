@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {
     withStyles,
     useTheme,
@@ -59,7 +60,11 @@ export default function PWAMenu() {
   
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
-  const primaryColor = theme.palette.primary.main
+
+  const skipIntroSlice = useSelector(state => state.skipIntro)
+  const {
+    open,
+  } = skipIntroSlice
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -82,7 +87,7 @@ export default function PWAMenu() {
         aria-controls={`menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
-        <Badge badgeContent={ `!` } color={ `primary` }>
+        <Badge badgeContent={ 0 } color={ `primary` }>
           <Icon icon={ `menu` } color={ `primary` } />
         </Badge>
       </IconButton>
@@ -100,7 +105,7 @@ export default function PWAMenu() {
 
         <StyledMenuItem onClick={(e) => {
           e.preventDefault()
-          toggleSkipIntroOpen( true )
+          toggleSkipIntroOpen( !open )
           handleClose()
         }}>
           <ListItemIcon>

@@ -5,9 +5,10 @@ import {
     makeStyles,
 } from '@material-ui/core/'
 import {
-    Sun,
+    Blokey,
 } from './jsxSVG'
-// import { animateListingslab } from './'
+
+// import { animate } from './'
 // import { toggleSkipIntroOpen } from '../../redux/actions'
 
 const useStyles = makeStyles( theme => ({
@@ -54,7 +55,7 @@ export default function Listingslab() {
                                 top: 100,
                                 position: 'absolute',
                             }}>
-                            <Sun />
+                            <Blokey />
                         </div>                     
                     </div>
                </div>

@@ -48,6 +48,7 @@ export default function SkipIntro() {
                         fullWidth
                         variant={ `text` }
                         color={ `primary` }
+                        size={ `large` }
                         onClick={(e) => {
                           e.preventDefault()
                           toggleSkipIntroOpen( false )

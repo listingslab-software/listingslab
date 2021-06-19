@@ -19,7 +19,7 @@ const init = (div, callback) => {
     })
 }
 
-export const animateScrollingWorld = (animation, div, callback) => {
+export const animate = (animation, div, callback) => {
     
     switch (animation) {    
 
