@@ -8,7 +8,7 @@ import {
 import {
     AnimatedSVG,
 } from './'
-import { toggleOpen } from './redux/actions'
+import { toggleSkipIntroOpen } from './redux/actions'
 
 const useStyles = makeStyles( theme => ({
     dialog:{
@@ -36,13 +36,13 @@ export default function SkipIntro() {
                 <AnimatedSVG options={{
                     centerize: true,
                     btnTxt: `Skip Intro?`,
-                    borderColor: `rgba(0,0,0,0.25)`,
-                    background: `rgba(0,0,0,0.025)`,
+                    borderColor: `none`,
+                    // background: `rgba(0,0,0,0.025)`,
                     height: 600,
                     width: 360,
                     onClick: (e) => {
                       e.preventDefault()
-                      toggleOpen( false )
+                      toggleSkipIntroOpen( false )
                     },
                 }}/>
             </Dialog>

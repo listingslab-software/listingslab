@@ -4,6 +4,9 @@ import {
     makeStyles,
     Button,
 } from '@material-ui/core/'
+import {
+    Icon
+} from '../../theme'
 
 const useStyles = makeStyles( theme => ({
     skipIntro:{
@@ -11,6 +14,10 @@ const useStyles = makeStyles( theme => ({
     },
     htags: {
         fontWeight: 'lighter',
+    },
+    btnTxt:{
+        marginLeft: theme.spacing(),
+        marginRight: theme.spacing(),
     },
     centerize: {
       minHeight: 'calc( 100vh - 75px )',
@@ -51,7 +58,11 @@ export default function AnimatedSVG( props ) {
                         variant={ `contained` }
                         color={ `primary` }
                         onClick={ onClick }>
-                        { btnTxt }
+                        <Icon icon={`skip`} />
+                        <span className={ clsx( classes.btnTxt )}>
+                            { btnTxt }
+                        </span>
+                        
                     </Button>
                </div>
            </div>

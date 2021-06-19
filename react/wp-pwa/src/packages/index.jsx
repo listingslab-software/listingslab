@@ -6,8 +6,13 @@ import {
 	skipIntroSlice,
 	skipIntroReducer,
 } from './SkipIntro/redux/reducer'
+import {
+	toggleSkipIntroOpen,
+} from './SkipIntro/redux/actions'
 
 export {
+
+	toggleSkipIntroOpen,
 	
 	SkipIntro,
 	skipIntroSlice,

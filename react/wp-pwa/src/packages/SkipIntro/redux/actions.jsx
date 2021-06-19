@@ -5,7 +5,7 @@ import {
 export const open = createAction(`SKIPINTRO/OPEN`) 
 export const error = createAction(`SKIPINTRO/ERROR`) 
 
-export const toggleOpen = open => {
+export const toggleSkipIntroOpen = open => {
 	const store = getStore()
 	store.dispatch({type: `SKIPINTRO/OPEN`, open })
 	return true
