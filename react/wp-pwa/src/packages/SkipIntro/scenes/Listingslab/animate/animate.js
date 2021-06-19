@@ -2,20 +2,40 @@ import { gsap } from 'gsap'
 const duration = 1
 
 const init = (div, callback) => {
-    gsap.to(`#clouds`, {
-        // onComplete: callback,
-        duration: 15 * duration,
-        x: -350,
+    const w = document.documentElement.clientWidth
+    const h = document.documentElement.clientHeight
+
+    gsap.to(div, {
+        onComplete: callback,
+        duration: 3 * duration,
     })
-    gsap.set(`#sun`, {
-        x: 10,
-        y: 10,
-        scale: 0.76,
+    
+    gsap.set(`#blokey`, {
+        scale: 0.3,
+        opacity: 0,
+        x: w/2 - 25,
+        y: h/2 - 100,
     })
-    gsap.to(`#sun`, {
-        duration: 10 * duration,
-        scale: 0.86,
-        // rotation: 25,
+    
+    setInterval(() => {
+        gsap.to(`#blokey`, {
+            duration: 1 * duration,
+            scale: 2,
+            opacity: 1,
+        })
+    } ,750)
+}
+
+const exit = (div, callback) => {
+    const w = document.documentElement.clientWidth
+    const h = document.documentElement.clientHeight
+    console.log ('exit')
+    gsap.to(`#blokey`, {
+        onComplete: callback,
+        scale: 0.3,
+        opacity: 0,
+        x: w/2 - 25,
+        y: h/2 - 100,
     })
 }
 
@@ -25,10 +45,12 @@ export const animate = (animation, div, callback) => {
 
         case `init`:
             return init(div, callback)
+
+        case `exit`:
+            return exit(div, callback)
               
         default: {
             return null
         }
-
     }
 }

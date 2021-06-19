@@ -60,6 +60,7 @@ export default function PWAMenu() {
   
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
+  const primaryColor = theme.palette.primary.main
 
   const skipIntroSlice = useSelector(state => state.skipIntro)
   const {
@@ -103,31 +104,46 @@ export default function PWAMenu() {
         zIndex: 1234568,
       }}>
 
-        <StyledMenuItem onClick={(e) => {
-          e.preventDefault()
-          toggleSkipIntroOpen( !open )
-          handleClose()
-        }}>
-          <ListItemIcon>
-            <Icon icon={ `skip` } color={ `inherit` } />
-          </ListItemIcon>
-          <ListItemText 
-            primary={`Skip Intro` }
-          />
-        </StyledMenuItem>
+        
 
+        
         <StyledMenuItem onClick={(e) => {
           e.preventDefault()
           navigateTo( `https://github.com/listingslab-software/listingslab`, `_blank`)
           handleClose()
         }}>
           <ListItemIcon>
-            <Icon icon={ `github` } color={ `inherit` } />
+            <Icon icon={ `github` } color={ `primary` } />
           </ListItemIcon>
           <ListItemText 
-            primary={`Open Source` }
+            primary={`GitHub` }
           />
         </StyledMenuItem>
+
+        <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `wordpress` } color={ primaryColor } />
+            </ListItemIcon>
+            <ListItemText primary={`WordPress` } />
+          </StyledMenuItem>
+
+        <StyledMenuItem onClick={(e) => {
+          e.preventDefault()
+          toggleSkipIntroOpen( !open )
+          handleClose()
+        }}>
+          <ListItemIcon>
+            <Icon icon={ `skip` } color={ `primary` } />
+          </ListItemIcon>
+          <ListItemText 
+            primary={`Skip Intro` }
+          />
+        </StyledMenuItem>
+
             
       </StyledMenu>
 

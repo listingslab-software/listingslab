@@ -3,59 +3,63 @@ import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import {
     makeStyles,
+    useTheme,
 } from '@material-ui/core/'
 import {
     Blokey,
 } from './jsxSVG'
-
-// import { animate } from './'
-// import { toggleSkipIntroOpen } from '../../redux/actions'
+import { animate } from './'
+import { toggleSkipIntroOpen } from '../../redux/actions'
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
-    },
-    htags: {
-        fontWeight: 'lighter',
-    },
-    btnTxt:{
-        marginLeft: theme.spacing(),
-        marginRight: theme.spacing(),
+        // border: '1px solid red',
     },
 }))
 
 export default function Listingslab() {
 
     const classes = useStyles() 
+    const theme = useTheme()
+    const primaryColor = theme.palette.primary.main
     const skipIntroSlice = useSelector(state => state.skipIntro)
-    let screenSize = {
-        w: document.documentElement.clientWidth,
-        h: document.documentElement.clientHeight,
+    let w = document.documentElement.clientWidth
+    let h = document.documentElement.clientHeight
+
+    const exitCallback = () => { 
+        toggleSkipIntroOpen( false)
+        return false
+    }
+
+    const initCallback = () => { 
+        // animate(`exit`, `#listingslab`, exitCallback ) 
+        toggleSkipIntroOpen( false)
+        return false
     }
 
     React.useEffect(() => {
-        // animateListingslab(`init`, `#listingslab` ) 
-    }, [screenSize, skipIntroSlice])
+        // animate(`init`, `#listingslab`, initCallback ) 
+    }, [skipIntroSlice])
     
     return <div className={ clsx( classes.skipIntro) }
                     style={{
-                        minWidth: screenSize.w,
-                        height: screenSize.h,
+                        minWidth: w,
+                        height: h,
                         overflow: 'hidden',
                     }}>
                    <div id={`listingslab`} 
                         style={{ 
-                            width: screenSize.w,
-                            height: screenSize.h,
+                            width: w,
+                            height: h,
                         }}>
-                        <div
-                            id={`sun`}
+                        <div id={`blokey`}
                             style={{
-                                zIndex: 10021,
-                                width: 99,
-                                top: 100,
                                 position: 'absolute',
+                                zIndex: 101,
+                                width: 49,
+                                height: 59,
                             }}>
-                            <Blokey />
+                            <Blokey color={ primaryColor } />
                         </div>                     
                     </div>
                </div>
