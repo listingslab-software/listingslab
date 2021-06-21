@@ -21,7 +21,10 @@ export default function SkipIntro() {
     const skipIntroSlice = useSelector(state => state.skipIntro)
     const {
         open,
+        // restart,
     } = skipIntroSlice
+
+    // console.log ( 'restart', restart )
 
     return <div className={ clsx( classes.skipIntro ) }>
             <Dialog

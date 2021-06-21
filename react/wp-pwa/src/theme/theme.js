@@ -11,10 +11,10 @@
 
 */
 let widgetSettings = {
-  primaryColor: `#421c5d`,
-  secondaryColor: `#ccd31f`,
+  primaryColor: `#28383f`,
+  secondaryColor: `#d4cbc6`,
 }
-if ( window.widgetSettings ) widgetSettings = window.widgetSettings
+// if ( window.widgetSettings ) widgetSettings = window.widgetSettings
 const {
   primaryColor,
   secondaryColor,

@@ -3,14 +3,14 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux' 
 import {
     makeStyles,
-    useTheme,
+    // useTheme,
     Avatar,
     Card,
     CardHeader,
     CardContent,
     Typography,
 } from '@material-ui/core/'
-import { Icon } from '../theme'
+// import { Icon } from '../theme'
 
 const useStyles = makeStyles(theme => ({
 	host:{
@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => ({
 export default function Host( props ) {
 	
 	const classes = useStyles() 
-	const theme = useTheme()
-	const primaryColor = theme.palette.primary.main
+	// const theme = useTheme()
+	// const primaryColor = theme.palette.primary.main
 
 	const hostSlice = useSelector(state => state.host)
 	const {
@@ -37,29 +37,20 @@ export default function Host( props ) {
     } = hostSlice
     const {
     	name,
-    	description,
-    	
+    	description,	
     	avatar,
     	url,
     } = wpData
     
 	return	<Card className={ clsx( classes.host ) }>
 				<CardHeader 
-					avatar={ <Icon icon={ `wordpress` } color={ primaryColor } /> }
-					title={ `WordPress` }
+					avatar={ <Avatar src={ avatar } className={ clsx( classes.avatar ) } /> }
+					title={ name }
+					subheader={ description }
 				/>
 				<CardContent>
-				
-					<Avatar src={avatar} className={ clsx( classes.avatar ) } />
-					
 					<Typography variant={ `body1` } >
-						{ `${ name } ${ description }` }
-					</Typography>
-
-					
-
-					<Typography variant={ `body1` } >
-						{ `${ url }` }
+						url { `${ url }` }
 					</Typography>
 				</CardContent>
 			</Card>

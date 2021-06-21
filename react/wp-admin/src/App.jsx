@@ -10,9 +10,10 @@ import {
   MuiThemeProvider, 
   createMuiTheme,
 } from '@material-ui/core/'
-// import { 
-//   AppShell,
-// } from './components'
+import { 
+  // Debugger,
+  Host,
+} from './components'
 
 export default function App() { 
 
@@ -26,6 +27,6 @@ export default function App() {
   }, [apiSlice])
 
   return <MuiThemeProvider theme={createMuiTheme(theme)}>
-            AppShell
+            <Host />
          </MuiThemeProvider> 
 }

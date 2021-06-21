@@ -83,13 +83,13 @@ export default function PWAMenu() {
           position: 'absolute',
           right: theme.spacing( 1 ),
           top: theme.spacing( 1 ),
-          background: 'white',
+          // background: 'white',
         }}
         aria-controls={`menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
         <Badge badgeContent={ 0 } color={ `primary` }>
-          <Icon icon={ `menu` } color={ `primary` } />
+          <Icon icon={ `menu` } color={ `secondary` } />
         </Badge>
       </IconButton>
       
@@ -103,9 +103,6 @@ export default function PWAMenu() {
       style={{
         zIndex: 1234568,
       }}>
-
-        
-
         
         <StyledMenuItem onClick={(e) => {
           e.preventDefault()

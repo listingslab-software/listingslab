@@ -4,9 +4,9 @@ import {
 } from "./actions"
 
 let wpData = {
-	name: 'localhost',
-	avatar: `avatar.svg`,
-	url: `http://localhost`
+	name: ``,
+	avatar: ``,
+	url: ``
 }
 
 if ( window.wpData ) wpData = window.wpData 
