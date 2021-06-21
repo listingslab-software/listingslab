@@ -15,7 +15,7 @@ const init = (div, callback) => {
     })
     gsap.set(`#skipIntroBtn`, {
         opacity: 0,
-        x: w - 250,
+        x: w - 150,
         y: h - 50,
     })
 

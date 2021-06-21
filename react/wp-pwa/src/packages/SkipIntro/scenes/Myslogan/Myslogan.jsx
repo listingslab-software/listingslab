@@ -53,7 +53,7 @@ export default function Myslogan() {
             // posts,
         } = skipIntroSlice
         if (!postsLoading && !postsLoaded){
-            loadPosts( `https://rhps.com.au/wp-json/wp/v2/posts`  )
+            loadPosts( `https://rhps.com.au/wp-json/wp/v2/pages`  )
         }
         if ( !animating ){
             animate(`init`, `#myslogan`, initCallback )
@@ -79,14 +79,14 @@ export default function Myslogan() {
                          id={`skipIntroBtn`} 
                          className={ clsx( classes.cta ) }>
                             <Button
-                                variant={ `outlined` }
+                                variant={ `text` }
                                 color={ `secondary` }
                                 onClick={(e) => {
                                   e.preventDefault()
                                   toggleSkipIntroOpen( false )
                                 }}>
                                 <span className={ clsx( classes.btnTxt )}>
-                                    WordPress Version
+                                    WordPress
                                 </span>
                                 <Icon icon={`wordpress`}  color={ `white` }/>
                             </Button>

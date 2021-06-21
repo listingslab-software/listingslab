@@ -13,18 +13,14 @@ export const postsLoading = createAction(`SKIPINTRO/POSTS/LOADING`)
 export const postsLoaded = createAction(`SKIPINTRO/POSTS/LOADED`)
 
 export const loadPosts = url => {
-	console.log ('loadPosts')
-
 	const store = getStore()
 	store.dispatch({type: `SKIPINTRO/POSTS/LOADING`, postsLoading: true }) 
-
-
 	axios.get( url )
 		.then( function( res ) {
 			const store = getStore()
 			store.dispatch({type: `SKIPINTRO/POSTS/LOADING`, postsLoading: false })
 			store.dispatch({type: `SKIPINTRO/POSTS/LOADED`, postsLoaded: true })
-			console.log ('response.data', res.data)
+			// console.log ('res.data', res.data)
 			return true
 		})
 		.catch(function( error ) {
