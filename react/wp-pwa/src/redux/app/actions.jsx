@@ -4,6 +4,17 @@ import {
 } from '../../'
 export const open = createAction(`APP/OPEN`) 
 export const overlay = createAction(`APP/OVERLAY`) 
+export const client = createAction(`APP/CLIENT`) 
+
+export const setClient = () => {
+	const store = getStore()
+	let client = {
+			w: document.documentElement.clientWidth,
+			h: document.documentElement.clientHeight
+	}
+	store.dispatch({type: `APP/CLIENT`, client })
+	return true
+}
 
 export const navigateTo = ( url, target ) => {
 	window.open( url, target )

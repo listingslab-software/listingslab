@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import {
   theme, 
@@ -9,6 +10,9 @@ import {
   createMuiTheme, 
   CssBaseline,
 } from '@material-ui/core/'
+import {
+  setClient,
+} from './redux/app/actions'
 import {
   Overlay,
   PWAMenu,
@@ -25,7 +29,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {  
 
-    const classes = useStyles()
+    const classes = useStyles() 
+    const appSlice = useSelector(state => state.app)
+
+    React.useEffect(() => {
+        const { client } = appSlice
+        if ( !client ) setClient ( )
+    }, [ appSlice ])
 
     return <MuiThemeProvider theme={ createMuiTheme(theme) }>
               <CssBaseline />

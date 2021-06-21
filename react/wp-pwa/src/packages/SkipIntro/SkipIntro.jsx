@@ -4,25 +4,14 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Dialog,
-    Button,
+
 } from '@material-ui/core/'
 import {
-    Listingslab,
+    Myslogan,
 } from './scenes'
-import { toggleSkipIntroOpen } from './redux/actions'
-import {
-    Icon
-} from '../../theme'
 
 const useStyles = makeStyles( theme => ({
     dialog:{
-    },
-    cta:{
-        // border: '1px solid red',
-    },
-    ctaBtn:{
-        borderRadius: 0,
-        boxShadow: 'none',
     },
 }))
 
@@ -41,26 +30,7 @@ export default function SkipIntro() {
                 fullScreen
                 fullWidth={ true }
                 maxWidth={ `xl` }>
-
-                <div className={ clsx( classes.cta ) }>
-                    <Button
-                        className={ clsx( classes.ctaBtn )}
-                        fullWidth
-                        variant={ `text` }
-                        color={ `primary` }
-                        size={ `large` }
-                        onClick={(e) => {
-                          e.preventDefault()
-                          toggleSkipIntroOpen( false )
-                        }}>
-                        <span className={ clsx( classes.btnTxt )}>
-                            Skip Intro
-                        </span>
-                        <Icon icon={`skip`}  color={ `inherit` }/>
-                    </Button>
-                </div>
-
-                <Listingslab />
+                <Myslogan />
             </Dialog>
            </div>
 }

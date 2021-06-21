@@ -7,6 +7,7 @@ import App from './App'
 import { createBrowserHistory } from 'history'
 import { Provider } from 'react-redux'
 import reduxStore from './redux'
+import { setClient } from './redux/app/actions'
 
 console.log( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
 
@@ -19,6 +20,21 @@ const fireConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGESENDERID,
   appId: process.env.REACT_APP_FIREBASE_APPID
 }
+
+const addEvent = function(object, type, callback) {
+    if (object == null || typeof(object) == 'undefined') return
+    if (object.addEventListener) {
+        object.addEventListener(type, callback, false)
+    } else if (object.attachEvent) {
+        object.attachEvent("on" + type, callback)
+    } else {
+        object["on"+type] = callback
+    }
+}
+
+addEvent(window, `resize`, function(event) {
+  setClient()
+})
 
 const fBase = firebase.initializeApp(fireConfig)
 export const getFBase = () => { return fBase }
