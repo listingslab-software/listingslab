@@ -4,10 +4,9 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Dialog,
-
 } from '@material-ui/core/'
 import {
-    Myslogan,
+    Listingslab,
 } from './scenes'
 
 const useStyles = makeStyles( theme => ({
@@ -21,11 +20,7 @@ export default function SkipIntro() {
     const skipIntroSlice = useSelector(state => state.skipIntro)
     const {
         open,
-        // restart,
     } = skipIntroSlice
-
-    // console.log ( 'restart', restart )
-
     return <div className={ clsx( classes.skipIntro ) }>
             <Dialog
                 className={ clsx( classes.dialog ) }
@@ -33,7 +28,7 @@ export default function SkipIntro() {
                 fullScreen
                 fullWidth={ true }
                 maxWidth={ `xl` }>
-                <Myslogan />
+                <Listingslab />
             </Dialog>
            </div>
 }

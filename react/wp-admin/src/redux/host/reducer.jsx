@@ -3,11 +3,7 @@ import {
   error,
 } from "./actions"
 
-let wpData = {
-	name: ``,
-	avatar: ``,
-	url: ``
-}
+let wpData = null
 
 if ( window.wpData ) wpData = window.wpData 
 

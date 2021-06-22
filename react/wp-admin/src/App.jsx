@@ -11,7 +11,7 @@ import {
   createMuiTheme,
 } from '@material-ui/core/'
 import { 
-  // Debugger,
+  Debugger,
   Host,
 } from './components'
 
@@ -28,5 +28,6 @@ export default function App() {
 
   return <MuiThemeProvider theme={createMuiTheme(theme)}>
             <Host />
+            <Debugger />
          </MuiThemeProvider> 
 }

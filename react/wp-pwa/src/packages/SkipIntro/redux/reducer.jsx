@@ -2,8 +2,8 @@ import { createReducer } from '@reduxjs/toolkit'
 import {
   open,
   error,
-  animating,
-  restart,
+  initted,
+  reset,
   posts,
   postsLoading,
   postsLoaded,
@@ -12,9 +12,9 @@ import {
 
 export const skipIntroSlice = {
   open: true,
-  animating: false,
+  initted: false,
   error: null,
-  restart: false,
+  reset: false,
   posts: false,
   postsLoading: false,
   postsLoaded: false,
@@ -37,13 +37,13 @@ const skipIntroReducer = createReducer( skipIntroSlice, {
     return state
   },
 
-  [restart]: (state, action) => {
-    state.restart = action.restart
+  [reset]: (state, action) => {
+    state.reset = action.reset
     return state
   },
 
-  [animating]: (state, action) => {
-    state.animating = action.animating
+  [initted]: (state, action) => {
+    state.initted = action.initted
     return state
   },
     

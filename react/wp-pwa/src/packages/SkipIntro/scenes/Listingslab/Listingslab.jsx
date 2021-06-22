@@ -4,63 +4,124 @@ import clsx from 'clsx'
 import {
     makeStyles,
     useTheme,
+    Typography,
+    Button,
 } from '@material-ui/core/'
+import { 
+    animate,
+} from './'
+import { 
+    initAnimation,
+    resetAnimation, 
+} from '../../redux/actions'
+import Blokey from './jsxSVG/Blokey'
+import { 
+    toggleSkipIntroOpen,
+} from '../../redux/actions'
 import {
-    Blokey,
-} from './jsxSVG'
-import { animate } from './'
-import { toggleSkipIntroOpen } from '../../redux/actions'
+    Icon
+} from '../../../../theme'
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
-        // border: '1px solid red',
+        // background: '#28383f',
+    },
+    btnTxt:{
+        marginRight: theme.spacing(),
+        marginLeft: theme.spacing(),
+    },
+    htags: {
+        fontWeight: 'lighter',
+    },
+    ctaBtn:{
+        borderRadius: 0,
+        boxShadow: 'none',
     },
 }))
 
-export default function Listingslab() {
+export default function Myslogan() {
 
     const classes = useStyles() 
-    const theme = useTheme()
-    const primaryColor = theme.palette.primary.main
+    const appSlice = useSelector(state => state.app)
     const skipIntroSlice = useSelector(state => state.skipIntro)
-    let w = document.documentElement.clientWidth
-    let h = document.documentElement.clientHeight
+    const theme = useTheme()
 
-    const exitCallback = () => { 
-        toggleSkipIntroOpen( false)
-        return false
-    }
-
-    const initCallback = () => { 
-        // animate(`exit`, `#listingslab`, exitCallback ) 
-        toggleSkipIntroOpen( false)
-        return false
-    }
+    const { client } = appSlice
+    if (!client) return null
+    const {
+        w,
+        h,
+    } = client
 
     React.useEffect(() => {
-        // animate(`init`, `#listingslab`, initCallback ) 
-    }, [skipIntroSlice])
+        const { 
+            initted,
+            reset,
+        } = skipIntroSlice        
+        if ( !initted ){ 
+            animate(`init`, `#listingslab` )
+            initAnimation( true )
+        }
+        if (reset) {
+            animate( `reset`, `#listingslab` )
+            resetAnimation ( false )
+        }
+    }, [ skipIntroSlice ])
+
     
-    return <div className={ clsx( classes.skipIntro) }
-                    style={{
+    return <div id={`listingslab`} className={ clsx( classes.skipIntro) }
+                    style={{ 
+                        overflow: 'hidden',
                         minWidth: w,
                         height: h,
-                        overflow: 'hidden',
                     }}>
-                   <div id={`listingslab`} 
-                        style={{ 
-                            width: w,
-                            height: h,
-                        }}>
-                        <div id={`blokey`}
+                     
+                    <div id={`blokey`}
                             style={{
                                 position: 'absolute',
-                                zIndex: 101,
+                                zIndex: 1102,
                                 width: 49,
                                 height: 59,
                             }}>
-                            <Blokey color={ primaryColor } />
-                        </div>                     
+                        <Blokey color={ theme.palette.secondary.main } />
+                    </div>
+
+                    <div id={`listingslabTxt`}
+                        style={{
+                            position: 'absolute',
+                            zIndex: 101,
+                        }}>
+                        <Typography variant={ `h1` }>
+                            @listingslab
+                        </Typography>
+                    </div>
+
+                    <div id={`description`}
+                        style={{
+                            position: 'absolute',
+                            zIndex: 126,
+                        }}>
+                        <Typography variant={ `h5` } className={ clsx( classes.htags) }>
+                            Progressive WordPress Apps
+                        </Typography>
+                    </div>
+
+                    <div id={`skipIntroBtn`} style={{
+                            position: 'absolute',
+                            zIndex: 10,
+                        }}>
+                            <Button
+                                variant={ `text` }
+                                color={ `primary` }
+                                onClick={(e) => {
+                                  e.preventDefault()
+                                  toggleSkipIntroOpen( false )
+                                }}>
+                                <span className={ clsx( classes.btnTxt )}>
+                                    WordPress
+                                </span>
+                                <Icon icon={`wordpress`}  color={ theme.palette.secondary.main }/>
+                            </Button>
                     </div>
                </div>
 }

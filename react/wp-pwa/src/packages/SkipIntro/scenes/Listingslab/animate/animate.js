@@ -1,41 +1,52 @@
 import { gsap } from 'gsap'
-const duration = 1
+
+const duration = 0.75
 
 const init = (div, callback) => {
-    const w = document.documentElement.clientWidth
-    const h = document.documentElement.clientHeight
-
-    gsap.to(div, {
-        onComplete: callback,
-        duration: 3 * duration,
-    })
-    
-    gsap.set(`#blokey`, {
-        scale: 0.3,
+    reset()
+    gsap.delayedCall( 0.75, delayedStart, [`oooh`])
+    gsap.set(`#listingslabTxt`, {
         opacity: 0,
-        x: w/2 - 25,
-        y: h/2 - 100,
     })
-    
-    setInterval(() => {
-        gsap.to(`#blokey`, {
-            duration: 1 * duration,
-            scale: 2,
-            opacity: 1,
-        })
-    } ,750)
+    gsap.set(`#blokey`, {
+        opacity: 0,
+    })
+    gsap.set(`#skipIntroBtn`, {
+        opacity: 0,
+    })
 }
 
-const exit = (div, callback) => {
+const reset = (div, callback) => {
     const w = document.documentElement.clientWidth
     const h = document.documentElement.clientHeight
-    console.log ('exit')
+    gsap.set(`#listingslabTxt`, {
+        x: w/2 - 240,
+        y: 20,
+        scale: 0.5,
+    })
+    gsap.set(`#blokey`, {
+        x: w/2 - 180,
+        y: 40,
+    })
+    gsap.set(`#skipIntroBtn`, {
+        x: w - 150,
+        y: h - 50,
+    })
+}
+
+
+const delayedStart = () => {
     gsap.to(`#blokey`, {
-        onComplete: callback,
-        scale: 0.3,
-        opacity: 0,
-        x: w/2 - 25,
-        y: h/2 - 100,
+        duration: duration * 1,
+        opacity: 1,
+    })
+    gsap.to(`#listingslabTxt`, {
+        duration: duration * 2,
+        opacity: 1,
+    })
+    gsap.to(`#skipIntroBtn`, {
+        opacity: 1,
+        duration: duration * 3, 
     })
 }
 
@@ -46,9 +57,9 @@ export const animate = (animation, div, callback) => {
         case `init`:
             return init(div, callback)
 
-        case `exit`:
-            return exit(div, callback)
-              
+        case `reset`:
+            return reset(div, callback)
+
         default: {
             return null
         }

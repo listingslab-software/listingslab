@@ -1,7 +1,5 @@
-// import { Listingslab } from './Listingslab'
-import { Myslogan } from './Myslogan'
+import { Listingslab } from './Listingslab'
 
 export {
-	// Listingslab,
-	Myslogan,
+	Listingslab,
 }

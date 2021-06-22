@@ -35,6 +35,9 @@ export default function Host( props ) {
 	const {
      	wpData,
     } = hostSlice
+
+    if ( !wpData ) return null
+    	
     const {
     	name,
     	description,	
