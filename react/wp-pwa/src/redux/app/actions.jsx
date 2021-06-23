@@ -7,12 +7,17 @@ export const overlay = createAction(`APP/OVERLAY`)
 export const client = createAction(`APP/CLIENT`) 
 export const feedback = createAction(`APP/FEEDBACK`) 
 
+export const openFeedback = feedback => {
+	const store = getStore()
+	store.dispatch({type: `APP/FEEDBACK`, feedback })
+	return true
+}
+
 export const closeFeedback = () => {
 	const store = getStore()
 	store.dispatch({type: `APP/FEEDBACK`, feedback: null })
 	return true
 }
-
 
 export const setClient = () => {
 	const store = getStore()

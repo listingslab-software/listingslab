@@ -10,10 +10,7 @@ export const appSlice = {
   open: false,
   overlay: false,
   client: null,
-  feedback: {
-    severity: `success`,
-    message: `ok`,
-  },
+  feedback: null,
 }
 
 const appReducer = createReducer( appSlice, {
