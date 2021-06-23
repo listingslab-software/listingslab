@@ -16,6 +16,7 @@ import {
 import { toggleSkipIntroOpen } from '../packages'
 import {
   navigateTo,
+  openFeedback,
 } from '../redux/app/actions'
 
 const StyledMenu = withStyles({
@@ -103,7 +104,24 @@ export default function PWAMenu() {
       style={{
         zIndex: 1234568,
       }}>
-        
+
+
+        <StyledMenuItem onClick={(e) => {
+          e.preventDefault()
+          openFeedback({
+            severity: `warning`,
+            message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non commodo ligula. Aenean orci eros, auctor accumsan dolor id, pharetra tempus lectus.`
+          })
+          handleClose()
+        }}>
+          <ListItemIcon>
+            <Icon icon={ `error` } color={ `primary` } />
+          </ListItemIcon>
+          <ListItemText 
+            primary={`Test Feedback` }
+          />
+        </StyledMenuItem>
+
         <StyledMenuItem onClick={(e) => {
           e.preventDefault()
           navigateTo( `https://github.com/listingslab-software/listingslab`, `_blank`)
