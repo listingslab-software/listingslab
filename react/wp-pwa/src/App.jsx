@@ -16,6 +16,7 @@ import {
 import {
   Overlay,
   PWAMenu,
+  Feedback,
 } from './components'
 import {
   SkipIntro,
@@ -39,6 +40,7 @@ export default function App() {
 
     return <MuiThemeProvider theme={ createMuiTheme(theme) }>
               <CssBaseline />
+              <Feedback />
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
                 <PWAMenu />

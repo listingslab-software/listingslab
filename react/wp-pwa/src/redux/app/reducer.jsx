@@ -3,16 +3,25 @@ import {
   open,
   overlay,
   client,
+  feedback,
 } from "./actions"
 
 export const appSlice = {
   open: false,
   overlay: false,
   client: null,
-  
+  feedback: {
+    severity: `success`,
+    message: `ok`,
+  },
 }
 
 const appReducer = createReducer( appSlice, {
+
+  [feedback]: (state, action) => {
+    state.feedback = action.feedback
+    return state
+  },
 
   [client]: (state, action) => {
     state.client = action.client
