@@ -5,7 +5,7 @@ import {
     makeStyles,
     useTheme,
     Typography,
-    Button,
+    IconButton,
 } from '@material-ui/core/'
 import { 
     animate,
@@ -14,13 +14,14 @@ import {
     initAnimation,
     resetAnimation, 
 } from '../../redux/actions'
-import Blokey from './jsxSVG/Blokey'
+// import Blokey from './jsxSVG/Blokey'
 import { 
     toggleSkipIntroOpen,
 } from '../../redux/actions'
 import {
     Icon
 } from '../../../../theme'
+
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
@@ -76,52 +77,39 @@ export default function Myslogan() {
                         height: h,
                     }}>
                      
-                    <div id={`blokey`}
+                    <div id={`headline`}
+                        style={{
+                            width: 200,
+                            height: 65,
+                            position: 'absolute',
+                            zIndex: 200,
+
+                        }}>
+                        <div
                             style={{
-                                position: 'absolute',
-                                zIndex: 1102,
-                                width: 49,
-                                height: 59,
+                                margin: 8,
                             }}>
-                        <Blokey color={ theme.palette.secondary.main } />
+                            <Typography variant={ `h4` } className={ clsx( classes.htags) }>
+                                @listingslab
+                            </Typography>
+                        </div>
                     </div>
 
-                    <div id={`listingslabTxt`}
+                    <div id={`wordpressBtn`} 
                         style={{
                             position: 'absolute',
-                            zIndex: 101,
+                            zIndex: 100,
                         }}>
-                        <Typography variant={ `h1` }>
-                            @listingslab
-                        </Typography>
+                        <IconButton
+                            variant={ `text` }
+                            color={ `primary` }
+                            onClick={(e) => {
+                              e.preventDefault()
+                              toggleSkipIntroOpen( false )
+                            }}>
+                            <Icon icon={`wordpress`}  color={ theme.palette.secondary.main }/>
+                        </IconButton>
                     </div>
-
-                    <div id={`description`}
-                        style={{
-                            position: 'absolute',
-                            zIndex: 126,
-                        }}>
-                        <Typography variant={ `h5` } className={ clsx( classes.htags) }>
-                            Progressive WordPress Apps
-                        </Typography>
-                    </div>
-
-                    <div id={`skipIntroBtn`} style={{
-                            position: 'absolute',
-                            zIndex: 10,
-                        }}>
-                            <Button
-                                variant={ `text` }
-                                color={ `primary` }
-                                onClick={(e) => {
-                                  e.preventDefault()
-                                  toggleSkipIntroOpen( false )
-                                }}>
-                                <span className={ clsx( classes.btnTxt )}>
-                                    WordPress
-                                </span>
-                                <Icon icon={`wordpress`}  color={ theme.palette.secondary.main }/>
-                            </Button>
-                    </div>
+               
                </div>
 }

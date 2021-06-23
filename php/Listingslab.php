@@ -1,7 +1,7 @@
 <?php
 
 if( ! defined( 'LISTINGSLAB' ) ) {
-  define( 'LISTINGSLAB', '14.1.0' );
+  define( 'LISTINGSLAB', '14.2.1' );
 }
 
   class Listingslab {
@@ -10,7 +10,7 @@ if( ! defined( 'LISTINGSLAB' ) ) {
         private $listingslab_screen; 
 
         public function InitPlugin(){
-          add_filter('show_admin_bar', '__return_false');
+          // add_filter('show_admin_bar', '__return_false');
           add_action('admin_menu', array( $this, 'AdminMenu' ));
           add_action( 'wp_body_open', array( $this, 'RenderPWA' ));
           // add_action( 'admin_notices', array( $this, 'plugin_activation' ) ) ;

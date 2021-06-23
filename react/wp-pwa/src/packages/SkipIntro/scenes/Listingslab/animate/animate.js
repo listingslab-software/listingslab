@@ -1,17 +1,17 @@
-import { gsap } from 'gsap'
+import { 
+    gsap,
+    Power1,
+} from 'gsap'
 
-const duration = 0.75
+const duration = 1.75
 
 const init = (div, callback) => {
     reset()
-    gsap.delayedCall( 0.75, delayedStart, [`oooh`])
-    gsap.set(`#listingslabTxt`, {
+    gsap.delayedCall( 0.5, delayedStart, [`oooh`])
+    gsap.set(`#headline`, {
         opacity: 0,
     })
-    gsap.set(`#blokey`, {
-        opacity: 0,
-    })
-    gsap.set(`#skipIntroBtn`, {
+    gsap.set(`#wordpressBtn`, {
         opacity: 0,
     })
 }
@@ -19,34 +19,29 @@ const init = (div, callback) => {
 const reset = (div, callback) => {
     const w = document.documentElement.clientWidth
     const h = document.documentElement.clientHeight
-    gsap.set(`#listingslabTxt`, {
-        x: w/2 - 240,
-        y: 20,
-        scale: 0.5,
+    gsap.set(`#headline`, {
+        x: w/2 - 100,
+        y: h/2 - 30,
+        // scale: 0.4,
     })
-    gsap.set(`#blokey`, {
-        x: w/2 - 180,
-        y: 40,
-    })
-    gsap.set(`#skipIntroBtn`, {
-        x: w - 150,
-        y: h - 50,
+    gsap.set(`#wordpressBtn`, {
+        bottom: 5,
+        right: 5,
     })
 }
 
 
 const delayedStart = () => {
-    gsap.to(`#blokey`, {
-        duration: duration * 1,
+
+    gsap.to(`#headline`, {
+        duration: duration,
+        ease: Power1.easeIn,
         opacity: 1,
     })
-    gsap.to(`#listingslabTxt`, {
-        duration: duration * 2,
+    gsap.to(`#wordpressBtn`, {
         opacity: 1,
-    })
-    gsap.to(`#skipIntroBtn`, {
-        opacity: 1,
-        duration: duration * 3, 
+        ease: Power1.easeIn,
+        duration: duration, 
     })
 }
 
