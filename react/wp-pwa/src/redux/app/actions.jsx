@@ -5,6 +5,14 @@ import {
 export const open = createAction(`APP/OPEN`) 
 export const overlay = createAction(`APP/OVERLAY`) 
 export const client = createAction(`APP/CLIENT`) 
+export const feedback = createAction(`APP/FEEDBACK`) 
+
+export const closeFeedback = () => {
+	const store = getStore()
+	store.dispatch({type: `APP/FEEDBACK`, feedback: null })
+	return true
+}
+
 
 export const setClient = () => {
 	const store = getStore()
