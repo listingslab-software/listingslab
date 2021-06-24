@@ -37,5 +37,8 @@ export const theme = {
     secondary: {
       main: secondaryColor,
     },
+    success: {
+      main: primaryColor,
+    },
   }
 }

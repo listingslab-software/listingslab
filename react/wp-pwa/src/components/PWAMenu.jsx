@@ -1,5 +1,5 @@
 import React from 'react'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
     withStyles,
     useTheme,
@@ -13,10 +13,10 @@ import {
 import { 
   Icon,
 } from '../theme'
-// import { toggleSkipIntroOpen } from '../packages'
+import { toggleSkipIntroOpen } from '../packages'
 import {
   navigateTo,
-  openFeedback,
+  // openFeedback,
 } from '../redux/app/actions'
 
 const StyledMenu = withStyles({
@@ -43,15 +43,15 @@ const StyledMenuItem = withStyles((theme) => ({
   root: { 
     paddingRight: 50,
     '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: 'rgba(0,0,0,0.01)',
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.common.white,
+        // color: theme.palette.common.white,
       },
     },
     '&:focus': {
-      backgroundColor: theme.palette.primary.main,
+      // backgroundColor: theme.palette.primary.main,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.common.white,
+        // color: theme.palette.common.white,
       },
     },
   },
@@ -62,11 +62,10 @@ export default function PWAMenu() {
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
   const primaryColor = theme.palette.primary.main
-
-  // const skipIntroSlice = useSelector(state => state.skipIntro)
-  // const {
-  //   open,
-  // } = skipIntroSlice
+  const skipIntroSlice = useSelector(state => state.skipIntro)
+  const {
+    open,
+  } = skipIntroSlice
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -79,6 +78,8 @@ export default function PWAMenu() {
   return <React.Fragment>
       
       <IconButton
+        aria-controls={`pwa-menu`}
+        aria-haspopup="true"
         style={{
           zIndex: 123456,
           position: 'absolute',
@@ -86,12 +87,11 @@ export default function PWAMenu() {
           top: theme.spacing( 1 ),
           // background: 'white',
         }}
-        aria-controls={`menu`}
-        aria-haspopup="true"
+        
         onClick={ handleClick }>
 
         <Badge badgeContent={ null } color={ `secondary` }>
-          <Icon icon={ `menu` } color={ `primary` } />
+          <Icon icon={ `pwa` } color={ `primary` } />
         </Badge>
 
       </IconButton>
@@ -108,21 +108,26 @@ export default function PWAMenu() {
       }}>
 
 
-        <StyledMenuItem onClick={(e) => {
-          e.preventDefault()
-          openFeedback({
-            severity: `warning`,
-            message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non commodo ligula. Aenean orci eros, auctor accumsan dolor id, pharetra tempus lectus.`
-          })
-          handleClose()
-        }}>
-          <ListItemIcon>
-            <Icon icon={ `error` } color={ `primary` } />
-          </ListItemIcon>
-          <ListItemText 
-            primary={`Test Feedback` }
-          />
-        </StyledMenuItem>
+      { open ? <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            toggleSkipIntroOpen( false )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `wordpress` } color={ primaryColor } />
+            </ListItemIcon>
+            <ListItemText primary={`WordPress` } />
+          </StyledMenuItem> : <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            toggleSkipIntroOpen( true )
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `pwa` } color={ `primary` } />
+            </ListItemIcon>
+            <ListItemText primary={`PWA` } />
+          </StyledMenuItem> }
+
 
         <StyledMenuItem onClick={(e) => {
           e.preventDefault()
@@ -137,35 +142,9 @@ export default function PWAMenu() {
           />
         </StyledMenuItem>
 
-        <StyledMenuItem onClick={(e) => {
-            e.preventDefault()
-            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self` )
-            handleClose()
-          }}>
-            <ListItemIcon>
-              <Icon icon={ `wordpress` } color={ primaryColor } />
-            </ListItemIcon>
-            <ListItemText primary={`WordPress` } />
-          </StyledMenuItem>
+
             
       </StyledMenu>
 
     </React.Fragment>
 }
-
-
-
-/*
-<StyledMenuItem onClick={(e) => {
-          e.preventDefault()
-          toggleSkipIntroOpen( !open )
-          handleClose()
-        }}>
-          <ListItemIcon>
-            <Icon icon={ `pwa` } color={ `primary` } />
-          </ListItemIcon>
-          <ListItemText 
-            primary={`PWA` }
-          />
-        </StyledMenuItem>
-*/

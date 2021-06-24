@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import {
     makeStyles,
-    useTheme,
+    // useTheme,
     Typography,
-    IconButton,
     ButtonBase,
 } from '@material-ui/core/'
 import { 
@@ -16,10 +15,7 @@ import {
     resetAnimation, 
 } from '../../redux/actions'
 // import Blokey from './jsxSVG/Blokey'
-import { 
-    toggleSkipIntroOpen,
-} from '../../redux/actions'
-import { Icon } from '../../../../theme'
+// import { Icon } from '../../../../theme'
 import { Localify } from './' 
 
 const useStyles = makeStyles( theme => ({
@@ -44,7 +40,7 @@ export default function Myslogan() {
     const classes = useStyles() 
     const appSlice = useSelector(state => state.app)
     const skipIntroSlice = useSelector(state => state.skipIntro)
-    const theme = useTheme()
+    // const theme = useTheme()
 
     const { client } = appSlice
     if (!client) return null
@@ -70,15 +66,13 @@ export default function Myslogan() {
         }
     }, [ skipIntroSlice ])
 
-    
     return <div id={`listingslab`} className={ clsx( classes.skipIntro) }
                     style={{ 
                         overflow: 'hidden',
                         minWidth: w,
                         height: h,
                     }}>
-                     
-                    
+                                         
                     <div id={`localify`}
                         style={{
                             width: 360,
@@ -89,8 +83,6 @@ export default function Myslogan() {
                         <Localify />
                     </div>
 
-
-
                     <div id={`headline`}
                         style={{
                             width: 200,
@@ -99,10 +91,7 @@ export default function Myslogan() {
                             zIndex: 200,
 
                         }}>
-                        <div
-                            style={{
-                                margin: 8,
-                            }}>
+                        <div style={{ margin: 8 }}>
                             <ButtonBase
                                 onClick={ ( e ) => {
                                     e.preventDefault()
@@ -114,22 +103,5 @@ export default function Myslogan() {
                             </ButtonBase>
                         </div>
                     </div>
-
-                    <div id={`wordpressBtn`} 
-                        style={{
-                            position: 'absolute',
-                            zIndex: 100,
-                        }}>
-                        <IconButton
-                            variant={ `text` }
-                            color={ `primary` }
-                            onClick={(e) => {
-                              e.preventDefault()
-                              toggleSkipIntroOpen( false )
-                            }}>
-                            <Icon icon={`wordpress`}  color={ theme.palette.primary.main }/>
-                        </IconButton>
-                    </div>
-               
                </div>
 }

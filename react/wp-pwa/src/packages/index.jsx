@@ -1,5 +1,9 @@
 import SkipIntro from './SkipIntro/SkipIntro'
 import Localify from './Localify/Localify'
+import { 
+	localifyReducer,
+	localifySlice,
+} from './Localify/reducer'
 
 import { 
 	skipIntroSlice,
@@ -16,6 +20,8 @@ import scrollToTop from './lib/scrollToTop'
 export {
 
 	Localify,
+	localifyReducer,
+	localifySlice,
 
 	SkipIntro,
 	skipIntroSlice,

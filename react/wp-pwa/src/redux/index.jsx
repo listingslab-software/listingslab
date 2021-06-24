@@ -3,18 +3,24 @@ import { combineReducers } from 'redux'
 import { appReducer, appSlice } from './app/reducer'
 import { wordpressReducer, wordpressSlice } from './wordpress/reducer'
 import { skipIntroReducer, skipIntroSlice } from '../packages'
+import { localifyReducer, localifySlice } from '../packages'
+import { mapboxReducer, mapboxSlice } from './mapbox/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
     app: appReducer,
     wordpress: wordpressReducer,
     skipIntro: skipIntroReducer,
+    localify: localifyReducer,
+    mapbox: mapboxReducer,
   })
 
   const preloadedState = {
     app: appSlice,
     wordpress: wordpressSlice,
     skipIntro: skipIntroSlice,
+    localify: localifySlice,
+    mapbox: mapboxSlice,
   }
   
   const middleware = [
