@@ -6,6 +6,7 @@ import {
     useTheme,
     Typography,
     IconButton,
+    ButtonBase,
 } from '@material-ui/core/'
 import { 
     animate,
@@ -18,14 +19,12 @@ import {
 import { 
     toggleSkipIntroOpen,
 } from '../../redux/actions'
-import {
-    Icon
-} from '../../../../theme'
-
+import { Icon } from '../../../../theme'
+import { Localify } from './' 
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
-        // background: '#28383f',
+        background: '#eee',
     },
     btnTxt:{
         marginRight: theme.spacing(),
@@ -60,7 +59,9 @@ export default function Myslogan() {
             reset,
         } = skipIntroSlice        
         if ( !initted ){ 
-            animate(`init`, `#listingslab` )
+            animate(`init`, `#listingslab`, () => {
+                console.log ('DAMN.')
+            })
             initAnimation( true )
         }
         if (reset) {
@@ -77,6 +78,19 @@ export default function Myslogan() {
                         height: h,
                     }}>
                      
+                    
+                    <div id={`localify`}
+                        style={{
+                            width: 360,
+                            // height: 65,
+                            position: 'absolute',
+                            zIndex: 300,
+                        }}>
+                        <Localify />
+                    </div>
+
+
+
                     <div id={`headline`}
                         style={{
                             width: 200,
@@ -89,9 +103,15 @@ export default function Myslogan() {
                             style={{
                                 margin: 8,
                             }}>
-                            <Typography variant={ `h4` } className={ clsx( classes.htags) }>
-                                @listingslab
-                            </Typography>
+                            <ButtonBase
+                                onClick={ ( e ) => {
+                                    e.preventDefault()
+                                    console.log ('logo click')
+                                }}>
+                                <Typography variant={ `h4` } className={ clsx( classes.htags) }>
+                                    @listingslab
+                                </Typography>
+                            </ButtonBase>
                         </div>
                     </div>
 
@@ -107,7 +127,7 @@ export default function Myslogan() {
                               e.preventDefault()
                               toggleSkipIntroOpen( false )
                             }}>
-                            <Icon icon={`wordpress`}  color={ theme.palette.secondary.main }/>
+                            <Icon icon={`wordpress`}  color={ theme.palette.primary.main }/>
                         </IconButton>
                     </div>
                

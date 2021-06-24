@@ -1,4 +1,6 @@
 import SkipIntro from './SkipIntro/SkipIntro'
+import Localify from './Localify/Localify'
+
 import { 
 	skipIntroSlice,
 	skipIntroReducer,
@@ -12,6 +14,8 @@ import ordinalSuffix from './lib/ordinalSuffix'
 import scrollToTop from './lib/scrollToTop'
 
 export {
+
+	Localify,
 
 	SkipIntro,
 	skipIntroSlice,

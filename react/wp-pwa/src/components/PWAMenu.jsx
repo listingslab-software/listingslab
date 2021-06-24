@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import {
     withStyles,
     useTheme,
@@ -13,7 +13,7 @@ import {
 import { 
   Icon,
 } from '../theme'
-import { toggleSkipIntroOpen } from '../packages'
+// import { toggleSkipIntroOpen } from '../packages'
 import {
   navigateTo,
   openFeedback,
@@ -63,10 +63,10 @@ export default function PWAMenu() {
   const theme = useTheme()
   const primaryColor = theme.palette.primary.main
 
-  const skipIntroSlice = useSelector(state => state.skipIntro)
-  const {
-    open,
-  } = skipIntroSlice
+  // const skipIntroSlice = useSelector(state => state.skipIntro)
+  // const {
+  //   open,
+  // } = skipIntroSlice
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -89,9 +89,11 @@ export default function PWAMenu() {
         aria-controls={`menu`}
         aria-haspopup="true"
         onClick={ handleClick }>
-        <Badge badgeContent={ 0 } color={ `primary` }>
-          <Icon icon={ `menu` } color={ `secondary` } />
+
+        <Badge badgeContent={ null } color={ `secondary` }>
+          <Icon icon={ `menu` } color={ `primary` } />
         </Badge>
+
       </IconButton>
       
 
@@ -145,22 +147,25 @@ export default function PWAMenu() {
             </ListItemIcon>
             <ListItemText primary={`WordPress` } />
           </StyledMenuItem>
-
-        <StyledMenuItem onClick={(e) => {
-          e.preventDefault()
-          toggleSkipIntroOpen( !open )
-          handleClose()
-        }}>
-          <ListItemIcon>
-            <Icon icon={ `skip` } color={ `primary` } />
-          </ListItemIcon>
-          <ListItemText 
-            primary={`Skip Intro` }
-          />
-        </StyledMenuItem>
-
             
       </StyledMenu>
 
     </React.Fragment>
 }
+
+
+
+/*
+<StyledMenuItem onClick={(e) => {
+          e.preventDefault()
+          toggleSkipIntroOpen( !open )
+          handleClose()
+        }}>
+          <ListItemIcon>
+            <Icon icon={ `pwa` } color={ `primary` } />
+          </ListItemIcon>
+          <ListItemText 
+            primary={`PWA` }
+          />
+        </StyledMenuItem>
+*/
