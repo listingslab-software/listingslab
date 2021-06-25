@@ -125,8 +125,20 @@ export default function PWAMenu() {
             <ListItemIcon>
               <Icon icon={ `pwa` } color={ `primary` } />
             </ListItemIcon>
-            <ListItemText primary={`PWA` } />
+            <ListItemText primary={`Open App` } />
           </StyledMenuItem> }
+
+
+        <StyledMenuItem onClick={(e) => {
+            e.preventDefault()
+            navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self`)
+            handleClose()
+          }}>
+            <ListItemIcon>
+              <Icon icon={ `wordpress` } color={ primaryColor } />
+            </ListItemIcon>
+            <ListItemText primary={`Plugin Settings` } />
+          </StyledMenuItem>
 
 
         <StyledMenuItem onClick={(e) => {
@@ -148,3 +160,7 @@ export default function PWAMenu() {
 
     </React.Fragment>
 }
+
+/*
+  
+*/

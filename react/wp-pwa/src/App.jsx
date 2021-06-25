@@ -17,6 +17,7 @@ import {
   Overlay,
   PWAMenu,
   Feedback,
+  SystemError,
 } from './components'
 import {
   SkipIntro,
@@ -55,7 +56,7 @@ export default function App() {
               <Feedback />
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
-                { error ? <React.Fragment>ERROR</React.Fragment> : 
+                { error ? <SystemError /> : 
                   <React.Fragment>
                     <PWAMenu />
                     <SkipIntro />

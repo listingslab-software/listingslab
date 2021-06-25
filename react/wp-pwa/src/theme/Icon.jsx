@@ -10,6 +10,7 @@ import IconGDPR from '@material-ui/icons/Security'
 import IconDocs from '@material-ui/icons/Description'
 import IconSend from '@material-ui/icons/Send'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
+import IconRestart from '@material-ui/icons/SettingsBackupRestore'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
 import IconDownload from '@material-ui/icons/GetApp'
@@ -354,6 +355,9 @@ class Icon extends Component {
 
             case `mail`:
                 return (<IconMail color={iconColor} />)
+
+            case `restart`:
+                return (<IconRestart color={iconColor} />)
                 
 
             case `docs`:
