@@ -10,7 +10,6 @@ import {
     Typography,
 } from '@material-ui/core/'
 import {
-    initLocalify,
     // getFlagSrc,
     getDeviceStr,
     getLocationStr,
@@ -37,36 +36,18 @@ export default function Localify() {
     const {
         individual,
     } = localifySlice
-
-    React.useEffect(() => {
-        const {
-            initted,
-            initting,
-        } = localifySlice
-        if (!initted && !initting) initLocalify()
-    }, [ localifySlice ]) 
-
     if (!individual) return null
-
-    // const {
-    //     device,
-    // } = individual
 
     return <div className={ clsx( classes.localify ) }>
             
             <Card className={ clsx( classes.card ) }>
-
-
-
-
                 <CardHeader
                     disableTypography
-                    avatar={ <Avatar src={ `/png/localifyIcon.png`} /> }
+                    avatar={ <Avatar src={ `https://listingslab.com/wp-content/uploads/2021/05/logo192.png`} /> }
                     title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
                                 @localify
                             </Typography> }
                 />
-
                 <CardHeader
                     disableTypography
                     title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
@@ -76,13 +57,11 @@ export default function Localify() {
                                  { getDeviceStr( individual ) }
                             </Typography> }
                 />
-
                 <CardHeader
                     disableTypography
                     title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
-                                Where do you come from?
+                                & where do you come from?
                             </Typography> }
-
                     subheader={ <Typography variant={ `body1` }>
                                  { getLocationStr ( individual )}
                             </Typography> }
@@ -96,13 +75,3 @@ export default function Localify() {
             
            </div>        
 }
-
-/*
-<CardHeader
-                    disableTypography
-                    avatar={ <Avatar src={ getFlagSrc( individual ) } /> }
-                    title={ <Typography variant={ `body1` }>
-                                
-                            </Typography> }
-                />
-*/

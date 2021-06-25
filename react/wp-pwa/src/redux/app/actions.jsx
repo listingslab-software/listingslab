@@ -2,6 +2,7 @@ import { createAction } from '@reduxjs/toolkit'
 import { 
 	getStore,
 } from '../../'
+export const error = createAction(`APP/ERROR`) 
 export const open = createAction(`APP/OPEN`) 
 export const overlay = createAction(`APP/OVERLAY`) 
 export const client = createAction(`APP/CLIENT`) 

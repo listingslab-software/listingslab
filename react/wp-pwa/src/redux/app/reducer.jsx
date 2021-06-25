@@ -4,9 +4,11 @@ import {
   overlay,
   client,
   feedback,
+  error,
 } from "./actions"
 
 export const appSlice = {
+  error: null,
   open: false,
   overlay: false,
   client: null,
@@ -14,6 +16,11 @@ export const appSlice = {
 }
 
 const appReducer = createReducer( appSlice, {
+  
+  [error]: (state, action) => {
+    state.error = action.error
+    return state
+  },
 
   [feedback]: (state, action) => {
     state.feedback = action.feedback

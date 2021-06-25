@@ -161,7 +161,7 @@ export const updateTing = (key, value) => {
 
 export const throwError = error => {
     const store = getStore()
-    store.dispatch({type: `LOCALIFY/ERROR`, error })
+    store.dispatch({type: `APP/ERROR`, error })
     return false
 }
 
