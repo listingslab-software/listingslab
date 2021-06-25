@@ -82,9 +82,9 @@ export default function PWAMenu() {
         aria-haspopup="true"
         style={{
           zIndex: 123456,
-          position: 'absolute',
+          position: 'fixed',
           right: theme.spacing( 1 ),
-          top: theme.spacing( 1 ),
+          bottom: theme.spacing( 1 ),
           // background: 'white',
         }}
         
