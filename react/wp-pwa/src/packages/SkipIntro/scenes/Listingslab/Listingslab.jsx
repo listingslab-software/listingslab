@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import {
     makeStyles,
-    // useTheme,
+    useTheme,
     Typography,
-    ButtonBase,
 } from '@material-ui/core/'
 import { 
     animate,
@@ -14,8 +13,8 @@ import {
     initAnimation,
     resetAnimation, 
 } from '../../redux/actions'
-// import Blokey from './jsxSVG/Blokey'
-import { Localify } from './' 
+import Blokey from './jsxSVG/Blokey'
+// import { Localify } from './' 
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
@@ -39,7 +38,7 @@ export default function Myslogan() {
     const classes = useStyles() 
     const appSlice = useSelector(state => state.app)
     const skipIntroSlice = useSelector(state => state.skipIntro)
-    // const theme = useTheme()
+    const theme = useTheme()
 
     const { client } = appSlice
     if (!client) return null
@@ -55,7 +54,7 @@ export default function Myslogan() {
         } = skipIntroSlice        
         if ( !initted ){ 
             animate(`init`, `#listingslab`, () => {
-                console.log ('DAMN.')
+                // console.log ('DAMN.')
             })
             initAnimation( true )
         }
@@ -72,7 +71,42 @@ export default function Myslogan() {
                         height: h,
                     }}>
                                          
-                    <div id={`localify`}
+                    
+
+                    <div id={`headline`}
+                        style={{
+                            height: 65,
+                            position: 'absolute',
+                            zIndex: 200,
+
+                        }}>
+                            <Typography variant={ `h4` } style={{
+                                        width: 301,
+                                        left: 49,
+                                        fontWeight: 'lighter',
+                                        height: 59,
+                                        position: 'absolute',
+                                        zIndex: 300,
+                                    }}>
+                                @listingslab
+                            </Typography>
+
+                            <Blokey id={`blokey`} 
+                                    color= { theme.palette.primary.main }
+                                    style={{
+                                        left: 0,
+                                        width: 36,
+                                        height: 36,
+                                        position: 'absolute',
+                                        zIndex: 400,
+                                    }} />
+                    </div>
+               </div>
+}
+
+/*
+
+<div id={`localify`}
                         style={{
                             width: 360,
                             // height: 65,
@@ -82,25 +116,4 @@ export default function Myslogan() {
                         <Localify />
                     </div>
 
-                    <div id={`headline`}
-                        style={{
-                            width: 200,
-                            height: 65,
-                            position: 'absolute',
-                            zIndex: 200,
-
-                        }}>
-                        <div style={{ margin: 8 }}>
-                            <ButtonBase
-                                onClick={ ( e ) => {
-                                    e.preventDefault()
-                                    console.log ('logo click')
-                                }}>
-                                <Typography variant={ `h4` } className={ clsx( classes.htags) }>
-                                    @listingslab
-                                </Typography>
-                            </ButtonBase>
-                        </div>
-                    </div>
-               </div>
-}
+*/
