@@ -1,14 +1,13 @@
 import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux' 
+import IconSVG from '../theme/Icon.svg'
 import {
     makeStyles,
-    // useTheme,
     Avatar,
     Card,
     CardHeader,
-    CardContent,
-    Typography,
+    IconButton,
 } from '@material-ui/core/'
 // import { Icon } from '../theme'
 
@@ -20,8 +19,8 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: 'none',
 	},
 	avatar: {
-		height: 100,
-		width: 100,
+		// height: 100,
+		// width: 100,
 	},
 }))
 
@@ -42,20 +41,30 @@ export default function Host( props ) {
     	name,
     	description,	
     	avatar,
-    	url,
     } = wpData
+
+    let avatarSrc = IconSVG
+    if ( avatar ) avatarSrc = avatar
+    let nameTxt = `Site Name`
+    if ( name ) nameTxt = name
+    let descriptionTxt = `Description (WordPress Tagline)`
+    if ( description ) descriptionTxt = description
     
 	return	<Card className={ clsx( classes.host ) }>
 				<CardHeader 
-					avatar={ <Avatar src={ avatar } className={ clsx( classes.avatar ) } /> }
-					title={ name }
-					subheader={ description }
+					avatar={ 	<IconButton
+									color={ `secondary` }
+									onClick={ ( e ) => {
+										e.preventDefault()
+										console.log ('navigate to _self')
+									}}>
+									<Avatar src={ avatarSrc } className={ clsx( classes.avatar ) } />
+								</IconButton>
+							}
+					title={ nameTxt }
+					subheader={ descriptionTxt }
 				/>
-				<CardContent>
-					<Typography variant={ `body1` } >
-						url { `${ url }` }
-					</Typography>
-				</CardContent>
+				
 			</Card>
 }
 
@@ -63,4 +72,10 @@ export default function Host( props ) {
 <Typography variant={ `body1` } >
 						{ `${ admin_email }` }
 					</Typography>
+<CardContent>
+					<Typography variant={ `body1` } >
+						url { `${ url }` }
+					</Typography>
+				</CardContent>
+
 */

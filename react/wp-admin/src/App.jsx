@@ -9,9 +9,10 @@ import {
 import {
   MuiThemeProvider, 
   createMuiTheme,
+  Grid,
 } from '@material-ui/core/'
 import { 
-  // Debugger,
+  Debugger,
   Host,
 } from './components'
 
@@ -27,7 +28,15 @@ export default function App() {
   }, [apiSlice])
 
   return <MuiThemeProvider theme={createMuiTheme(theme)}>
-            <Host />
-            
+            <Grid container>
+              <Grid item xs={ 12 } sm={ 6 } >
+                <Host />
+              </Grid>
+
+              <Grid item xs={ 12 } sm={ 6 } >
+                <Debugger />
+              </Grid>
+
+           </Grid>
          </MuiThemeProvider> 
 }
