@@ -76,8 +76,28 @@ export default function PWAMenu() {
   }
 
   return <React.Fragment>
-      
-      <IconButton
+
+      { open ? 
+
+        <IconButton
+          aria-controls={`pwa-menu`}
+          aria-haspopup="true"
+          style={{
+            zIndex: 123456,
+            position: 'fixed',
+            right: theme.spacing( 1 ),
+            bottom: theme.spacing( 1 ),
+          }}
+          onClick={ ( e ) => {
+            e.preventDefault()
+            toggleSkipIntroOpen( false )
+          } }>
+          <Badge badgeContent={ null } color={ `secondary` }>
+            <Icon icon={ `wordpress` } color={ primaryColor } />
+          </Badge>
+        </IconButton>
+
+       : <IconButton
         aria-controls={`pwa-menu`}
         aria-haspopup="true"
         style={{
@@ -85,16 +105,14 @@ export default function PWAMenu() {
           position: 'fixed',
           right: theme.spacing( 1 ),
           bottom: theme.spacing( 1 ),
-          // background: 'white',
         }}
-        
         onClick={ handleClick }>
-
         <Badge badgeContent={ null } color={ `secondary` }>
           <Icon icon={ `pwa` } color={ `primary` } />
         </Badge>
-
-      </IconButton>
+      </IconButton> }
+      
+      
       
 
     <StyledMenu 
@@ -117,7 +135,11 @@ export default function PWAMenu() {
               <Icon icon={ `wordpress` } color={ primaryColor } />
             </ListItemIcon>
             <ListItemText primary={`WordPress` } />
-          </StyledMenuItem> : <StyledMenuItem onClick={(e) => {
+          </StyledMenuItem> 
+
+          : 
+
+          <StyledMenuItem onClick={(e) => {
             e.preventDefault()
             toggleSkipIntroOpen( true )
             handleClose()
@@ -125,7 +147,7 @@ export default function PWAMenu() {
             <ListItemIcon>
               <Icon icon={ `pwa` } color={ `primary` } />
             </ListItemIcon>
-            <ListItemText primary={`Open App` } />
+            <ListItemText primary={`Open` } />
           </StyledMenuItem> }
 
 
@@ -137,7 +159,7 @@ export default function PWAMenu() {
             <ListItemIcon>
               <Icon icon={ `wordpress` } color={ primaryColor } />
             </ListItemIcon>
-            <ListItemText primary={`Plugin Settings` } />
+            <ListItemText primary={`Settings` } />
           </StyledMenuItem>
 
 
@@ -150,7 +172,7 @@ export default function PWAMenu() {
             <Icon icon={ `github` } color={ `primary` } />
           </ListItemIcon>
           <ListItemText 
-            primary={`GitHub` }
+            primary={`Download` }
           />
         </StyledMenuItem>
 

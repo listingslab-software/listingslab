@@ -15,12 +15,11 @@ import {
     resetAnimation, 
 } from '../../redux/actions'
 // import Blokey from './jsxSVG/Blokey'
-// import { Icon } from '../../../../theme'
 import { Localify } from './' 
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
-        background: '#eee',
+        // background: '#eee',
     },
     btnTxt:{
         marginRight: theme.spacing(),
