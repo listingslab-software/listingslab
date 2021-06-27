@@ -3,7 +3,7 @@ import {
   open,
 } from "./actions"
 
-let pwaData = {}
+let pwaData = null
 if( window.pwaData ) pwaData = window.pwaData
 
 export const wordpressSlice = {

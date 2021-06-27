@@ -36,7 +36,8 @@ export default function App() {
 
     const classes = useStyles() 
     const appSlice = useSelector(state => state.app)
-    const localifySlice = useSelector(state => state.localify)
+    const localifySlice = useSelector(state => state.localify) 
+
     React.useEffect(() => {
         const {
             initted,
@@ -44,9 +45,10 @@ export default function App() {
         } = localifySlice
         if (!initted && !initting) initLocalify()
     }, [ localifySlice ]) 
+    
     React.useEffect(() => {
         const { client } = appSlice
-        if ( !client ) setClient ( )
+        if ( !client ) setClient ()
     }, [ appSlice ])
 
     const { error } = appSlice

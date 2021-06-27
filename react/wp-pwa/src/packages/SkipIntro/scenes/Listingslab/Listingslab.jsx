@@ -12,7 +12,11 @@ import {
 import { 
     initAnimation,
     resetAnimation, 
+    
 } from '../../redux/actions'
+import { openFeedback } from '../../../../redux/app/actions'
+// import { toggleSkipIntroOpen } from '../../../../packages'
+
 import Blokey from './jsxSVG/Blokey'
 import { 
     PWAData,
@@ -41,17 +45,29 @@ export default function Myslogan() {
     const appSlice = useSelector(state => state.app)
     const skipIntroSlice = useSelector(state => state.skipIntro)
     const localifySlice = useSelector(state => state.localify)
+    const wordpressReducer = useSelector(state => state.wordpress)
     const theme = useTheme()
-
     
     const { individual } = localifySlice
     if ( individual ) animate(`fadeTitle`)
+
     const { client } = appSlice
     if (!client) return null
     const {
         w,
         h,
     } = client
+
+    React.useEffect(() => {
+        const { pwaData } = wordpressReducer 
+        if ( !pwaData ) {
+            openFeedback({
+                severity: `error`, 
+                message: `Warning - no pwaData`,
+            })
+            // toggleSkipIntroOpen( false )
+        }
+    }, [ wordpressReducer ])
 
     React.useEffect(() => {
         const { 
@@ -81,15 +97,12 @@ export default function Myslogan() {
                     <div id={`pwaData`}
                         style={{
                             height: 65,
-                            width: 350,
                             position: 'absolute',
                             zIndex: 200,
 
                         }}>
                             <PWAData />
                     </div>
-
-
 
                     <div id={`headline`}
                         style={{

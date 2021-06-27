@@ -1,20 +1,20 @@
 import React from 'react'
+import HTMLRenderer from 'react-html-renderer'
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 import {
     makeStyles,
-    Typography,
+    Card,
+    CardHeader,
+    CardContent,
+    Avatar,
 } from '@material-ui/core/'
-// import {
-//   navigateTo,
-// } from '../redux/app/actions'
-// import { 
-//   Icon,
-// } from '../theme'
 
 const useStyles = makeStyles((theme) => ({
   pwaData: {
     overflow: 'hidden',
-    minWidth: 350,
+    background: 'white',
+    margin: theme.spacing(),
   },
   raw: {
     fontSize: '10px',
@@ -29,16 +29,27 @@ export default function PWAData() {
   const {
     pwaData,
   } = wordpressSlice
+  let suppress = false
+  if ( pwaData && suppress) console.log ('pwaData', pwaData)
+  if ( !pwaData ) return false
+  const {
+    logo,
+    postData,
+  } = pwaData
+  const {
+    post_title,
+    post_content,
+    post_date,
+  } = postData
 
-  return <div className={ classes.pwaData } >
-            
-                  <Typography variant={ `h6` } gutterBottom >
-                    PWAData
-                  </Typography>
-
-                  <pre className={ classes.raw }>
-                    { JSON.stringify( pwaData, null, 2 ) }
-                  </pre>
-                  
-        </div>
+  return <Card className={ classes.pwaData } >
+          <CardHeader 
+            avatar={ <Avatar src={ logo } /> }
+            title={ post_title }
+            subheader={ moment(post_date).fromNow() }
+          />
+          <CardContent>
+            <HTMLRenderer html={ post_content } />
+          </CardContent>
+        </Card>
 }

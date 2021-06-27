@@ -5,6 +5,14 @@ import {
 
 const duration = 0.75
 
+const delayedStart = (div, callback) => {
+    gsap.to(`#headline`, {
+        duration: duration,
+        ease: Power1.easeIn,
+        opacity: 1,
+    })    
+}
+
 const init = (div, callback) => {
     reset()
     gsap.to(`#listingslab`, {
@@ -15,43 +23,34 @@ const init = (div, callback) => {
     gsap.set(`#headline`, {
         opacity: 0,
     })
+    gsap.set(`#pwaData`, {
+        opacity: 0,
+    })
 }
 
 
 const fadeTitle = (div, callback) => {
-    // reset()
-
-    // gsap.delayedCall( 0.33, delayedStart, [div, callback])
-    // gsap.set(`#headline`, {
-    //     opacity: 0,
-    // })
-
+    gsap.to(`#pwaData`, {
+        duration,
+        ease: Power1.easeIn,
+        opacity: 1,
+    })
     gsap.to(`#headline`, {
         duration,
         opacity: 0,
     })
 }
 
-
-
 const reset = () => {
     const w = document.documentElement.clientWidth
     const h = document.documentElement.clientHeight
     gsap.set(`#headline`, {
-        x: w/2 - 120,
+        x: w/2 - 100,
         y: h/2 - 30,
     })
-}
-
-const delayedStart = (div, callback) => {
-    gsap.to(`#headline`, {
-        // onComplete: () => {
-        //     // moveUp()
-        //     console.log ('wait for completion')
-        // },
-        duration: duration,
-        ease: Power1.easeIn,
-        opacity: 1,
+    gsap.set(`#pwaData`, {
+        x: 0,
+        y: 65,
     })
 }
 
