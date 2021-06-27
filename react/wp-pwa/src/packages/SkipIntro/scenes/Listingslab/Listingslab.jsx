@@ -16,6 +16,7 @@ import {
 import Blokey from './jsxSVG/Blokey'
 // import { Localify } from './' 
 
+
 const useStyles = makeStyles( theme => ({
     skipIntro: {
         // background: '#eee',
@@ -38,8 +39,12 @@ export default function Myslogan() {
     const classes = useStyles() 
     const appSlice = useSelector(state => state.app)
     const skipIntroSlice = useSelector(state => state.skipIntro)
+    const localifySlice = useSelector(state => state.localify)
     const theme = useTheme()
 
+    
+    const { individual } = localifySlice
+    if ( individual ) animate(`fadeTitle`)
     const { client } = appSlice
     if (!client) return null
     const {
@@ -70,12 +75,10 @@ export default function Myslogan() {
                         minWidth: w,
                         height: h,
                     }}>
-                                         
-                    
-
                     <div id={`headline`}
                         style={{
                             height: 65,
+                            width: 350,
                             position: 'absolute',
                             zIndex: 200,
 
@@ -103,17 +106,3 @@ export default function Myslogan() {
                     </div>
                </div>
 }
-
-/*
-
-<div id={`localify`}
-                        style={{
-                            width: 360,
-                            // height: 65,
-                            position: 'absolute',
-                            zIndex: 300,
-                        }}>
-                        <Localify />
-                    </div>
-
-*/
