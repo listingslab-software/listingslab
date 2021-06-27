@@ -3,7 +3,7 @@ import {
     Power1,
 } from 'gsap'
 
-const duration = 0.75
+const duration = 0.33
 
 const delayedStart = (div, callback) => {
     gsap.to(`#headline`, {

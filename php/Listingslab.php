@@ -99,9 +99,9 @@ if( ! defined( 'LISTINGSLAB' ) ) {
 
 
         public function RenderPWA(){
+                $plugins_url = plugins_url();
                 $pwaData = array();
-                $pwaData[ 'primaryColor' ] = '#5e5e5e';
-                $pwaData[ 'secondaryColor' ] = '#333';
+                
                 $fields = array(
                   'name', 
                   'description',
@@ -116,12 +116,22 @@ if( ! defined( 'LISTINGSLAB' ) ) {
                 if ( isset($img[0]) ){
                   $customLogo = $img[0];
                 }
+
                 $pwaData[ 'logo' ] = $customLogo;
-                if (is_single()){
-                  $pwaData[ 'postData' ] = get_post();
-                } else {
-                  $pwaData[ 'postData' ] = false;
+                $pwaData[ 'assetsDir' ] = $plugins_url . '/listingslab/php/assets';
+                $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
+                
+                $pwaData[ 'type' ] = 'default';
+                if (!is_home()){
+                  $pwaData[ 'type' ] = 'home';
                 }
+                
+                $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
+
+                $pwaData[ 'primaryColor' ] = '#421c5d';
+                $pwaData[ 'secondaryColor' ] = '#ccd31f';
+
+
           ?>
           <div class="pwa">
             <script>

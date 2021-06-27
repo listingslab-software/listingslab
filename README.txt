@@ -1,7 +1,7 @@
 === @listingslab ===
 Contributors: listingslab
 Tags: pwa, react, @localify, @docsify
-Stable tag: 14.2.5
+Stable tag: 14.2.6
 Requires at least: 5.6
 Tested up to: 5.6
 Requires PHP: 5.6.20

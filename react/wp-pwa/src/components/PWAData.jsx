@@ -1,7 +1,7 @@
 import React from 'react'
-import HTMLRenderer from 'react-html-renderer'
+// import HTMLRenderer from 'react-html-renderer'
 import { useSelector } from 'react-redux'
-import moment from 'moment'
+// import moment from 'moment'
 import {
     makeStyles,
     Card,
@@ -10,11 +10,17 @@ import {
     Avatar,
 } from '@material-ui/core/'
 
+const w = document.documentElement.clientWidth
+
 const useStyles = makeStyles((theme) => ({
   pwaData: {
     overflow: 'hidden',
     background: 'white',
     margin: theme.spacing(),
+    width: w - 16,
+  },
+  pusher: {
+    // border: '1px solid red',
   },
   raw: {
     fontSize: '10px',
@@ -34,26 +40,33 @@ export default function PWAData() {
   if ( !pwaData ) return false
   const {
     logo,
-    postData,
+    name,
+    description,
+    // content,
   } = pwaData
-  const {
-    post_title,
-    post_content,
-    post_date,
-  } = postData
+  // const {
+  //   post_content,
+  // } = postData
 
   return <Card className={ classes.pwaData } >
-          <CardHeader 
+          <CardHeader
             avatar={ <Avatar src={ logo } /> }
-            title={ post_title }
-            subheader={ moment(post_date).fromNow() }
+            title={ name }
+            subheader={ description }
           />
-          <CardContent>
-            <HTMLRenderer html={ post_content } />
-
+          <CardContent className={ classes.pusher }>
             <pre>
-              { JSON.stringify( postData, null, 2 ) }
+              { JSON.stringify( pwaData, null, 2 ) }
             </pre>
           </CardContent>
         </Card>
 }
+
+/*
+<CardContent>
+            <HTMLRenderer html={ post_content } />
+            <pre>
+              { JSON.stringify( pwaData, null, 2 ) }
+            </pre>
+          </CardContent>
+*/
