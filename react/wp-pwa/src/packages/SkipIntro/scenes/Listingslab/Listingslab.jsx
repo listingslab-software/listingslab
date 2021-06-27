@@ -14,8 +14,9 @@ import {
     resetAnimation, 
 } from '../../redux/actions'
 import Blokey from './jsxSVG/Blokey'
-// import { Localify } from './' 
-
+import { 
+    PWAData,
+} from '../../../../components'
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
@@ -75,6 +76,21 @@ export default function Myslogan() {
                         minWidth: w,
                         height: h,
                     }}>
+                    
+
+                    <div id={`pwaData`}
+                        style={{
+                            height: 65,
+                            width: 350,
+                            position: 'absolute',
+                            zIndex: 200,
+
+                        }}>
+                            <PWAData />
+                    </div>
+
+
+
                     <div id={`headline`}
                         style={{
                             height: 65,

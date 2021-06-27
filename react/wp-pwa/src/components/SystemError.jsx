@@ -21,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 350,
   },
   mightyBtn: {
-    padding: theme.spacing(),
+    // padding: theme.spacing(),
   },
   raw: {
     fontSize: '10px',
     overflow: 'hidden',
   },
   btnTxt:{
+    color: 'white',
     marginRight: theme.spacing(),
     marginLeft: theme.spacing(),
   },
@@ -57,6 +58,10 @@ export default function SystemError() {
                     System Error
                   </Typography>
 
+                  <Typography variant={ `body1` } gutterBottom >
+                    { error.toString() }
+                  </Typography>
+
                   <IconButton 
                     className={ classes.mightyBtn }
                     variant={ `contained` }
@@ -65,10 +70,8 @@ export default function SystemError() {
                       e.preventDefault()
                       setRawError( !rawError )
                     }}>
-                    <Icon icon={ `code`} color={`primary`} />
+                    <Icon icon={ `code`} color={`secondary`} />
                   </IconButton>
-
-                  
 
                   <Button 
                     className={ classes.mightyBtn }
@@ -78,19 +81,16 @@ export default function SystemError() {
                       e.preventDefault()
                       navigateTo(`/`, `_self`)
                     }}>
-                    <Icon icon={ `restart` } color={`primary`} />
+                    <Icon icon={ `restart` } color={`secondary`} />
                     <span className={ classes.btnTxt }>
                       Restart
                     </span>
                     
                   </Button>
 
-                  
-
                   { rawError ? <pre className={ classes.raw }>
                     { JSON.stringify( error, null, 2 ) }
                   </pre> : null }
-
                   
                 </AlertTitle>
             </Alert>
