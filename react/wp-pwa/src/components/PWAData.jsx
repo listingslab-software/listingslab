@@ -50,6 +50,10 @@ export default function PWAData() {
           />
           <CardContent>
             <HTMLRenderer html={ post_content } />
+
+            <pre>
+              { JSON.stringify( postData, null, 2 ) }
+            </pre>
           </CardContent>
         </Card>
 }
