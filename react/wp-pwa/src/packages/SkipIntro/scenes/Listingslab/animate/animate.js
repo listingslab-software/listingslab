@@ -2,8 +2,10 @@ import {
     gsap,
     Power1,
 } from 'gsap'
+import { getStore } from '../../../../../'
 
-const duration = 0.33
+const duration = 0.66
+
 
 const delayedStart = (div, callback) => {
     gsap.to(`#headline`, {
@@ -28,7 +30,6 @@ const init = (div, callback) => {
     })
 }
 
-
 const fadeTitle = (div, callback) => {
     gsap.to(`#pwaData`, {
         duration,
@@ -44,13 +45,19 @@ const fadeTitle = (div, callback) => {
 const reset = () => {
     const w = document.documentElement.clientWidth
     const h = document.documentElement.clientHeight
+    const isAdmin = getStore().getState().wordpress.pwaData.isAdmin
+    let topOffset = 0
+    if ( isAdmin ){
+        topOffset = 30
+    }
+
     gsap.set(`#headline`, {
         x: w/2 - 100,
         y: h/2 - 30,
     })
     gsap.set(`#pwaData`, {
         x: 0,
-        y: 65,
+        y: topOffset,
     })
 }
 

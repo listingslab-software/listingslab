@@ -96,10 +96,8 @@ export default function Myslogan() {
 
                     <div id={`pwaData`}
                         style={{
-                            height: 65,
                             position: 'absolute',
                             zIndex: 200,
-
                         }}>
                             <PWAData />
                     </div>

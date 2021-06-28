@@ -1,5 +1,5 @@
 import React from 'react'
-// import HTMLRenderer from 'react-html-renderer'
+import HTMLRenderer from 'react-html-renderer'
 import { useSelector } from 'react-redux'
 // import moment from 'moment'
 import {
@@ -7,20 +7,33 @@ import {
     Card,
     CardHeader,
     CardContent,
+    CardMedia,
+    CardActions,
     Avatar,
+    Grid,
+    Typography,
 } from '@material-ui/core/'
+import { PWANav } from './'
 
-const w = document.documentElement.clientWidth
+// const w = document.documentElement.clientWidth
 
 const useStyles = makeStyles((theme) => ({
   pwaData: {
     overflow: 'hidden',
     background: 'white',
     margin: theme.spacing(),
-    width: w - 16,
+  },
+  html:{
+    margin: theme.spacing(),
   },
   pusher: {
-    // border: '1px solid red',
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  hTags:{
+    fontWeight: 'lighter',
   },
   raw: {
     fontSize: '10px',
@@ -42,31 +55,54 @@ export default function PWAData() {
     logo,
     name,
     description,
-    // content,
+    image,
+    html,
+    title,
+    // isAdmin,
   } = pwaData
-  // const {
-  //   post_content,
-  // } = postData
+
+  // console.log( 'isAdmin', isAdmin )
 
   return <Card className={ classes.pwaData } >
+          <PWANav />   
           <CardHeader
             avatar={ <Avatar src={ logo } /> }
             title={ name }
             subheader={ description }
           />
           <CardContent className={ classes.pusher }>
-            <pre>
-              { JSON.stringify( pwaData, null, 2 ) }
-            </pre>
+
+            <Grid container>
+              
+              <Grid item xs={ 12 } md={ 8 }>
+                <div className={ classes.html }>
+                  <Typography variant={ `h5` } gutterBottom className={ classes.hTags }>
+                    { title }
+                  </Typography>
+                  <HTMLRenderer html={ html } />
+                </div>
+              </Grid>
+
+              <Grid item xs={ 12 } md={ 4 }>
+                <CardMedia
+                    className={classes.media}
+                    image={ image }
+                    title={ title }
+                  />
+              </Grid>
+            </Grid>
+
+            
+
           </CardContent>
+          <CardActions>
+            
+          </CardActions>
         </Card>
 }
 
 /*
-<CardContent>
-            <HTMLRenderer html={ post_content } />
-            <pre>
+<pre>
               { JSON.stringify( pwaData, null, 2 ) }
             </pre>
-          </CardContent>
 */
