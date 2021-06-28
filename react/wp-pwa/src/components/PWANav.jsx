@@ -5,7 +5,7 @@ import {
     AppBar,
     Toolbar,
     Typography,
-    Button,
+    // Button,
     IconButton,
 } from '@material-ui/core/'
 import { Icon } from '../theme'

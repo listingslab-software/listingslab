@@ -18,11 +18,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     background: 'white',
     margin: theme.spacing(),
+
   },
-  html:{
-    margin: theme.spacing(),
-  },
-  pusher: {
+  squish: {
   },
   media: {
     height: 0,
@@ -54,25 +52,26 @@ export default function PWAData() {
 
   const {
     post_title,
-    post_content,
+    post_content_filtered,
   } = post
 
   // console.log( 'isAdmin', isAdmin )
 
   return <Card className={ classes.pwaData } >
+          
           <PWANav />   
           
-          <CardContent className={ classes.pusher }>
+          <CardContent>
 
             <Grid container>
               
-              <Grid item xs={ 12 } md={ 8 }>
-                <div className={ classes.html }>
-                  <HTMLRenderer html={ post_content } />
-                </div>
+              <Grid item xs={ 12 } sm={ 6 }>
+                <div className={ classes.squish } >
+                  <HTMLRenderer html={ post_content_filtered } />
+                </div>  
               </Grid>
 
-              <Grid item xs={ 12 } md={ 4 }>
+              <Grid item xs={ 12 } sm={ 6 }>
                 <CardMedia
                     className={classes.media}
                     image={ image }
@@ -87,6 +86,6 @@ export default function PWAData() {
 
 /*
 <pre>
-              { JSON.stringify( pwaData, null, 2 ) }
-            </pre>
+  { JSON.stringify( pwaData, null, 2 ) }
+</pre>
 */

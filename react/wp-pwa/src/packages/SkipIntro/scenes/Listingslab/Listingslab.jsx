@@ -99,7 +99,7 @@ export default function Myslogan() {
                             position: 'absolute',
                             zIndex: 200,
                         }}>
-                            <PWAData />
+                        <PWAData />
                     </div>
 
                     <div id={`headline`}
