@@ -4,7 +4,7 @@ import {
 } from 'gsap'
 import { getStore } from '../../../../../'
 
-const duration = 0.66
+const duration = 0.8
 
 
 const delayedStart = (div, callback) => {
@@ -47,8 +47,12 @@ const reset = () => {
     const h = document.documentElement.clientHeight
     const isAdmin = getStore().getState().wordpress.pwaData.isAdmin
     let topOffset = 0
+
     if ( isAdmin ){
         topOffset = 30
+        if ( w < 781 ){
+            topOffset = 44
+        }
     }
 
     gsap.set(`#headline`, {

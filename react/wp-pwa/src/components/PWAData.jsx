@@ -5,11 +5,9 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Card,
-    CardHeader,
     CardContent,
     CardMedia,
-    CardActions,
-    Avatar,
+    // CardActions,
     Grid,
     Typography,
 } from '@material-ui/core/'
@@ -52,24 +50,16 @@ export default function PWAData() {
   if ( pwaData && suppress) console.log ('pwaData', pwaData)
   if ( !pwaData ) return false
   const {
-    logo,
-    name,
-    description,
     image,
     html,
     title,
-    // isAdmin,
   } = pwaData
 
   // console.log( 'isAdmin', isAdmin )
 
   return <Card className={ classes.pwaData } >
           <PWANav />   
-          <CardHeader
-            avatar={ <Avatar src={ logo } /> }
-            title={ name }
-            subheader={ description }
-          />
+          
           <CardContent className={ classes.pusher }>
 
             <Grid container>
@@ -92,12 +82,7 @@ export default function PWAData() {
               </Grid>
             </Grid>
 
-            
-
           </CardContent>
-          <CardActions>
-            
-          </CardActions>
         </Card>
 }
 

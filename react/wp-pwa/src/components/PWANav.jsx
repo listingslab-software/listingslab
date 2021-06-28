@@ -1,42 +1,59 @@
 import React from 'react'
-// import { useSelector } from 'react-redux'
-
+import { useSelector } from 'react-redux'
 import {
     makeStyles,
     AppBar,
     Toolbar,
     Typography,
     Button,
-    IconButton,
+    // IconButton,
 } from '@material-ui/core/'
-
-import MenuIcon from '@material-ui/icons/Menu'
+// import { Icon } from '../theme'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  pwaNav: {
     flexGrow: 1,
+  },
+  appBar:{
+    boxShadow: 'none',
+    background: 'none',
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+    color: theme.palette.primary.main,
   },
 }))
 
-export default function ButtonAppBar() {
+export default function PWANav() {
   const classes = useStyles()
-  return <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+  const wordpressSlice = useSelector(state => state.wordpress)
+  const {
+    pwaData,
+  } = wordpressSlice
+  const {
+    // logo,
+    post,
+  } = pwaData
+  const {
+    post_title
+  } = post
+  // console.log ('post_title', post_title)
+
+  return <div className={ classes.pwaNav }>
+          <AppBar position={ `static` } className={ classes.appBar } >
+            <Toolbar>
+              <Typography variant={ `h6` } className={ classes.title }>
+                { post_title }
+              </Typography>
+              <Button 
+                variant={ `text`}
+                color={ `primary`}>
+                Share
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </div>
 }

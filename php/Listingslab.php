@@ -101,6 +101,7 @@ if( ! defined( 'LISTINGSLAB' ) ) {
         public function RenderPWA(){
                 $plugins_url = plugins_url();
                 $pwaData = array();
+                $pwaPost = array();
                 
                 $fields = array(
                   'name', 
@@ -122,19 +123,20 @@ if( ! defined( 'LISTINGSLAB' ) ) {
                 $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
 
                 $pwaData[ 'isAdmin' ] = is_admin_bar_showing();
-                
+
                 $pwaData[ 'type' ] = 'default';
                 if (!is_home()){
                   $pwaData[ 'type' ] = 'home';
+                  $pwaPost = get_post(get_option('page_on_front'));
                 }
                 
-                $pwaData[ 'title' ] = 'Sed commodo rutrum orci, quis ultricies tellus ultrices at. In mattis fringilla urna';
+                
                 $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
-                $pwaData[ 'html' ] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet blandit massa, sit amet ullamcorper velit. Duis accumsan nibh quis lacus bibendum placerat. Nam mi erat, tempor vel faucibus ac, congue sit amet orci. Cras lacinia nec ex id malesuada. Nunc ultricies rutrum metus eu tincidunt. Sed iaculis ut ipsum sed venenatis. Mauris consequat lacinia risus in faucibus. Sed ligula diam, condimentum at lectus ac, viverra tincidunt mauris. Sed commodo rutrum orci, quis ultricies tellus ultrices at. In mattis fringilla urna.';
+                
 
                 $pwaData[ 'primaryColor' ] = '#421c5d';
                 $pwaData[ 'secondaryColor' ] = '#ccd31f';
-
+                $pwaData[ 'post' ] = $pwaPost;
 
           ?>
           <div class="pwa">
