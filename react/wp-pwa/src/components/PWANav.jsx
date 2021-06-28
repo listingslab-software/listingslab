@@ -6,9 +6,9 @@ import {
     Toolbar,
     Typography,
     Button,
-    // IconButton,
+    IconButton,
 } from '@material-ui/core/'
-// import { Icon } from '../theme'
+import { Icon } from '../theme'
 
 const useStyles = makeStyles((theme) => ({
   pwaNav: {
@@ -48,11 +48,10 @@ export default function PWANav() {
               <Typography variant={ `h6` } className={ classes.title }>
                 { post_title }
               </Typography>
-              <Button 
-                variant={ `text`}
+              <IconButton 
                 color={ `primary`}>
-                Share
-              </Button>
+                <Icon icon={ `share` } /> 
+              </IconButton>
             </Toolbar>
           </AppBar>
         </div>

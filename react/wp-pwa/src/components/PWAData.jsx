@@ -7,9 +7,7 @@ import {
     Card,
     CardContent,
     CardMedia,
-    // CardActions,
     Grid,
-    Typography,
 } from '@material-ui/core/'
 import { PWANav } from './'
 
@@ -51,9 +49,13 @@ export default function PWAData() {
   if ( !pwaData ) return false
   const {
     image,
-    html,
-    title,
+    post,
   } = pwaData
+
+  const {
+    post_title,
+    post_content,
+  } = post
 
   // console.log( 'isAdmin', isAdmin )
 
@@ -66,10 +68,7 @@ export default function PWAData() {
               
               <Grid item xs={ 12 } md={ 8 }>
                 <div className={ classes.html }>
-                  <Typography variant={ `h5` } gutterBottom className={ classes.hTags }>
-                    { title }
-                  </Typography>
-                  <HTMLRenderer html={ html } />
+                  <HTMLRenderer html={ post_content } />
                 </div>
               </Grid>
 
@@ -77,8 +76,8 @@ export default function PWAData() {
                 <CardMedia
                     className={classes.media}
                     image={ image }
-                    title={ title }
-                  />
+                    title={ post_title }
+                />
               </Grid>
             </Grid>
 
