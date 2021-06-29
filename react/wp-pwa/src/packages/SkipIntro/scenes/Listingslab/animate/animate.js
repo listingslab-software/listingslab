@@ -60,8 +60,9 @@ const reset = () => {
         y: h/2,
     })
     gsap.set(`#localify`, {
-        x: 0,
         y: topOffset,
+        x: w - w/3,
+        width: w/3,
     })
 }
 

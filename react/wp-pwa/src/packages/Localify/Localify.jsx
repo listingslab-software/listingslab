@@ -6,7 +6,7 @@ import {
     // Avatar,
     Card,
     CardHeader,
-    CardContent,
+    // CardContent,
     Typography,
 } from '@material-ui/core/'
 import {
@@ -14,13 +14,10 @@ import {
     getDeviceStr,
     getLocationStr,
 } from './actions'
-
-import { Mapbox } from '../../components'
-
+// import { Mapbox } from '../../components'
 
 const useStyles = makeStyles( theme => ({
     localify:{
-        width: 500,
     },
     card: {
         margin: theme.spacing(),
@@ -63,9 +60,7 @@ export default function Localify() {
                             </Typography> }
                 />
 
-                <CardContent>
-                    <Mapbox />
-                </CardContent>
+               
                 
             </Card>
             
@@ -73,6 +68,12 @@ export default function Localify() {
 }
 
 /*
+
+ <CardContent>
+                    <Mapbox />
+                </CardContent>
+
+
 <CardHeader
                     disableTypography
                     avatar={ <Avatar src={ `https://listingslab.com/wp-content/uploads/2021/05/logo192.png`} /> }

@@ -3,13 +3,17 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux' 
 import {
     makeStyles,
+    Avatar,
     Card,
     CardHeader,
     CardContent,
 } from '@material-ui/core/'
-import { Icon } from '../theme'
+// import { Icon } from '../theme'
 import { 
 	getIndividualById,
+	getDeviceStr, 
+	getLocationStr,
+	getFlagSrc,
 } from '../redux/individuals/actions'
 
 const useStyles = makeStyles(theme => ({
@@ -28,21 +32,24 @@ export default function IndividualSelected( props ) {
  	const {
  		selected,
  	} = individualsSlice
-
  	if ( !selected ) return null
+ 	let individual = getIndividualById( selected )
+ 	if ( !individual ) return null
 
 	return	<Card className={ clsx( classes.individuals ) }>
 				<CardHeader 
-					avatar={ <Icon icon={ `individual` } color={ `primary` } /> }
-					title={ selected }
-					// subheader={  }
-					// action={ <Icon icon={ `close` } color={ `primary` } /> }
+					avatar={ <Avatar src={ getFlagSrc( individual ) } /> }
+					title={ getLocationStr( individual ) }
+					subheader={ getDeviceStr( individual ) }
 				/>
 				<CardContent>
-
-					<pre>
-						{ JSON.stringify( getIndividualById( selected ), null, 2 ) }
-					</pre>
+					
 				</CardContent>
 			</Card>
 }
+
+/*
+<pre>
+						{ JSON.stringify( getIndividualById( selected ), null, 2 ) }
+					</pre>
+*/

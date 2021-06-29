@@ -44,11 +44,11 @@ export default function App() {
               </Grid>
               
               
-              <Grid item xs={ 12 } sm={ 6 } >
+              <Grid item xs={ 12 } sm={ 4 } >
                 <Individuals />
               </Grid>
 
-              { !selected ? null : <Grid item xs={ 12 } sm={ 6 } >
+              { !selected ? null : <Grid item xs={ 12 } sm={ 8 } >
                 <IndividualSelected />
               </Grid>}
 

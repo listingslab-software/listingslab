@@ -5,6 +5,16 @@ export const error = createAction(`APP/ERROR`)
 export const path = createAction(`APP/PATH`)
 export const debug = createAction(`APP/DEBUG`)
 
+
+export const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: `smooth`
+    })
+    return true
+}
+
+
 export const toggleDebug = debug => { 
 	const store = getStore()
 	store.dispatch({type: `APP/DEBUG`, debug})

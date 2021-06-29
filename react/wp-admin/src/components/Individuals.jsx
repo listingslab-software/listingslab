@@ -12,13 +12,14 @@ import {
     Avatar,
     ListItemAvatar,
 } from '@material-ui/core/'
-import { Icon } from '../theme'
+// import { Icon } from '../theme'
 import { 
 	subscribe, 
 	getDeviceStr, 
 	getLocationStr,
 	getFlagSrc,
 	setSelected,
+	selectDefault,
 } from '../redux/individuals/actions'
 
 const useStyles = makeStyles(theme => ({
@@ -39,8 +40,16 @@ export default function Individuals( props ) {
 		const {
 			subscribing,
 			subscribed,
+			selected,
+			defaultSelected,
+			individuals,
 		} = individualsSlice
 		if (!subscribing && !subscribed) subscribe()
+		if (individuals.length){
+			if ( !selected && !defaultSelected){
+				selectDefault (individuals[0].id)
+			}
+		}
 	}, [ individualsSlice ])
 
  	let subheader = `loading...`
@@ -51,7 +60,7 @@ export default function Individuals( props ) {
 
 	return	<Card className={ clsx( classes.individuals ) }>
 				<CardHeader 
-					avatar={ <Icon icon={ `individuals` } color={ `primary` } /> }
+					// avatar={ <Icon icon={ `individuals` } color={ `primary` } /> }
 					title={ `Individuals` }
 					subheader={ subheader }
 					// action={ <Icon icon={ `close` } color={ `primary` } /> }

@@ -1,11 +1,21 @@
 import { createAction } from '@reduxjs/toolkit'
 import { getStore, getFStore } from '../../'
+import { scrollToTop } from '../app/actions'
 
 export const error = createAction(`INDIVIDUALS/ERROR`)
 export const individuals = createAction(`INDIVIDUALS`)
 export const subscribing = createAction(`INDIVIDUALS/SUBSCRIBING`)
 export const subscribed = createAction(`INDIVIDUALS/SUBSCRIBED`)
 export const selected = createAction(`INDIVIDUALS/SELECTED`)
+export const defaultSelected = createAction(`INDIVIDUALS/SELECTED/DEFAULT`)
+
+export const selectDefault = selected => {
+    const store = getStore()
+    store.dispatch({ type: `INDIVIDUALS/SELECTED/DEFAULT`, defaultSelected: true })
+    store.dispatch({ type: `INDIVIDUALS/SELECTED`, selected })
+    return true
+}
+
 
 export const getFlagSrc = individual => {
     const assetsDir = getStore().getState().host.wpData.assetsDir
@@ -25,6 +35,7 @@ export const getIndividualById = id => {
 }
 
 export const setSelected = selected => { 
+    scrollToTop()
     const store = getStore()
     store.dispatch({ type: `INDIVIDUALS/SELECTED`, selected })
     return true
