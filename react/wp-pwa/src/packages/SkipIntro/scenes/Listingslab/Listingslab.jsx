@@ -15,9 +15,9 @@ import {
 } from '../../redux/actions'
 import { openFeedback } from '../../../../redux/app/actions'
 import Blokey from './jsxSVG/Blokey'
-// import { 
-//     PWAData,
-// } from '../../../../components'
+import { 
+    RecentPosts,
+} from '../../../../components'
 import {
     Localify,
 } from '../../../../packages'
@@ -96,10 +96,18 @@ export default function Myslogan() {
                     }}>
                     
 
+                    <div id={`recentPosts`}
+                        style={{
+                            position: 'absolute',
+                            zIndex: 400,
+                        }}>
+                        <RecentPosts />
+                    </div>
+
                     <div id={`localify`}
                         style={{
                             position: 'absolute',
-                            zIndex: 200,
+                            zIndex: 300,
                         }}>
                         <Localify />
                     </div>

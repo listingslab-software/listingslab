@@ -5,6 +5,7 @@ import { wordpressReducer, wordpressSlice } from './wordpress/reducer'
 import { skipIntroReducer, skipIntroSlice } from '../packages'
 import { localifyReducer, localifySlice } from '../packages'
 import { mapboxReducer, mapboxSlice } from './mapbox/reducer'
+import { hostReducer, hostSlice } from './host/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
@@ -13,6 +14,7 @@ const reduxStore = () => {
     skipIntro: skipIntroReducer,
     localify: localifyReducer,
     mapbox: mapboxReducer,
+    host: hostReducer,
   })
 
   const preloadedState = {
@@ -21,6 +23,7 @@ const reduxStore = () => {
     skipIntro: skipIntroSlice,
     localify: localifySlice,
     mapbox: mapboxSlice,
+    host: hostSlice,
   }
   
   const middleware = [

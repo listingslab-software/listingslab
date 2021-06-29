@@ -5,6 +5,7 @@ import Mapbox from './Mapbox'
 import SystemError from './SystemError'
 import PWAData from './PWAData'
 import PWANav from './PWANav'
+import RecentPosts from './RecentPosts'
 
 export {
 	Overlay,
@@ -14,4 +15,5 @@ export {
 	SystemError,
 	PWAData,
 	PWANav,
+	RecentPosts,
 }

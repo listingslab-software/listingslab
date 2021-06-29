@@ -4,7 +4,7 @@ import {
 } from "./actions"
 
 let wpData = {
-  assetsDir: `daslkd`,
+  assetsDir: ``,
 }
 
 if ( window.wpData ) wpData = window.wpData 

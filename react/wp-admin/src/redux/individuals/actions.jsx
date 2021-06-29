@@ -16,7 +16,6 @@ export const selectDefault = selected => {
     return true
 }
 
-
 export const getFlagSrc = individual => {
     const assetsDir = getStore().getState().host.wpData.assetsDir
     const {

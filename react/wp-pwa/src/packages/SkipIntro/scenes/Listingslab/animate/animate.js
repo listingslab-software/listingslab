@@ -4,7 +4,7 @@ import {
 } from 'gsap'
 import { getStore } from '../../../../../'
 
-const duration = 0.8
+const duration = 1
 
 
 const delayedStart = (div, callback) => {
@@ -28,9 +28,18 @@ const init = (div, callback) => {
     gsap.set(`#localify`, {
         opacity: 0,
     })
+
+    gsap.set(`#recentPosts`, {
+        opacity: 0,
+    })
 }
 
 const fadeTitle = (div, callback) => {
+    gsap.to(`#recentPosts`, {
+        duration,
+        ease: Power1.easeIn,
+        opacity: 1,
+    })
     gsap.to(`#localify`, {
         duration,
         ease: Power1.easeIn,
@@ -63,6 +72,11 @@ const reset = () => {
         y: topOffset,
         x: w - w/3,
         width: w/3,
+    })
+    gsap.set(`#recentPosts`, {
+        x: 0,
+        y: topOffset,
+        width: ((w/3) * 2) + 8,
     })
 }
 

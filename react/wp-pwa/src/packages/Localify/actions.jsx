@@ -14,6 +14,32 @@ export const ting = createAction(`LOCALIFY/TING`)
 export const id = createAction(`LOCALIFY/ID`)
 export const individual = createAction(`LOCALIFY`)
 
+export const getBrowserSrc = individual => {
+    const {
+        browserName
+    } = individual
+    if ( !browserName ) return false
+    return `/svg/thirdParty/listingslab.svg`
+}
+
+export const getDeviceSrc = individual => {
+    const {
+        device
+    } = individual
+    if ( !device ) return false
+    if ( device === `desktop` ) return `/svg/listingslab/ironavirus.svg` 
+    return `/svg/device/iphone.svg`
+}
+
+export const getFlagSrc = individual => {
+    const assetsDir = getStore().getState().wordpress.pwaData.assetsDir
+    const {
+        countryCode2
+    } = individual
+    if ( !countryCode2 ) return ``
+    return `${assetsDir}/svg/flag/${ countryCode2.toLowerCase() }.svg`
+}
+
 export const initLocalify = () => {
     const store = getStore()
     store.dispatch({ type: `LOCALIFY/INITTING`, initting: true })
@@ -158,21 +184,6 @@ export const updateTing = (key, value) => {
     return true
 }
 
-export const throwError = error => {
-    const store = getStore()
-    store.dispatch({type: `APP/ERROR`, error })
-    return false
-}
-
-export const getDeviceSrc = individual => {
-    const {
-        device
-    } = individual
-    if ( !device ) return false
-    if ( device === `desktop` ) return `/svg/listingslab/ironavirus.svg` 
-    return `/svg/device/iphone.svg`
-}
-
 export const getLocationStr = individual => {
     let fingerprint = individual.individual
     if ( !fingerprint ) return false
@@ -182,14 +193,6 @@ export const getLocationStr = individual => {
         district,
     } = individual
     return `${ district }, ${ city !== district ? `${city},` : `` } ${ countryName }`
-}
-
-export const getFlagSrc = individual => {
-    const {
-        countryCode2
-    } = individual
-    if ( !countryCode2 ) return ``
-    return `/svg/flags/${ countryCode2.toLowerCase() }.svg`
 }
 
 export const getDeviceStr = individual => { 
@@ -204,10 +207,8 @@ export const getDeviceStr = individual => {
     return deviceStr
 }
 
-export const getBrowserSrc = individual => {
-    const {
-        browserName
-    } = individual
-    if ( !browserName ) return false
-    return `/svg/thirdParty/listingslab.svg`
+export const throwError = error => {
+    const store = getStore()
+    store.dispatch({type: `APP/ERROR`, error })
+    return false
 }

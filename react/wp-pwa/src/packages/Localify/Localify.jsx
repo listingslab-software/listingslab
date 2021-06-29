@@ -3,17 +3,18 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    // Avatar,
+    Avatar,
     Card,
     CardHeader,
-    // CardContent,
     Typography,
 } from '@material-ui/core/'
 import {
-    // getFlagSrc,
+    getFlagSrc,
     getDeviceStr,
     getLocationStr,
+    getBrowserSrc,
 } from './actions'
+
 // import { Mapbox } from '../../components'
 
 const useStyles = makeStyles( theme => ({
@@ -43,6 +44,7 @@ export default function Localify() {
                 
                 <CardHeader
                     disableTypography
+                    avatar={ <Avatar src={ getBrowserSrc( individual ) } /> }
                     title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
                                 Who are you?
                            </Typography> }
@@ -52,6 +54,7 @@ export default function Localify() {
                 />
                 <CardHeader
                     disableTypography
+                    avatar={ <Avatar src={ getFlagSrc( individual ) } /> }
                     title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
                                 & where do you come from?
                             </Typography> }
@@ -59,26 +62,7 @@ export default function Localify() {
                                  { getLocationStr ( individual )}
                             </Typography> }
                 />
-
-               
-                
             </Card>
             
            </div>        
 }
-
-/*
-
- <CardContent>
-                    <Mapbox />
-                </CardContent>
-
-
-<CardHeader
-                    disableTypography
-                    avatar={ <Avatar src={ `https://listingslab.com/wp-content/uploads/2021/05/logo192.png`} /> }
-                    title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
-                                @localify
-                            </Typography> }
-                />
-*/

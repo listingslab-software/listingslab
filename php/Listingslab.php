@@ -10,10 +10,9 @@ if( ! defined( 'LISTINGSLAB' ) ) {
         private $listingslab_screen; 
 
         public function InitPlugin(){
-          // add_filter('show_admin_bar', '__return_false');
           add_action('admin_menu', array( $this, 'AdminMenu' ));
           add_action( 'wp_body_open', array( $this, 'RenderPWA' ));
-          // add_action( 'admin_notices', array( $this, 'plugin_activation' ) ) ;
+          add_action( 'admin_notices', array( $this, 'plugin_activation' ) ) ;
         } 
 
         public function plugin_deactivation() {
@@ -101,9 +100,7 @@ if( ! defined( 'LISTINGSLAB' ) ) {
 
         public function RenderPWA(){
                 $plugins_url = plugins_url();
-                $pwaData = array();
-                $pwaPost = array();
-                
+                $pwaData = array();                
                 $fields = array(
                   'name', 
                   'description',
@@ -121,20 +118,21 @@ if( ! defined( 'LISTINGSLAB' ) ) {
 
                 $pwaData[ 'logo' ] = $customLogo;
                 $pwaData[ 'assetsDir' ] = $plugins_url . '/listingslab/php/assets';
-                $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
-
                 $pwaData[ 'isAdmin' ] = is_admin_bar_showing();
 
-                $pwaData[ 'type' ] = 'default';
-                if (!is_home()){
-                  $pwaData[ 'type' ] = 'home';
-                  $pwaPost = get_post(get_option('page_on_front'));
-                }
-                $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
+                // $pwaPost = array();
+                // $pwaData[ 'type' ] = 'default';
+                // if (!is_home()){
+                //   $pwaData[ 'type' ] = 'home';
+                //   $pwaPost = get_post(get_option('page_on_front'));
+                // }
+                // $pwaData[ 'post' ] = $pwaPost;
+
+                // $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
                 $pwaData[ 'primaryColor' ] = '#421c5d';
                 $pwaData[ 'secondaryColor' ] = '#ccd31f';
-                $pwaData[ 'post' ] = $pwaPost;
-
+                
+                $pwaData[ 'recentPosts' ] = $pwaPost;
           ?>
           <div class="pwa">
             <script>
