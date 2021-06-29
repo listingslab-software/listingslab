@@ -55,7 +55,7 @@ export default function Host( props ) {
 									color={ `secondary` }
 									onClick={ ( e ) => {
 										e.preventDefault()
-										console.log ('navigate to _self')
+										window.open (`/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_self`)
 									}}>
 									<Avatar src={ avatarSrc } className={ clsx( classes.avatar ) } />
 								</IconButton>

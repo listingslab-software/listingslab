@@ -6,12 +6,20 @@ import {
     Card,
     CardHeader,
     CardContent,
-    Typography,
+    
     List,
     ListItem,
+    ListItemText,
+    Avatar,
+    ListItemAvatar,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
-import { subscribe } from '../redux/individuals/actions'
+import { 
+	subscribe, 
+	getDeviceStr, 
+	getLocationStr,
+	getFlagSrc,
+} from '../redux/individuals/actions'
 
 const useStyles = makeStyles(theme => ({
 	individuals:{
@@ -54,10 +62,19 @@ export default function Individuals( props ) {
 							const {
 								id
 							} = item
-							return <ListItem button key={ `individual_${i}` }>
-										<Typography>
-											{ id }
-										</Typography>
+							return <ListItem button key={ `individual_${i}` }
+										onClick={ ( e ) => {
+											e.preventDefault()
+											console.log('selected', id)
+										}}>
+										<ListItemAvatar>
+											<Avatar src={ getFlagSrc( item ) } />
+										</ListItemAvatar>
+										<ListItemText 
+											primary={ getLocationStr(item) }
+											secondary={ getDeviceStr( item ) }
+										/>
+										
 									</ListItem>
 						})}
 					</List>
