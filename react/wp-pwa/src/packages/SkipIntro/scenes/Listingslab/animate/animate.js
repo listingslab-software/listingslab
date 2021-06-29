@@ -25,13 +25,13 @@ const init = (div, callback) => {
     gsap.set(`#headline`, {
         opacity: 0,
     })
-    gsap.set(`#pwaData`, {
+    gsap.set(`#localify`, {
         opacity: 0,
     })
 }
 
 const fadeTitle = (div, callback) => {
-    gsap.to(`#pwaData`, {
+    gsap.to(`#localify`, {
         duration,
         ease: Power1.easeIn,
         opacity: 1,
@@ -57,9 +57,9 @@ const reset = () => {
 
     gsap.set(`#headline`, {
         x: w/2 - 100,
-        y: h/2 - 30,
+        y: h/2,
     })
-    gsap.set(`#pwaData`, {
+    gsap.set(`#localify`, {
         x: 0,
         y: topOffset,
     })

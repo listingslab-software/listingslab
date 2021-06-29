@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Avatar,
+    // Avatar,
     Card,
     CardHeader,
     CardContent,
@@ -20,9 +20,11 @@ import { Mapbox } from '../../components'
 
 const useStyles = makeStyles( theme => ({
     localify:{
+        width: 500,
     },
     card: {
         margin: theme.spacing(),
+        background: 'white',
     },
     htags:{
         fontWeight: 'lighter',
@@ -41,13 +43,7 @@ export default function Localify() {
     return <div className={ clsx( classes.localify ) }>
             
             <Card className={ clsx( classes.card ) }>
-                <CardHeader
-                    disableTypography
-                    avatar={ <Avatar src={ `https://listingslab.com/wp-content/uploads/2021/05/logo192.png`} /> }
-                    title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
-                                @localify
-                            </Typography> }
-                />
+                
                 <CardHeader
                     disableTypography
                     title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
@@ -75,3 +71,13 @@ export default function Localify() {
             
            </div>        
 }
+
+/*
+<CardHeader
+                    disableTypography
+                    avatar={ <Avatar src={ `https://listingslab.com/wp-content/uploads/2021/05/logo192.png`} /> }
+                    title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
+                                @localify
+                            </Typography> }
+                />
+*/

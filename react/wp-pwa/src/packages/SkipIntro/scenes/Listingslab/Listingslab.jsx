@@ -11,16 +11,18 @@ import {
 } from './'
 import { 
     initAnimation,
-    resetAnimation, 
-    
+    resetAnimation,
 } from '../../redux/actions'
 import { openFeedback } from '../../../../redux/app/actions'
-// import { toggleSkipIntroOpen } from '../../../../packages'
-
 import Blokey from './jsxSVG/Blokey'
-import { 
-    PWAData,
-} from '../../../../components'
+// import { 
+//     PWAData,
+// } from '../../../../components'
+import {
+    Localify,
+} from '../../../../packages'
+
+
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
@@ -94,12 +96,12 @@ export default function Myslogan() {
                     }}>
                     
 
-                    <div id={`pwaData`}
+                    <div id={`localify`}
                         style={{
                             position: 'absolute',
                             zIndex: 200,
                         }}>
-                        <PWAData />
+                        <Localify />
                     </div>
 
                     <div id={`headline`}
