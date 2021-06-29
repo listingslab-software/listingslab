@@ -27,6 +27,57 @@ export const subscribe = () => {
 	    })
 }
 
+
+export const getDeviceSrc = individual => {
+    const {
+        device
+    } = individual
+    if ( !device ) return false
+    if ( device === `desktop` ) return `/svg/listingslab/ironavirus.svg` 
+    return `/svg/device/iphone.svg`
+}
+
+export const getLocationStr = individual => {
+    let fingerprint = individual.individual
+    if ( !fingerprint ) return false
+    const {
+        countryName,
+        city,
+        district,
+    } = individual
+    return `${ district }, ${ city !== district ? `${city},` : `` } ${ countryName }`
+}
+
+export const getFlagSrc = individual => {
+    const {
+        countryCode2
+    } = individual
+    if ( !countryCode2 ) return ``
+    return `/svg/flags/${ countryCode2.toLowerCase() }.svg`
+}
+
+export const getDeviceStr = individual => { 
+    if ( !individual ) return false
+    const {
+        osName,
+        device,
+        browserName,
+        browserMajor,
+    } = individual
+    let deviceStr = `${ osName } ${browserName} ${browserMajor} ${ device }`
+    return deviceStr
+}
+
+export const getBrowserSrc = individual => {
+    const {
+        browserName
+    } = individual
+    if ( !browserName ) return false
+    return `/svg/thirdParty/listingslab.svg`
+}
+
+
+
 export const throwError = error => { 
 	const store = getStore()
 	store.dispatch({type: `INDIVIDUALS/ERROR`, error})
