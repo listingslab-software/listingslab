@@ -6,17 +6,19 @@ import {
     Card,
     CardHeader,
     CardContent,
-    // Typography,
+    Typography,
+    List,
+    ListItem,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 import { subscribe } from '../redux/individuals/actions'
 
 const useStyles = makeStyles(theme => ({
-	debugger:{
-		margin: theme.spacing(),
-		border: '1px solid rgba(0,0,0,0.25)',
+	individuals:{
+		// margin: theme.spacing(),
+		// border: '1px solid rgba(0,0,0,0.25)',
 		boxShadow: 'none',
-		borderRadius: 'none',
+		borderRadius: 0,
 	},
 }))
 
@@ -33,16 +35,13 @@ export default function Individuals( props ) {
 		if (!subscribing && !subscribed) subscribe()
 	}, [ individualsSlice ])
 
-
  	let subheader = `loading...`
  	const {
  		individuals,
  	} = individualsSlice
  	if ( individuals.length ) subheader = `Total: ${individuals.length}`
 
-	// console.log ('individualsSlice', individualsSlice)
-
-	return	<Card className={ clsx( classes.debugger ) }>
+	return	<Card className={ clsx( classes.individuals ) }>
 				<CardHeader 
 					avatar={ <Icon icon={ `account` } color={ `primary` } /> }
 					title={ `Individuals` }
@@ -50,11 +49,25 @@ export default function Individuals( props ) {
 					action={ <Icon icon={ `close` } color={ `primary` } /> }
 				/>
 				<CardContent>
-					
-					
+					<List dense>
+						{ individuals.map ( (item, i) => {
+							const {
+								id
+							} = item
+							return <ListItem button key={ `individual_${i}` }>
+										<Typography>
+											{ id }
+										</Typography>
+									</ListItem>
+						})}
+					</List>
 				</CardContent>
 			</Card>
 }
+
+
+
+
 
 /*
 <pre>
