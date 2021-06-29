@@ -31,14 +31,15 @@ export default function App() {
   return <MuiThemeProvider theme={createMuiTheme(theme)}>
             <Grid container>
               
+              <Grid item xs={ 12 } >
+                <Host />
+              </Grid>
 
               <Grid item xs={ 12 } sm={ 6 } >
                 <Individuals />
               </Grid>
 
-              <Grid item xs={ 12 } sm={ 6 } >
-                <Host />
-              </Grid>
+              
 
            </Grid>
          </MuiThemeProvider> 

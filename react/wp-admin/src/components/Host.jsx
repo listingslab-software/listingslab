@@ -13,14 +13,13 @@ import {
 
 const useStyles = makeStyles(theme => ({
 	host:{
-		margin: theme.spacing(),
-		border: '1px solid rgba(0,0,0,0.25)',
+		// margin: theme.spacing(),
+		border: 'none',
 		boxShadow: 'none',
-		borderRadius: 'none',
+		borderRadius: 0,
+		// background: 'rgba(0,0,0,0.015)',
 	},
 	avatar: {
-		// height: 100,
-		// width: 100,
 	},
 }))
 
