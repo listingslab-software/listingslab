@@ -31,10 +31,6 @@ export default function IndividualSelected( props ) {
 
  	if ( !selected ) return null
 
- 	let individual = {
- 		caskjf:!23
- 	}
-
 	return	<Card className={ clsx( classes.individuals ) }>
 				<CardHeader 
 					avatar={ <Icon icon={ `individual` } color={ `primary` } /> }

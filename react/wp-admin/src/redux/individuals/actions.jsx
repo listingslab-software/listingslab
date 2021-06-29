@@ -7,6 +7,14 @@ export const subscribing = createAction(`INDIVIDUALS/SUBSCRIBING`)
 export const subscribed = createAction(`INDIVIDUALS/SUBSCRIBED`)
 export const selected = createAction(`INDIVIDUALS/SELECTED`)
 
+export const getFlagSrc = individual => {
+    const assetsDir = getStore().getState().host.wpData.assetsDir
+    const {
+        countryCode2
+    } = individual
+    if ( !countryCode2 ) return ``
+    return `${assetsDir}/svg/flags/${ countryCode2.toLowerCase() }.svg`
+}
 
 export const getIndividualById = id => { 
     const individuals = getStore().getState().individuals.individuals
@@ -43,7 +51,6 @@ export const subscribe = () => {
 	    })
 }
 
-
 export const getDeviceSrc = individual => {
     const {
         device
@@ -64,13 +71,7 @@ export const getLocationStr = individual => {
     return `${ district }, ${ city !== district ? `${city},` : `` } ${ countryName }`
 }
 
-export const getFlagSrc = individual => {
-    const {
-        countryCode2
-    } = individual
-    if ( !countryCode2 ) return ``
-    return `/svg/flags/${ countryCode2.toLowerCase() }.svg`
-}
+
 
 export const getDeviceStr = individual => { 
     if ( !individual ) return false
