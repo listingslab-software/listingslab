@@ -6,7 +6,6 @@ import {
     Card,
     CardHeader,
     CardContent,
-    
     List,
     ListItem,
     ListItemText,
@@ -19,6 +18,7 @@ import {
 	getDeviceStr, 
 	getLocationStr,
 	getFlagSrc,
+	setSelected,
 } from '../redux/individuals/actions'
 
 const useStyles = makeStyles(theme => ({
@@ -51,10 +51,10 @@ export default function Individuals( props ) {
 
 	return	<Card className={ clsx( classes.individuals ) }>
 				<CardHeader 
-					avatar={ <Icon icon={ `account` } color={ `primary` } /> }
+					avatar={ <Icon icon={ `individuals` } color={ `primary` } /> }
 					title={ `Individuals` }
 					subheader={ subheader }
-					action={ <Icon icon={ `close` } color={ `primary` } /> }
+					// action={ <Icon icon={ `close` } color={ `primary` } /> }
 				/>
 				<CardContent>
 					<List dense>
@@ -65,7 +65,7 @@ export default function Individuals( props ) {
 							return <ListItem button key={ `individual_${i}` }
 										onClick={ ( e ) => {
 											e.preventDefault()
-											console.log('selected', id)
+											setSelected( id )
 										}}>
 										<ListItemAvatar>
 											<Avatar src={ getFlagSrc( item ) } />

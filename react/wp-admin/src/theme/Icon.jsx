@@ -162,6 +162,12 @@ class Icon extends Component {
             case `social`:
                 return (<IconSocial color={iconColor} />)
 
+            case `individuals`:
+                return (<IconSocial color={iconColor} />)
+
+            case `individual`:
+                return (<IconUser color={iconColor} />)
+
             case `gdpr`:
                 return (<IconGDPR color={iconColor} />)
 
