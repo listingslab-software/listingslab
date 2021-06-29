@@ -3,18 +3,21 @@ import { combineReducers } from 'redux'
 import { appReducer, appSlice } from './app/reducer'
 import { apiReducer, apiSlice } from './api/reducer'
 import { hostReducer, hostSlice } from './host/reducer'
+import { individualsReducer, individualsSlice } from './individuals/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
     app: appReducer,
     api: apiReducer,
     host: hostReducer,
+    individuals: individualsReducer,
   })
 
   const preloadedState = {
     app: appSlice,
     api: apiSlice,
     host: hostSlice,
+    individuals: individualsSlice,
   }
   
   const middleware = [

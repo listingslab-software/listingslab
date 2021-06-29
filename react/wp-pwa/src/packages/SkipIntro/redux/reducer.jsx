@@ -11,7 +11,7 @@ import {
 } from "./actions"
 
 export const skipIntroSlice = {
-  open: true,
+  open: false,
   initted: false,
   error: null,
   reset: false,
