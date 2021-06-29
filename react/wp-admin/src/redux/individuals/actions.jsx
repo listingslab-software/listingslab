@@ -5,6 +5,22 @@ export const error = createAction(`INDIVIDUALS/ERROR`)
 export const individuals = createAction(`INDIVIDUALS`)
 export const subscribing = createAction(`INDIVIDUALS/SUBSCRIBING`)
 export const subscribed = createAction(`INDIVIDUALS/SUBSCRIBED`)
+export const selected = createAction(`INDIVIDUALS/SELECTED`)
+
+
+export const getIndividualById = id => { 
+    const individuals = getStore().getState().individuals.individuals
+    for ( let i = 0; i < individuals.length; i++ ){
+        if ( individuals[i].id === id ) return individuals[i]
+    }
+    return false
+}
+
+export const setSelected = selected => { 
+    const store = getStore()
+    store.dispatch({ type: `INDIVIDUALS/SELECTED`, selected })
+    return true
+}
 
 export const subscribe = () => { 
 	const store = getStore()
