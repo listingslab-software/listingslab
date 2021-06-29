@@ -78,6 +78,7 @@ if( ! defined( 'LISTINGSLAB' ) ) {
                     $wpData[$field] = get_bloginfo($field);
                 }
                 $wpData[ 'avatar' ] = get_site_icon_url();
+                $wpData[ 'assetsDir' ] = $wpData[ 'url' ] . '/wp-content/plugins' . $plugins_url . '/listingslab/php/assets';
                 echo '<script>';
                 echo 'var wpData = ' . json_encode( $wpData ) . ';';
                 echo '</script>';
@@ -129,11 +130,7 @@ if( ! defined( 'LISTINGSLAB' ) ) {
                   $pwaData[ 'type' ] = 'home';
                   $pwaPost = get_post(get_option('page_on_front'));
                 }
-                
-                
                 $pwaData[ 'image' ] = $pwaData[ 'assetsDir' ] . '/jpg/cardMedia.jpg';
-                
-
                 $pwaData[ 'primaryColor' ] = '#421c5d';
                 $pwaData[ 'secondaryColor' ] = '#ccd31f';
                 $pwaData[ 'post' ] = $pwaPost;
