@@ -47,7 +47,7 @@ export default function SystemError() {
   } = appSlice
   if ( !error ) return null
 
-  const [rawError, setRawError] = React.useState( false )
+  const [rawError, setRawError] = React.useState( true )
 
   return <div className={ classes.systemError } >
             <Alert 
