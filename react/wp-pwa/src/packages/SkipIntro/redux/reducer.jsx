@@ -7,11 +7,10 @@ import {
   posts,
   postsLoading,
   postsLoaded,
-
 } from "./actions"
 
 export const skipIntroSlice = {
-  open: false,
+  open: true,
   initted: false,
   error: null,
   reset: false,

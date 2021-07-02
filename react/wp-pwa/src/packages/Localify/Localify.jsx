@@ -6,7 +6,6 @@ import {
     Avatar,
     Card,
     CardHeader,
-    Typography,
 } from '@material-ui/core/'
 import {
     getFlagSrc,
@@ -22,7 +21,9 @@ const useStyles = makeStyles( theme => ({
     },
     card: {
         margin: theme.spacing(),
-        background: 'white',
+        background: 'none',
+        borderRadius: 0,
+        boxShadow: 'none',
     },
     htags:{
         fontWeight: 'lighter',
@@ -39,30 +40,17 @@ export default function Localify() {
     if (!individual) return null
 
     return <div className={ clsx( classes.localify ) }>
-            
             <Card className={ clsx( classes.card ) }>
-                
-                <CardHeader
-                    disableTypography
-                    avatar={ <Avatar src={ getBrowserSrc( individual ) } /> }
-                    title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
-                                Who are you?
-                           </Typography> }
-                    subheader={ <Typography variant={ `body1` }>
-                                 { getDeviceStr( individual ) }
-                            </Typography> }
+                 <CardHeader
+                    action={ <Avatar src={ getBrowserSrc( individual ) } /> }
+                    title={ `Who are you?`  }
+                    subheader={ getDeviceStr( individual ) }
                 />
                 <CardHeader
-                    disableTypography
-                    avatar={ <Avatar src={ getFlagSrc( individual ) } /> }
-                    title={ <Typography variant={ `h6` } className={ clsx( classes.htags ) }>
-                                & where do you come from?
-                            </Typography> }
-                    subheader={ <Typography variant={ `body1` }>
-                                 { getLocationStr ( individual )}
-                            </Typography> }
+                    action={ <Avatar src={ getFlagSrc( individual ) } /> }
+                    title={ `& where do you come from?` }
+                    subheader={ getLocationStr ( individual ) }
                 />
             </Card>
-            
            </div>        
 }

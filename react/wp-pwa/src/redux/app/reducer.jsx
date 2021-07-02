@@ -5,6 +5,7 @@ import {
   client,
   feedback,
   error,
+  isMobile,
 } from "./actions"
 
 export const appSlice = {
@@ -13,9 +14,15 @@ export const appSlice = {
   overlay: false,
   client: null,
   feedback: null,
+  isMobile: document.documentElement.clientWidth < 500 ? true : false,
 }
 
 const appReducer = createReducer( appSlice, {
+  
+  [isMobile]: (state, action) => {
+    state.isMobile = action.isMobile
+    return state
+  },
   
   [error]: (state, action) => {
     state.error = action.error

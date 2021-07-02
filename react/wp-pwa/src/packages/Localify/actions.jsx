@@ -15,13 +15,19 @@ export const id = createAction(`LOCALIFY/ID`)
 export const individual = createAction(`LOCALIFY`)
 
 export const getBrowserSrc = individual => {
-    // console.log ('getBrowserSrc', individual )
     const assetsDir = getStore().getState().wordpress.pwaData.assetsDir
     const {
         browserName
     } = individual
     if ( !browserName ) return false
-    return `${assetsDir}/svg/browser/chrome.svg`
+    let b = `unknown`
+
+    if ( browserName.toLowerCase().indexOf( `chrome` ) !== -1 ) b = `chrome`
+    if ( browserName.toLowerCase().indexOf( `edge` ) !== -1 ) b = `edge`
+    if ( browserName.toLowerCase().indexOf( `firefox` ) !== -1 ) b = `firefox`
+    if ( browserName.toLowerCase().indexOf( `safari` ) !== -1 ) b = `safari`
+
+    return `${assetsDir}/svg/browser/${b}.svg`
 }
 
 export const getDeviceSrc = individual => {

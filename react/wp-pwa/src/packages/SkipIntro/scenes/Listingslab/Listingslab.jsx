@@ -5,6 +5,7 @@ import {
     makeStyles,
     useTheme,
     Typography,
+    LinearProgress,
 } from '@material-ui/core/'
 import { 
     animate,
@@ -16,13 +17,12 @@ import {
 import { openFeedback } from '../../../../redux/app/actions'
 import Blokey from './jsxSVG/Blokey'
 import { 
-    RecentPosts,
+    SiteHeader,
+    Sidebar,
 } from '../../../../components'
 import {
     Localify,
 } from '../../../../packages'
-
-
 
 const useStyles = makeStyles( theme => ({
     skipIntro: {
@@ -94,30 +94,39 @@ export default function Myslogan() {
                         minWidth: w,
                         height: h,
                     }}>
-                    
+                    <div id={`progress`}
+                        style={{
+                            position: 'absolute',
+                            zIndex: 600,
+                            width: '100%',
+                        }}>
+                        <LinearProgress />
+                    </div>
 
-                    <div id={`recentPosts`}
+                    <div id={`siteHeader`}
+                        style={{
+                            position: 'absolute',
+                            zIndex: 500,
+                        }}>
+                        <SiteHeader />
+                        <Localify />
+                    </div>
+
+                    <div id={`sidebar`}
                         style={{
                             position: 'absolute',
                             zIndex: 400,
                         }}>
-                        <RecentPosts />
+                        <Sidebar />
                     </div>
 
-                    <div id={`localify`}
-                        style={{
-                            position: 'absolute',
-                            zIndex: 300,
-                        }}>
-                        <Localify />
-                    </div>
-
-                    <div id={`headline`}
+                   
+                    <div id={`logo`}
                         style={{
                             height: 65,
                             width: 350,
                             position: 'absolute',
-                            zIndex: 200,
+                            zIndex: 80,
 
                         }}>
                             <Typography variant={ `h4` } style={{
@@ -126,7 +135,7 @@ export default function Myslogan() {
                                         fontWeight: 'lighter',
                                         height: 59,
                                         position: 'absolute',
-                                        zIndex: 300,
+                                        zIndex: 60,
                                     }}>
                                 @listingslab
                             </Typography>
@@ -138,8 +147,10 @@ export default function Myslogan() {
                                         width: 36,
                                         height: 36,
                                         position: 'absolute',
-                                        zIndex: 400,
+                                        zIndex: 50,
                                     }} />
+
+                            
                     </div>
                </div>
 }

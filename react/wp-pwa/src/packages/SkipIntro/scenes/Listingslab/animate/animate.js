@@ -4,11 +4,49 @@ import {
 } from 'gsap'
 import { getStore } from '../../../../../'
 
-const duration = 1
+const duration = 0.66
 
+const reset = () => {
+    const w = document.documentElement.clientWidth
+    const h = document.documentElement.clientHeight
+    const isAdmin = getStore().getState().wordpress.pwaData.isAdmin
+    const isMobile = getStore().getState().app.isMobile   
+    let topOffset = 0
+    if ( isAdmin ){
+        topOffset = 34
+        if ( w < 781 ){
+            topOffset = 44
+        }
+    }
+    gsap.set(`#progress`, {
+        y: topOffset,
+    })
+    gsap.set(`#logo`, {
+        x: w/2 - 100,
+        y: h/2 - topOffset - 25,
+    })
+    if (!isMobile){
+        gsap.set(`#siteHeader`, {
+            x: 0,
+            y: topOffset,
+            width: ((w/3) * 2) + 8,
+        })
+        gsap.set(`#sidebar`, {
+            y: topOffset,
+            x: w - w/3,
+            width: w/3,
+        })
+    } else {
+        gsap.set(`#siteHeader`, {
+            y: topOffset,
+            width: '100%',
+            // border: '1px solid green',
+        })
+    }
+}
 
 const delayedStart = (div, callback) => {
-    gsap.to(`#headline`, {
+    gsap.to(`#logo`, {
         duration: duration,
         ease: Power1.easeIn,
         opacity: 1,
@@ -17,66 +55,37 @@ const delayedStart = (div, callback) => {
 
 const init = (div, callback) => {
     reset()
-    gsap.to(`#listingslab`, {
-        duration: 5,
-        onComplete: callback,
+    gsap.set(`#logo`, {
+        opacity: 0,
+    })
+    gsap.set(`#siteHeader`, {
+        opacity: 0,
+    })
+    gsap.set(`#sidebar`, {
+        opacity: 0,
     })
     gsap.delayedCall( 0.5, delayedStart, [div, callback])
-    gsap.set(`#headline`, {
-        opacity: 0,
-    })
-    gsap.set(`#localify`, {
-        opacity: 0,
-    })
-
-    gsap.set(`#recentPosts`, {
-        opacity: 0,
-    })
 }
 
 const fadeTitle = (div, callback) => {
-    gsap.to(`#recentPosts`, {
+    gsap.to(`#siteHeader`, {
         duration,
         ease: Power1.easeIn,
         opacity: 1,
     })
-    gsap.to(`#localify`, {
-        duration,
-        ease: Power1.easeIn,
-        opacity: 1,
-    })
-    gsap.to(`#headline`, {
+    const isMobile = getStore().getState().app.isMobile  
+    if (!isMobile){
+        gsap.to(`#sidebar`, {
+            opacity: 1,
+        })
+    }
+    gsap.to(`#logo`, {
         duration,
         opacity: 0,
     })
-}
-
-const reset = () => {
-    const w = document.documentElement.clientWidth
-    const h = document.documentElement.clientHeight
-    const isAdmin = getStore().getState().wordpress.pwaData.isAdmin
-    let topOffset = 0
-
-    if ( isAdmin ){
-        topOffset = 30
-        if ( w < 781 ){
-            topOffset = 44
-        }
-    }
-
-    gsap.set(`#headline`, {
-        x: w/2 - 100,
-        y: h/2,
-    })
-    gsap.set(`#localify`, {
-        y: topOffset,
-        x: w - w/3,
-        width: w/3,
-    })
-    gsap.set(`#recentPosts`, {
-        x: 0,
-        y: topOffset,
-        width: ((w/3) * 2) + 8,
+    gsap.to(`#progress`, {
+        duration,
+        opacity: 0,
     })
 }
 

@@ -7,6 +7,13 @@ export const open = createAction(`APP/OPEN`)
 export const overlay = createAction(`APP/OVERLAY`) 
 export const client = createAction(`APP/CLIENT`) 
 export const feedback = createAction(`APP/FEEDBACK`) 
+export const isMobile = createAction(`APP/MOBILE`) 
+
+export const toggleIsMobile = isMobile => {
+	const store = getStore()
+	store.dispatch({type: `APP/MOBILE`, isMobile })
+	return true
+}
 
 export const openFeedback = feedback => {
 	const store = getStore()

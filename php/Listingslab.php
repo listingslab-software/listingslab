@@ -1,7 +1,7 @@
 <?php
 
 if( ! defined( 'LISTINGSLAB' ) ) {
-  define( 'LISTINGSLAB', '14.2.1' );
+  define( 'LISTINGSLAB', '14.2.9' );
 }
 
   class Listingslab {
@@ -12,7 +12,7 @@ if( ! defined( 'LISTINGSLAB' ) ) {
         public function InitPlugin(){
           add_action('admin_menu', array( $this, 'AdminMenu' ));
           add_action( 'wp_body_open', array( $this, 'RenderPWA' ));
-          add_action( 'admin_notices', array( $this, 'plugin_activation' ) ) ;
+          // add_action( 'admin_notices', array( $this, 'plugin_activation' ) ) ;
         } 
 
         public function plugin_deactivation() {
@@ -117,6 +117,8 @@ if( ! defined( 'LISTINGSLAB' ) ) {
                 }
 
                 $pwaData[ 'logo' ] = $customLogo;
+                // $pwaData[ 'logo' ] = 'http://localhost:8888/wp-content/uploads/2021/01/wei-zang.jpeg';
+
                 $pwaData[ 'assetsDir' ] = $plugins_url . '/listingslab/php/assets';
                 $pwaData[ 'isAdmin' ] = is_admin_bar_showing();
 

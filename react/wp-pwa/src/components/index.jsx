@@ -5,7 +5,8 @@ import Mapbox from './Mapbox'
 import SystemError from './SystemError'
 import PWAData from './PWAData'
 import PWANav from './PWANav'
-import RecentPosts from './RecentPosts'
+import SiteHeader from './SiteHeader'
+import Sidebar from './Sidebar'
 
 export {
 	Overlay,
@@ -15,5 +16,6 @@ export {
 	SystemError,
 	PWAData,
 	PWANav,
-	RecentPosts,
+	SiteHeader,
+	Sidebar,
 }

@@ -7,9 +7,11 @@ import App from './App'
 import { createBrowserHistory } from 'history'
 import { Provider } from 'react-redux'
 import reduxStore from './redux'
-import { setClient } from './redux/app/actions'
+import { 
+    setClient, 
+    toggleIsMobile 
+} from './redux/app/actions'
 import { resetAnimation } from './packages/SkipIntro/redux/actions'
-
 
 console.log( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
 
@@ -37,6 +39,8 @@ const addEvent = function(object, type, callback) {
 addEvent(window, `resize`, function( event ) {
   setClient()
   resetAnimation( true )
+  // set mobile
+  toggleIsMobile ( document.documentElement.clientWidth < 500 ? true : false )
 })
 
 const fBase = firebase.initializeApp(fireConfig)
