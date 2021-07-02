@@ -1,8 +1,11 @@
 // https://material-ui.com/components/material-icons/
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import Blokey from './jsx/Blokey'
-import WordPress from './jsx/WordPress'
+
+import Account from './svgIcon/Account'
+import Blokey from './svgIcon/Blokey'
+import WordPress from './svgIcon/WordPress'
+
 import IconGithub from '@material-ui/icons/GitHub'
 import IconToolKit from '@material-ui/icons/Extension'
 import IconPlugins from '@material-ui/icons/Extension'
@@ -11,7 +14,6 @@ import IconDocs from '@material-ui/icons/Description'
 import IconSend from '@material-ui/icons/Send'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import IconRestart from '@material-ui/icons/SettingsBackupRestore'
-import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
 import IconDownload from '@material-ui/icons/GetApp'
 import IconAddBold from '@material-ui/icons/AddBox'

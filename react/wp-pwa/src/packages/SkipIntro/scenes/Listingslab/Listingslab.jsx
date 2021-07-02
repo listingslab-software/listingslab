@@ -15,10 +15,14 @@ import {
     resetAnimation,
 } from '../../redux/actions'
 import { openFeedback } from '../../../../redux/app/actions'
-import Blokey from './jsxSVG/Blokey'
+import { 
+    // SVGTimeMachine,
+    Blokey,
+} from'./'
 import { 
     SiteHeader,
     Sidebar,
+    SidebarBtn,
 } from '../../../../components'
 import {
     Localify,
@@ -88,6 +92,8 @@ export default function Myslogan() {
         }
     }, [ skipIntroSlice ])
 
+    const { isMobile } = appSlice
+
     return <div id={`listingslab`} className={ clsx( classes.skipIntro) }
                     style={{ 
                         overflow: 'hidden',
@@ -97,11 +103,13 @@ export default function Myslogan() {
                     <div id={`progress`}
                         style={{
                             position: 'absolute',
-                            zIndex: 600,
+                            zIndex: 10000,
                             width: '100%',
                         }}>
                         <LinearProgress />
                     </div>
+
+                    
 
                     <div id={`siteHeader`}
                         style={{
@@ -110,6 +118,16 @@ export default function Myslogan() {
                         }}>
                         <SiteHeader />
                         <Localify />
+                    </div>
+
+                    <div id={`sidebarBtn`}
+                        style={{
+                            position: 'absolute',
+                            zIndex: 450,
+                            right: 50,
+                            bottom: 8,
+                        }}>
+                        { isMobile ? <SidebarBtn /> : null }
                     </div>
 
                     <div id={`sidebar`}

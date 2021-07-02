@@ -7,6 +7,7 @@ import PWAData from './PWAData'
 import PWANav from './PWANav'
 import SiteHeader from './SiteHeader'
 import Sidebar from './Sidebar'
+import SidebarBtn from './SidebarBtn'
 
 export {
 	Overlay,
@@ -18,4 +19,5 @@ export {
 	PWANav,
 	SiteHeader,
 	Sidebar,
+	SidebarBtn,
 }
