@@ -3,14 +3,20 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    useTheme,
     Dialog,
-    Typography,
 } from '@material-ui/core/'
 import { 
-    Blokey,
+    Branding,
 } from'./'
-
+import {
+  setClient,
+} from '../redux/app/actions'
+import {
+  animationInitted,
+} from '../redux/layout/actions'
+import {
+  animateLayout,
+} from './'
 const useStyles = makeStyles(( theme ) => ({
   layout: {
   },
@@ -22,31 +28,39 @@ const useStyles = makeStyles(( theme ) => ({
 export default function Layout() {
   
   const classes = useStyles()
-  const theme = useTheme()
   const appSlice = useSelector(state => state.app)
   const layoutSlice = useSelector(state => state.layout)
   const {
     isMobile,
   } = appSlice
 
+  React.useEffect(() => {
+    const { 
+        initted,
+    } = layoutSlice        
+    if ( !initted ){ 
+        animateLayout(
+          `setup`, 
+          `#layout`, 
+          () => {
+            // console.log ('Finished time out.')
+          }, 
+          { 
+             spriteW: 250, 
+             spriteH: 60,
+          },
+          3,
+        )
+        animationInitted( true )
+    }
+  }, [ layoutSlice ])
 
   React.useEffect(() => {
-        const { 
-            initted,
-            reset,
-        } = layoutSlice        
-        if ( !initted ){ 
-            // animate(`init`, `#listingslab`, () => {
-            //     // console.log ('DAMN.')
-            // })
-            // initAnimation( true )
-            console.log ('initted', initted)
-        }
-        if (reset) {
-            // animate( `reset`, `#listingslab` )
-            // resetAnimation ( false )
-        }
-    }, [ layoutSlice ])
+      const { 
+          client,
+      } = appSlice
+      if (!client) setClient ()        
+  }, [ appSlice ])
 
   return <Dialog 
            className={ clsx( classes.layout) } 
@@ -54,42 +68,12 @@ export default function Layout() {
            fullScreen
            onClose={ (e) => {
              e.preventDefault()
-             console.log ( 'close dialog')
-           }}
-         >
-         <div className={ clsx( classes.isMobile ) }>
-           { `isMobile ${isMobile.toString() }` }
-         </div>
-
-         <div id={`logo`}
-              style={{
-                  height: 65,
-                  width: 350,
-                  position: 'absolute',
-                  zIndex: 80,
-              }}>
-                  <Typography variant={ `h4` } style={{
-                              width: 301,
-                              left: 49,
-                              fontWeight: 'lighter',
-                              height: 59,
-                              position: 'absolute',
-                              zIndex: 60,
-                          }}>
-                      @listingslab
-                  </Typography>
-
-                  <Blokey id={`blokey`} 
-                          color= { theme.palette.secondary.main }
-                          style={{
-                              left: 0,
-                              width: 40,
-                              height: 40,
-                              position: 'absolute',
-                              zIndex: 50,
-                          }} />
-                  
-          </div>
-
+             console.log ( 'close dialog', isMobile)
+           }}>
+           
+           <div id={ `layout` }>
+             <Branding />
+           </div>
+           
         </Dialog>
 }

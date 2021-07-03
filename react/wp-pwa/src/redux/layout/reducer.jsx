@@ -2,21 +2,15 @@ import { createReducer } from '@reduxjs/toolkit'
 import {
   error,
   initted,
-  reset,
 } from "./actions"
 
 export const layoutSlice = {
-  initted: false,
   error: null,
+  initted: false,
   reset: false,
 }
 
 const layoutReducer = createReducer( layoutSlice, {
-
-  [reset]: (state, action) => {
-    state.reset = action.reset
-    return state
-  },
 
   [initted]: (state, action) => {
     state.initted = action.initted
