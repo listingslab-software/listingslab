@@ -11,7 +11,7 @@ import {
     setClient, 
     toggleIsMobile 
 } from './redux/app/actions'
-import { resetAnimation } from './packages/SkipIntro/redux/actions'
+// import { resetAnimation } from './packages/SkipIntro/redux/actions'
 
 console.log( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
 
@@ -38,8 +38,7 @@ const addEvent = function(object, type, callback) {
 
 addEvent(window, `resize`, function( event ) {
   setClient()
-  resetAnimation( true )
-  // set mobile
+  // resetAnimation( true )
   toggleIsMobile ( document.documentElement.clientWidth < 500 ? true : false )
 })
 
@@ -60,5 +59,5 @@ ReactDOM.render(
 	<Provider store={store}>
 		<App />
 	</Provider>, 
-	document.getElementById( 'pwa' )
+	document.getElementById( 'wp-pwa' )
 )

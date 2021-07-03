@@ -15,16 +15,16 @@ import {
 } from './redux/app/actions'
 import {
   Overlay,
-  PWAMenu,
+  // PWAMenu,
   Feedback,
   SystemError,
 } from './components'
+// import {
+//     initLocalify,
+// } from './packages/Localify/actions'
 import {
-  SkipIntro,
-} from './packages'
-import {
-    initLocalify,
-} from './packages/Localify/actions'
+  Layout,
+} from './theme'
 
 const useStyles = makeStyles((theme) => ({
   appWrap: {
@@ -36,15 +36,15 @@ export default function App() {
 
     const classes = useStyles() 
     const appSlice = useSelector(state => state.app)
-    const localifySlice = useSelector(state => state.localify) 
+    // const localifySlice = useSelector(state => state.localify) 
 
-    React.useEffect(() => {
-        const {
-            initted,
-            initting,
-        } = localifySlice
-        if (!initted && !initting) initLocalify()
-    }, [ localifySlice ]) 
+    // React.useEffect(() => {
+    //     const {
+    //         initted,
+    //         initting,
+    //     } = localifySlice
+    //     if (!initted && !initting) initLocalify()
+    // }, [ localifySlice ]) 
     
     React.useEffect(() => {
         const { client } = appSlice
@@ -60,10 +60,14 @@ export default function App() {
               <div className={ clsx( classes.appWrap ) }>
                 { error ? <SystemError /> : 
                   <React.Fragment>
-                    <PWAMenu />
-                    <SkipIntro />
-                  </React.Fragment>
-                }
+                    <Layout />
+                  </React.Fragment> }
               </div>
             </MuiThemeProvider> 
 }
+
+
+
+/*
+  <PWAMenu />
+*/

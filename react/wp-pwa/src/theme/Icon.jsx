@@ -1,4 +1,3 @@
-// https://material-ui.com/components/material-icons/
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -209,7 +208,6 @@ class Icon extends Component {
             case `oldskool`:
                 return (<IconOldskool color={iconColor} />) 
 
-
             case `share`:
                 return (<IconShare color={iconColor} />) 
 
@@ -342,7 +340,6 @@ class Icon extends Component {
             case `message`:
                 return (<IconMessage color={iconColor} />)
 
-
             case `start`:
                 return (<IconStart color={iconColor} />)    
 
@@ -359,8 +356,7 @@ class Icon extends Component {
                 return (<IconMail color={iconColor} />)
 
             case `restart`:
-                return (<IconRestart color={iconColor} />)
-                
+                return (<IconRestart color={iconColor} />)                
 
             case `docs`:
                 return (<IconDocs color={iconColor} />)
@@ -373,7 +369,6 @@ class Icon extends Component {
 
             case `download`:
                 return (<IconDownload color={iconColor} />)
-
 
             default: {
                 return (<IconDefault color={iconColor} />)

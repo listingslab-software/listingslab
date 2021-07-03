@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import {
     withStyles,
     useTheme,
@@ -13,7 +13,7 @@ import {
 import { 
   Icon,
 } from '../theme'
-import { toggleSkipIntroOpen } from '../packages'
+// import { toggleSkipIntroOpen } from '../packages'
 import {
   navigateTo,
   // openFeedback,
@@ -62,10 +62,11 @@ export default function PWAMenu() {
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
   const primaryColor = theme.palette.primary.main
-  const skipIntroSlice = useSelector(state => state.skipIntro)
-  const {
-    open,
-  } = skipIntroSlice
+  // const skipIntroSlice = useSelector(state => state.skipIntro)
+  // const {
+  //   open,
+  // } = skipIntroSlice
+  const open = true
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -90,7 +91,7 @@ export default function PWAMenu() {
           }}
           onClick={ ( e ) => {
             e.preventDefault()
-            toggleSkipIntroOpen( false )
+            // toggleSkipIntroOpen( false )
           } }>
           <Badge badgeContent={ null } color={ `secondary` }>
             <Icon icon={ `wordpress` } color={ primaryColor } />
@@ -128,7 +129,7 @@ export default function PWAMenu() {
 
       { open ? <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            toggleSkipIntroOpen( false )
+            // toggleSkipIntroOpen( false )
             handleClose()
           }}>
             <ListItemIcon>
@@ -141,7 +142,7 @@ export default function PWAMenu() {
 
           <StyledMenuItem onClick={(e) => {
             e.preventDefault()
-            toggleSkipIntroOpen( true )
+            // toggleSkipIntroOpen( true )
             handleClose()
           }}>
             <ListItemIcon>
