@@ -5,6 +5,8 @@ import Layout from './Layout'
 import Blokey from './svgIcon/Blokey'
 
 import Branding from './layers/Branding'
+import TimeMachine from './layers/TimeMachine'
+import SVGTimeMachine from './jsxSVG/SVGTimeMachine'
 
 import { animateLayout } from './animate/animateLayout'
 
@@ -16,4 +18,6 @@ export {
 	Blokey,
 	animateLayout,
 	Branding,
+	TimeMachine,
+	SVGTimeMachine,
 }

@@ -11,7 +11,7 @@ import {
     setClient, 
     toggleIsMobile 
 } from './redux/app/actions'
-// import { resetAnimation } from './packages/SkipIntro/redux/actions'
+import { animationRestart } from './redux/layout/actions'
 
 console.log( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
 
@@ -38,7 +38,7 @@ const addEvent = function(object, type, callback) {
 
 addEvent(window, `resize`, function( event ) {
   setClient()
-  // resetAnimation( true )
+  animationRestart( true )
   toggleIsMobile ( document.documentElement.clientWidth < 500 ? true : false )
 })
 

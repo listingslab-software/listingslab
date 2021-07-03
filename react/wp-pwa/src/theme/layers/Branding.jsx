@@ -22,8 +22,8 @@ export default function Branding() {
 
   return <div id={`branding`}
               style={{
-                  height: 60,
-                  width: 250,
+                  height: 55,
+                  width: 240,
                   position: 'absolute',
                   zIndex: 100,
                   opacity: 0,
