@@ -11,6 +11,7 @@ import {
 } from'./'
 import {
   setClient,
+  togglePwaOpen,
 } from '../redux/app/actions'
 import {
   animationInitted,
@@ -34,33 +35,37 @@ export default function Layout() {
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
   const layoutSlice = useSelector(state => state.layout)
+  const { pwaOpen } = appSlice
 
   React.useEffect(() => {
-    const { 
+    const { pwaOpen } = appSlice
+
+    if (pwaOpen){
+      const { 
         initted,
         restartAnimation,
-    } = layoutSlice     
-
-
-    if ( !initted || restartAnimation ){ 
-        animateLayout(
-          `setup`, 
-          `#layout`,  
-          { 
-             brandingW: 240, 
-             brandingH: 55,
-             timeMachineW: 254,
-             timeMachineH: 326,
-          },
-          3,
-          () => {
-            // console.log ('Finished Time out()')
-          },
-        )
-        animationInitted( true )
-        animationRestart( false )
+      } = layoutSlice     
+      if ( !initted || restartAnimation ){ 
+          animateLayout(
+            `setup`, 
+            `#layout`,  
+            { 
+               brandingW: 240, 
+               brandingH: 55,
+               timeMachineW: 254,
+               timeMachineH: 326,
+            },
+            3,
+            () => {
+              // console.log ('Finished Time out()')
+            },
+          )
+          animationInitted( true )
+          animationRestart( false )
+      }
     }
-  }, [ layoutSlice ])
+    
+  }, [ layoutSlice, appSlice ])
 
   React.useEffect(() => {
       const { 
@@ -68,14 +73,14 @@ export default function Layout() {
       } = appSlice
       if (!client) setClient ()        
   }, [ appSlice ])
-
+  
   return <Dialog 
            className={ clsx( classes.layout) } 
-           open
+           open={ pwaOpen }
            fullScreen
            onClose={ (e) => {
              e.preventDefault()
-             // console.log ( 'close dialog', isMobile)
+             togglePwaOpen( false )
            }}>
            <div id={ `layout` }>
              <Branding />

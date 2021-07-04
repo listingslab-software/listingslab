@@ -3,7 +3,7 @@ import {
 	getStore,
 } from '../../'
 export const error = createAction(`APP/ERROR`) 
-export const open = createAction(`APP/OPEN`) 
+export const pwaOpen = createAction(`APP/OPEN/PWA`) 
 export const overlay = createAction(`APP/OVERLAY`) 
 export const client = createAction(`APP/CLIENT`) 
 export const feedback = createAction(`APP/FEEDBACK`) 
@@ -45,9 +45,9 @@ export const navigateTo = ( url, target ) => {
 	return true
 }
 
-export const toggleOpen = open => {
+export const togglePwaOpen = pwaOpen => {
 	const store = getStore()
-	store.dispatch({type: `APP/OPEN`, open })
+	store.dispatch({type: `APP/OPEN/PWA`, pwaOpen })
 	return true
 }
 

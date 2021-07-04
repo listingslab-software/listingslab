@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
 import {
-  open,
+  pwaOpen,
   overlay,
   client,
   feedback,
@@ -10,7 +10,7 @@ import {
 
 export const appSlice = {
   error: null,
-  open: false,
+  pwaOpen: true,
   overlay: false,
   client: null,
   feedback: null,
@@ -39,8 +39,8 @@ const appReducer = createReducer( appSlice, {
     return state
   },
   
-  [open]: (state, action) => {
-    state.open = action.open
+  [pwaOpen]: (state, action) => {
+    state.pwaOpen = action.pwaOpen
     return state
   },
 
