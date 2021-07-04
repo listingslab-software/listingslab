@@ -9,6 +9,10 @@ const setup = ( div, size, timeout, callback ) => {
     gsap.delayedCall( 1, step1, [ div, size, timeout, callback ])
 }
 
+const step3 = ( div, size, timeout, callback ) => {
+    // console.log( 'step3', size)
+}
+
 const step2 = ( div, size, timeout, callback ) => {
     const client = getStore().getState().app.client
     const { w, h } = client
@@ -28,6 +32,9 @@ const step2 = ( div, size, timeout, callback ) => {
         x: w/2 - timeMachineW/2 - 36,
         y: h/2 - timeMachineH/2 ,
         scale: 0.33,
+        onComplete: () => {
+            gsap.delayedCall( 1, step3, [ div, size, timeout, callback ])
+        },
     })
 }
 

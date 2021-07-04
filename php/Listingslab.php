@@ -1,9 +1,5 @@
 <?php
 
-if( ! defined( 'LISTINGSLAB' ) ) {
-  define( 'LISTINGSLAB', '14.2.9' );
-}
-
   class Listingslab {
     
         private static $instance;
@@ -90,7 +86,7 @@ if( ! defined( 'LISTINGSLAB' ) ) {
               ?>
 
           <div class="admin-footer">
-            <a href="https://github.com/orgs/listingslab-software/projects/14?fullscreen=true&card_filter_query=label%3A%40listingslab" target="_blank" style="width: 25px; height: 25px;">
+            <a href="https://github.com/orgs/listingslab-software/istingslab" target="_blank" style="width: 25px; height: 25px;">
               <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/png/github.png'); ?>" />
             </a>
           </div>
