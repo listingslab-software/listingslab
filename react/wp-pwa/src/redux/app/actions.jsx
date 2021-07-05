@@ -3,11 +3,18 @@ import {
 	getStore,
 } from '../../'
 export const error = createAction(`APP/ERROR`) 
+export const terminalOpen = createAction(`APP/OPEN/TERMINAL`) 
 export const pwaOpen = createAction(`APP/OPEN/PWA`) 
 export const overlay = createAction(`APP/OVERLAY`) 
 export const client = createAction(`APP/CLIENT`) 
 export const feedback = createAction(`APP/FEEDBACK`) 
 export const isMobile = createAction(`APP/MOBILE`) 
+
+export const toggleTerminalOpen = terminalOpen => {
+	const store = getStore()
+	store.dispatch({type: `APP/OPEN/TERMINAL`, terminalOpen })
+	return true
+}
 
 export const toggleIsMobile = isMobile => {
 	const store = getStore()

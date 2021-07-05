@@ -24,6 +24,7 @@ import {
 // } from './packages/Localify/actions'
 import {
   Layout,
+  Terminal,
 } from './theme'
 
 const useStyles = makeStyles((theme) => ({
@@ -51,17 +52,20 @@ export default function App() {
         if ( !client ) setClient ()
     }, [ appSlice ])
 
-    const { error } = appSlice
+    const { 
+      error,
+      terminalOpen,
+    } = appSlice
+
+
 
     return <MuiThemeProvider theme={ createMuiTheme(theme) }>
               <CssBaseline />
               <Feedback />
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
-                { error ? <SystemError /> : 
-                  <React.Fragment>
-                    <Layout />
-                  </React.Fragment> }
+                { error ? <SystemError /> : null }
+                { terminalOpen ? <Terminal /> : <Layout /> }
               </div>
             </MuiThemeProvider> 
 }

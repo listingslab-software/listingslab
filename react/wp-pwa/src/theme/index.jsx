@@ -2,8 +2,9 @@ import { theme } from './theme'
 import Icon from './Icon'
 import IconWordPress from './svgIcon/IconWordPress'
 import Layout from './Layout'
-import Blokey from './svgIcon/Blokey'
+import Terminal from './Terminal'
 
+import Blokey from './svgIcon/Blokey'
 import Branding from './layers/Branding'
 import TimeMachine from './layers/TimeMachine'
 import SVGTimeMachine from './jsxSVG/SVGTimeMachine'
@@ -20,4 +21,5 @@ export {
 	Branding,
 	TimeMachine,
 	SVGTimeMachine,
+	Terminal,
 }

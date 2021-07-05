@@ -1,16 +1,18 @@
 import { createReducer } from '@reduxjs/toolkit'
 import {
+  error,
   pwaOpen,
+  terminalOpen,
   overlay,
   client,
   feedback,
-  error,
   isMobile,
 } from "./actions"
 
 export const appSlice = {
   error: null,
   pwaOpen: true,
+  terminalOpen: false,
   overlay: false,
   client: null,
   feedback: null,
@@ -18,6 +20,11 @@ export const appSlice = {
 }
 
 const appReducer = createReducer( appSlice, {
+  
+  [terminalOpen]: (state, action) => {
+    state.terminalOpen = action.terminalOpen
+    return state
+  },
   
   [isMobile]: (state, action) => {
     state.isMobile = action.isMobile
