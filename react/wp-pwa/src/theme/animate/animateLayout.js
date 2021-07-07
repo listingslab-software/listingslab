@@ -1,10 +1,11 @@
-import { togglePwaOpen } from '../../redux/app/actions'
 import { 
     gsap,
     Power1,
 } from 'gsap'
 import { getStore } from '../../'
-const duration = 1
+// import { togglePwaOpen } from '../../redux/app/actions'
+
+const duration = 0.75
 
 const setup = ( div, size, timeout, callback ) => {
     gsap.delayedCall( 1, step1, [ div, size, timeout, callback ])
@@ -12,7 +13,14 @@ const setup = ( div, size, timeout, callback ) => {
 
 const step3 = ( div, size, timeout, callback ) => {
     // console.log( 'step3', size)
-    togglePwaOpen( false )
+    // togglePwaOpen( false )
+    // const client = getStore().getState().app.client
+    // const { w, h } = client
+    gsap.to(`#localify`, {
+        duration: duration *2,
+        ease: Power1.easeOut,
+        y: 50,
+    })
 }
 
 const step2 = ( div, size, timeout, callback ) => {
@@ -64,6 +72,14 @@ const step1 = ( div, size, timeout, callback ) => {
         rotation: 15,
         opacity: 1,
     })
+
+    gsap.set(`#localify`, {
+        x: w/2 - 160,
+        y: h,
+        opacity: 1,
+    })
+
+
     gsap.to(`#branding`, {
         opacity: 1,
         onComplete: () => {

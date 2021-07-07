@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux' 
-import {
-  firstRunAPI,
-} from './redux/api/actions'
+// import {
+//   firstRunAPI,
+// } from './redux/api/actions'
 import {
   theme, 
 } from './theme'
@@ -20,14 +20,14 @@ import {
 
 export default function App() { 
 
-	const apiSlice = useSelector( state => state.api )
-  React.useEffect(() => {
-    const {
-      fetching,
-      fetched,
-    } = apiSlice
-    if (!fetching && !fetched) firstRunAPI()
-  }, [apiSlice])
+  // const apiSlice = useSelector( state => state.api )
+ //  React.useEffect(() => {
+ //    const {
+ //      fetching,
+ //      fetched,
+ //    } = apiSlice
+ //    if (!fetching && !fetched) firstRunAPI()
+ //  }, [apiSlice])
 
   const individualsSlice = useSelector(state => state.individuals)
   const { selected } = individualsSlice

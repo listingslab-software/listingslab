@@ -8,6 +8,7 @@ import {
 import { 
     Branding,
     TimeMachine,
+    Localify,
 } from'./'
 import {
   setClient,
@@ -85,6 +86,7 @@ export default function Layout() {
            <div id={ `layout` }>
              <Branding />
              <TimeMachine />
+             <Localify />
            </div>
         </Dialog>
 }

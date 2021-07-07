@@ -52,11 +52,13 @@ export default function Individuals( props ) {
 		}
 	}, [ individualsSlice ])
 
- 	let subheader = `loading...`
+ 	let subheader = ``
  	const {
  		individuals,
  	} = individualsSlice
  	if ( individuals.length ) subheader = `Total: ${individuals.length}`
+
+ 	if ( !individuals.length ) return null
 
 	return	<Card className={ clsx( classes.individuals ) }>
 				<CardHeader 

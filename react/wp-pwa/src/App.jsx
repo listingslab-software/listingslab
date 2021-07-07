@@ -19,9 +19,9 @@ import {
   Feedback,
   SystemError,
 } from './components'
-// import {
-//     initLocalify,
-// } from './packages/Localify/actions'
+import {
+    initLocalify,
+} from './redux/localify/actions'
 import {
   Layout,
   Terminal,
@@ -37,15 +37,16 @@ export default function App() {
 
     const classes = useStyles() 
     const appSlice = useSelector(state => state.app)
-    // const localifySlice = useSelector(state => state.localify) 
+    const localifySlice = useSelector(state => state.localify) 
 
-    // React.useEffect(() => {
-    //     const {
-    //         initted,
-    //         initting,
-    //     } = localifySlice
-    //     if (!initted && !initting) initLocalify()
-    // }, [ localifySlice ]) 
+    React.useEffect(() => {
+        const {
+            initted,
+            initting,
+        } = localifySlice
+        if (!initted && !initting) initLocalify()
+        // console.log ( 'localifySlice', localifySlice )
+    }, [ localifySlice ]) 
     
     React.useEffect(() => {
         const { client } = appSlice
