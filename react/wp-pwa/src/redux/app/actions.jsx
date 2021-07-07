@@ -10,6 +10,12 @@ export const client = createAction(`APP/CLIENT`)
 export const feedback = createAction(`APP/FEEDBACK`) 
 export const isMobile = createAction(`APP/MOBILE`) 
 
+export const togglePwaOpen = pwaOpen => {
+	const store = getStore()
+	store.dispatch({type: `APP/OPEN/PWA`, pwaOpen })
+	return true
+}
+
 export const toggleTerminalOpen = terminalOpen => {
 	const store = getStore()
 	store.dispatch({type: `APP/OPEN/TERMINAL`, terminalOpen })
@@ -49,12 +55,6 @@ export const navigateTo = ( url, target ) => {
 	if ( target === `_self`){
 		toggleOverlay( true )
 	}
-	return true
-}
-
-export const togglePwaOpen = pwaOpen => {
-	const store = getStore()
-	store.dispatch({type: `APP/OPEN/PWA`, pwaOpen })
 	return true
 }
 

@@ -1,3 +1,4 @@
+import { togglePwaOpen } from '../../redux/app/actions'
 import { 
     gsap,
     Power1,
@@ -11,6 +12,7 @@ const setup = ( div, size, timeout, callback ) => {
 
 const step3 = ( div, size, timeout, callback ) => {
     // console.log( 'step3', size)
+    togglePwaOpen( false )
 }
 
 const step2 = ( div, size, timeout, callback ) => {
