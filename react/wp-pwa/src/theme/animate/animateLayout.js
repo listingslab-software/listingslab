@@ -5,47 +5,28 @@ import {
 import { getStore } from '../../'
 // import { togglePwaOpen } from '../../redux/app/actions'
 
-const duration = 0.75
+const duration = 1
 
 const setup = ( div, size, timeout, callback ) => {
     gsap.delayedCall( 1, step1, [ div, size, timeout, callback ])
 }
 
-const step3 = ( div, size, timeout, callback ) => {
-    // console.log( 'step3', size)
-    // togglePwaOpen( false )
-    // const client = getStore().getState().app.client
-    // const { w, h } = client
-    gsap.to(`#localify`, {
-        duration: duration *2,
-        ease: Power1.easeOut,
-        y: 50,
-    })
-}
-
 const step2 = ( div, size, timeout, callback ) => {
-    const client = getStore().getState().app.client
-    const { w, h } = client
-    const {
-        timeMachineW,
-        timeMachineH, 
-    } = size
     gsap.to(`#branding`, {
-        duration: duration,
+        duration,
         ease: Power1.easeOut,
         opacity: 0,
-    })
-    gsap.to(`#timeMachine`, {
-        duration: duration * 2,
-        ease: Power1.easeOut, 
-        rotation: 0,
-        x: w/2 - timeMachineW/2 - 36,
-        y: h/2 - timeMachineH/2 ,
-        scale: 0.33,
         onComplete: () => {
-            gsap.delayedCall( 1, step3, [ div, size, timeout, callback ])
+            console.log ( 'DONE' )
+            // gsap.delayedCall( 1, step3, [ div, size, timeout, callback ])
         },
     })
+     gsap.to(`#localify`, {
+        duration,
+        ease: Power1.easeOut,
+        opacity: 1,
+    })
+
 }
 
 const step1 = ( div, size, timeout, callback ) => {
@@ -72,20 +53,26 @@ const step1 = ( div, size, timeout, callback ) => {
         rotation: 15,
         opacity: 1,
     })
-
-    gsap.set(`#localify`, {
-        x: w/2 - 160,
-        y: h,
-        opacity: 1,
+    gsap.to(`#timeMachine`, {
+        duration,
+        ease: Power1.easeOut, 
+        rotation: 0,
+        x: w/2 - timeMachineW/2 - 36,
+        y: h - timeMachineH/1.4 ,
+        scale: 0.33,
+        
     })
-
+    gsap.set(`#localify`, {
+        x: 0,
+        y: 25,
+    })
 
     gsap.to(`#branding`, {
         opacity: 1,
         onComplete: () => {
             gsap.delayedCall( 1, step2, [ div, size, timeout, callback ])
         },
-        duration: duration*0.66,
+        duration,
         ease: Power1.easeIn, 
     })
 
@@ -104,3 +91,14 @@ export const animateLayout = (animation, div, size, timeout, callback) => {
         }
     }
 }
+
+
+/*
+const step3 = ( div, size, timeout, callback ) => {
+    // console.log( 'step3', size)
+    // togglePwaOpen( false )
+    // const client = getStore().getState().app.client
+    // const { w, h } = client
+
+}
+*/

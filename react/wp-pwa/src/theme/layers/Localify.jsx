@@ -1,10 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import {
-    // useTheme,
+    makeStyles,
     Avatar,
     CardHeader,
-    // Typography,
+    CardContent,
+    Collapse,
+    IconButton,
+    Typography,
 } from '@material-ui/core/'
 import {
     getFlagSrc,
@@ -13,17 +16,28 @@ import {
     getBrowserSrc,
 } from '../../redux/localify/actions'
 
+import { Icon } from '../../theme'
+
+const useStyles = makeStyles((theme) => ({
+  isCode: {
+    // border: '1px solid red',
+    fontFamily: 'Courier',
+  },
+  actionBtn: {
+    // margin: theme.spacing(2),
+  }
+}))
+
 export default function Localify() {
   
-  // const theme = useTheme()
+  const classes = useStyles()
+  const [expanded, setExpanded] = React.useState( false )
   const appSlice = useSelector(state => state.app)
   const {
     isMobile,
   } = appSlice
   const suppress = true
-  if ( !suppress ){
-    console.log ( 'isMobile', isMobile )
-  }
+  if ( !suppress ) console.log ( 'isMobile', isMobile )
 
   const localifySlice = useSelector(state => state.localify)
   const {
@@ -32,34 +46,52 @@ export default function Localify() {
 
   return <div id={`localify`}
               style={{
-                  height: 55,
-                  width: 360,
+                  // border: '1px solid #ddd',
+                  // height: 55,
+                  // width: '100%',
                   position: 'absolute',
                   zIndex: 100,
+                  opacity: 0,
               }}>
                   { !individual ? null : <React.Fragment>
-                    <CardHeader
-                          action={ <Avatar src={ getBrowserSrc( individual ) } /> }
-                          title={ `Who are you?`  }
-                          subheader={ getDeviceStr( individual ) }
-                      />
-
+                    
                       <CardHeader
-                          action={ <Avatar src={ getFlagSrc( individual ) } /> }
-                          title={ `& where do you come from?` }
+                          action={ <div style={{ display: 'flex', }}>
+                                      <IconButton>
+                                        <Avatar src={ getFlagSrc( individual ) } />
+                                      </IconButton>
+                                      <IconButton>
+                                        <Avatar src={ getBrowserSrc( individual ) } />
+                                      </IconButton>
+                                    </div> }
+                          title={ getDeviceStr( individual ) }
                           subheader={ getLocationStr ( individual ) }
+                          avatar={ <IconButton 
+                                       className={ classes.actionBtn }
+                                       onClick={ ( e ) => {
+                                         e.preventDefault()
+                                         // console.log ('toggle collapsed')
+                                         setExpanded( !expanded )
+                                       }}>
+
+                                      <Icon icon={ `privacy` } color={ `black` } />
+                                    </IconButton>}
                       /> 
                   </React.Fragment>
               }
-
-                  
-                  
-                  
+              <Collapse in={expanded} timeout="auto" unmountOnExit>
+                  <CardContent>
+                    <Typography variant={ `h1` }>
+                      Hello
+                    </Typography>
+                    <Typography className={ classes.isCode }>
+                      { JSON.stringify( individual, null, 2 ) }
+                    </Typography>
+                  </CardContent>
+              </Collapse>
           </div>
 }
 
 /*
-<pre>
-                    { JSON.stringify( individual, null, 2 ) }
-                  </pre>
+
 */
