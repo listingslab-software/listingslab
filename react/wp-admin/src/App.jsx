@@ -36,12 +36,14 @@ export default function App() {
   //   // console.log ( 'selected', selected )
   // }, [ individualsSlice ])
 
+  const showHost = false
+
   return <MuiThemeProvider theme={createMuiTheme(theme)}>
             <Grid container>
-              
-              <Grid item xs={ 12 } >
+              { showHost ? <Grid item xs={ 12 } >
                 <Host />
-              </Grid>
+              </Grid> : null }
+              
               
               
               <Grid item xs={ 12 } sm={ 4 } >

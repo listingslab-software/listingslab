@@ -6,7 +6,7 @@ import {
 const SVGTimeMachine = props => {
 
     const theme = useTheme()
-    const primaryColor = `#5b5b5b`
+    const primaryColor = theme.palette.primary.main
     const secondaryColor = theme.palette.secondary.main
     // const { color } = props
     // let c = `black`
@@ -16,7 +16,6 @@ const SVGTimeMachine = props => {
     return <React.Fragment>
             <svg {...props} viewBox="0 0 254 326" >        
                 
-
                 <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                     <g id="Machine" transform="translate(-74.000000, -4.000000)" fillRule="nonzero">
                         <g id="machine" transform="translate(178.461223, 211.137625) rotate(-19.000000) translate(-178.461223, -211.137625) translate(44.961223, 52.137625)">

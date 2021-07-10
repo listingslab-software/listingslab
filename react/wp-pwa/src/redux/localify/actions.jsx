@@ -7,12 +7,15 @@ import {
     getStore,
 } from '../../'
 
+import { togglePwaOpen } from '../app/actions'
+
 export const error = createAction(`LOCALIFY/ERROR`)
 export const initting = createAction(`LOCALIFY/INITTING`)
 export const initted = createAction(`LOCALIFY/INITTED`)
 export const ting = createAction(`LOCALIFY/TING`)
 export const id = createAction(`LOCALIFY/ID`)
 export const individual = createAction(`LOCALIFY`)
+export const gdpr = createAction(`LOCALIFY/GDPR`)
 
 export const initLocalify = () => {
     const store = getStore()
@@ -27,6 +30,7 @@ export const initLocalify = () => {
               completeInit()
           })
         })
+
     return true
 }
 
@@ -54,10 +58,10 @@ export const getBrowserSrc = individual => {
     if ( !browserName ) return false
     let b = `unknown`
 
-    if ( browserName.toLowerCase().indexOf( `chrome` ) !== -1 ) b = `chrome`
-    if ( browserName.toLowerCase().indexOf( `edge` ) !== -1 ) b = `edge`
-    if ( browserName.toLowerCase().indexOf( `firefox` ) !== -1 ) b = `firefox`
-    if ( browserName.toLowerCase().indexOf( `safari` ) !== -1 ) b = `safari`
+    if ( browserName.toLowerCase().indexOf( `chrome` ) !== -1 ) b = `Chrome`
+    if ( browserName.toLowerCase().indexOf( `edge` ) !== -1 ) b = `Edge`
+    if ( browserName.toLowerCase().indexOf( `firefox` ) !== -1 ) b = `Firefox`
+    if ( browserName.toLowerCase().indexOf( `safari` ) !== -1 ) b = `Safari`
 
     return `${assetsDir}/svg/browser/${b}.svg`
 }
@@ -77,7 +81,7 @@ export const getFlagSrc = individual => {
         countryCode2
     } = individual
     if ( !countryCode2 ) return ``
-    return `${assetsDir}/svg/flag/${ countryCode2.toLowerCase() }.svg`
+    return `${assetsDir}/svg/flags/${ countryCode2.toLowerCase() }.svg`
 }
 
 export const updateIndividual = ( attribute, value ) => {
@@ -131,7 +135,7 @@ export const lookupIndividual = () => {
 
 export const userAgent = () => {
     const ua = parseUa()
-    updateTing(`device`, ua.device.type ? `${ ua.device.vendor } ${ua.device.model}` : `desktop` )
+    updateTing(`device`, ua.device.type ? `${ ua.device.vendor } ${ua.device.model}` : `Desktop` )
     updateTing(`osName`, ua.os.name)
     updateTing(`osVersion`, ua.os.version)
     updateTing(`browserName`, ua.browser.name)
@@ -200,19 +204,32 @@ export const getLocationStr = individual => {
         city,
         district,
     } = individual
-    return `${ district }, ${ city !== district ? `${city},` : `` } ${ countryName }`
+    return `${ city !== district ? `${city},` : `` } ${ countryName }`
+}
+
+export const getOSName = individual => { 
+    if ( !individual ) return false
+    const {
+        osName,
+    } = individual
+    return `${ osName }`
 }
 
 export const getDeviceStr = individual => { 
     if ( !individual ) return false
     const {
-        osName,
         device,
         browserName,
-        browserMajor,
     } = individual
-    let deviceStr = `${ osName } ${browserName} ${browserMajor} ${ device }`
+    let deviceStr = `${browserName} ${ device }`
     return deviceStr
+}
+
+export const acceptGDPR = gdpr => { 
+    const store = getStore()
+    store.dispatch({type: `LOCALIFY/GDPR`, gdpr })
+    togglePwaOpen( false )
+    return false
 }
 
 export const throwError = error => {

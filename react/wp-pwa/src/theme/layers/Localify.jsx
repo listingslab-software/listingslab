@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Avatar,
+    Button,
+    CardActions,
     CardHeader,
     CardContent,
     Collapse,
@@ -13,7 +15,8 @@ import {
     getFlagSrc,
     getDeviceStr,
     getLocationStr,
-    getBrowserSrc,
+    // getBrowserSrc,
+    acceptGDPR,
 } from '../../redux/localify/actions'
 
 import { Icon } from '../../theme'
@@ -22,16 +25,24 @@ const useStyles = makeStyles((theme) => ({
   isCode: {
     // border: '1px solid red',
     fontFamily: 'Courier',
+    fontSize: 10,
   },
-  actionBtn: {
-    // margin: theme.spacing(2),
+  link: {
+    color: theme.palette.primary.main,
+    textDecoration: 'none',
+    fontWeight: 'bold',
+  },
+  btnTxt:{
+    marginLeft: theme.spacing(),
+    marginRight: theme.spacing(),
   }
 }))
 
 export default function Localify() {
   
   const classes = useStyles()
-  const [expanded, setExpanded] = React.useState( false )
+  // const [expanded, setExpanded] = React.useState( false )
+  const expanded = false
   const appSlice = useSelector(state => state.app)
   const {
     isMobile,
@@ -48,50 +59,94 @@ export default function Localify() {
               style={{
                   // border: '1px solid #ddd',
                   // height: 55,
-                  // width: '100%',
+                  maxWidth: isMobile ? 350 : 1000,
                   position: 'absolute',
                   zIndex: 100,
                   opacity: 0,
               }}>
-                  { !individual ? null : <React.Fragment>
-                    
-                      <CardHeader
-                          action={ <div style={{ display: 'flex', }}>
-                                      <IconButton>
-                                        <Avatar src={ getFlagSrc( individual ) } />
-                                      </IconButton>
-                                      <IconButton>
-                                        <Avatar src={ getBrowserSrc( individual ) } />
-                                      </IconButton>
-                                    </div> }
-                          title={ getDeviceStr( individual ) }
-                          subheader={ getLocationStr ( individual ) }
-                          avatar={ <IconButton 
-                                       className={ classes.actionBtn }
-                                       onClick={ ( e ) => {
-                                         e.preventDefault()
-                                         // console.log ('toggle collapsed')
-                                         setExpanded( !expanded )
-                                       }}>
-
-                                      <Icon icon={ `privacy` } color={ `black` } />
-                                    </IconButton>}
-                      /> 
-                  </React.Fragment>
-              }
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
+              
+              
                   <CardContent>
-                    <Typography variant={ `h1` }>
+                    
+                    <Typography variant={ `h2` } gutterBottom>
                       Hello
                     </Typography>
-                    <Typography className={ classes.isCode }>
-                      { JSON.stringify( individual, null, 2 ) }
+                    
+                    <Typography variant={ `body1` } gutterBottom>
+                      This is what your web request has told us about you. 
+                      Are you OK with us storing that kind of info in a 
+                      database? We don't use cookies. 
+                      See <a className={ classes.link } href={ `/privacy` }>
+                      privacy</a> page 
+                      for more information
                     </Typography>
+
+                  { !individual ? null : <React.Fragment>
+                          <CardHeader
+                              subheader={ getDeviceStr( individual ) }
+                              title={ getLocationStr ( individual ) }
+                              avatar={ <IconButton>
+                                            <Avatar src={ getFlagSrc( individual ) } />
+                                          </IconButton>
+                                      }
+                          /> 
+                      </React.Fragment>
+                  }
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+
+                      <Typography variant={ `body2` } 
+                      className={ classes.isCode } gutterBottom>
+                        { JSON.stringify( individual, null, 2 ) }
+                      </Typography>
+
+                    </Collapse>
+                    
                   </CardContent>
-              </Collapse>
+                  
+                  <CardActions>
+                    
+                    
+                    <Button
+                      variant={ `outlined` }
+                      color={ `primary` }
+                      onClick={ ( e ) => {
+                        e.preventDefault()
+                        acceptGDPR( true )
+                      }}>
+                      
+                      <span className={ classes.btnTxt }>
+                        I'm OK with that
+                      </span>
+                      <Icon icon={ `next` } />
+                    </Button>
+
+
+                    <Button
+                       variant={ `text` }
+                       color={ `default` }
+                       onClick={ ( e ) => {
+                         e.preventDefault()
+                         acceptGDPR( false )
+                       }}>
+                       
+                       <span className={ classes.btnTxt }>
+                         Yeh, nah.
+                       </span>
+                       
+                    </Button>
+
+                  </CardActions>
+               
+
+
           </div>
 }
 
 /*
-
+action={ <div style={{ display: 'flex', }}>
+                                      
+                                      <IconButton>
+                                        <Avatar src={ getBrowserSrc( individual ) } />
+                                      </IconButton>
+                                    </div> }
 */

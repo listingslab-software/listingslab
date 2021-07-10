@@ -6,6 +6,7 @@ import {
   ting,
   id,
   individual,
+  gdpr,
 } from "./actions"
 
 export const localifySlice = {
@@ -16,10 +17,16 @@ export const localifySlice = {
   initted: false,
   id: null,
   individual: null, 
+  gdpr: false,
 }
 
 const localifyReducer = createReducer( localifySlice, {
 
+  [gdpr]: (state, action) => {
+    state.gdpr = action.gdpr
+    return state
+  },
+  
   [individual]: (state, action) => {
     state.individual = action.individual
     return state

@@ -43,13 +43,13 @@ export default function IndividualSelected( props ) {
 					subheader={ getDeviceStr( individual ) }
 				/>
 				<CardContent>
-					
+					<pre>
+						{ JSON.stringify( getIndividualById( selected ), null, 2 ) }
+					</pre>
 				</CardContent>
 			</Card>
 }
 
 /*
-<pre>
-						{ JSON.stringify( getIndividualById( selected ), null, 2 ) }
-					</pre>
+
 */

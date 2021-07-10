@@ -22,7 +22,7 @@ export const getFlagSrc = individual => {
         countryCode2
     } = individual
     if ( !countryCode2 ) return ``
-    return `${assetsDir}/svg/flag/${ countryCode2.toLowerCase() }.svg`
+    return `${assetsDir}/svg/flags/${ countryCode2.toLowerCase() }.svg`
 }
 
 export const getIndividualById = id => { 
@@ -76,9 +76,8 @@ export const getLocationStr = individual => {
     const {
         countryName,
         city,
-        district,
     } = individual
-    return `${ district }, ${ city !== district ? `${city},` : `` } ${ countryName }`
+    return `${ city }, ${ countryName }`
 }
 
 
