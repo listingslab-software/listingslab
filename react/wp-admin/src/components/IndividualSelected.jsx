@@ -12,16 +12,17 @@ import {
 import { 
 	getIndividualById,
 	getDeviceStr, 
-	getLocationStr,
+	// getLocationStr,
 	getFlagSrc,
 } from '../redux/individuals/actions'
 
 const useStyles = makeStyles(theme => ({
-	individuals:{
-		// margin: theme.spacing(),
-		// border: '1px solid rgba(0,0,0,0.25)',
+	individual:{
+		padding: theme.spacing(),
+		margin: theme.spacing(),
+		border: '1px solid rgba(255,255,255,0.75)',
+		background: 'rgba(255,255,255,0.25)',
 		boxShadow: 'none',
-		borderRadius: 0,
 	},
 }))
 
@@ -36,20 +37,21 @@ export default function IndividualSelected( props ) {
  	let individual = getIndividualById( selected )
  	if ( !individual ) return null
 
-	return	<Card className={ clsx( classes.individuals ) }>
+	return	<Card className={ clsx( classes.individual ) }>
 				<CardHeader 
 					avatar={ <Avatar src={ getFlagSrc( individual ) } /> }
-					title={ getLocationStr( individual ) }
+					title={ individual.fingerprint }
+					// title={ getLocationStr( individual ) }
 					subheader={ getDeviceStr( individual ) }
 				/>
 				<CardContent>
-					<pre>
-						{ JSON.stringify( getIndividualById( selected ), null, 2 ) }
-					</pre>
+					selected { individual.lat }
 				</CardContent>
 			</Card>
 }
 
 /*
-
+<pre>
+						{ JSON.stringify( getIndividualById( selected ), null, 2 ) }
+					</pre>
 */

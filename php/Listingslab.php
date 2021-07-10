@@ -86,7 +86,7 @@
               ?>
 
           <div class="admin-footer">
-            <a href="https://github.com/orgs/listingslab-software/istingslab" target="_blank" style="width: 25px; height: 25px;">
+            <a href="https://github.com/listingslab-software/listingslab" target="_blank" style="width: 25px; height: 25px;">
               <img width="25" height="25" src="<?php echo plugins_url('/listingslab/php/assets/png/github.png'); ?>" />
             </a>
           </div>

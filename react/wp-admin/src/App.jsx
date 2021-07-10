@@ -42,15 +42,13 @@ export default function App() {
             <Grid container>
               { showHost ? <Grid item xs={ 12 } >
                 <Host />
-              </Grid> : null }
-              
-              
-              
-              <Grid item xs={ 12 } sm={ 4 } >
+              </Grid> : null }    
+              <Grid item xs={ 12 } sm={ 5 } >
+              <Host />
                 <Individuals />
               </Grid>
 
-              { !selected ? null : <Grid item xs={ 12 } sm={ 8 } >
+              { !selected ? null : <Grid item xs={ 12 } sm={ 7 } >
                 <IndividualSelected />
               </Grid>}
 

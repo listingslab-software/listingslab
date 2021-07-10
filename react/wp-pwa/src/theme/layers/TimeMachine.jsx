@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux'
 //     Button,
 // } from '@material-ui/core/'
 import { SVGTimeMachine } from '../'
+import {
+    togglePwaOpen,
+} from '../../redux/app/actions'
 
 export default function TimeMachine() {
   
@@ -26,7 +29,7 @@ export default function TimeMachine() {
               <SVGTimeMachine 
                 onClick={ (e) => {
                   e.preventDefault()
-                  console.log ('CLICK SVGTimeMachine')
+                  togglePwaOpen( false )
                 }}
                 style={{
                   // border: '1px solid red',

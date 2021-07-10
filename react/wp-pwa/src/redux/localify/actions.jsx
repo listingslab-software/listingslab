@@ -7,7 +7,7 @@ import {
     getStore,
 } from '../../'
 
-import { togglePwaOpen } from '../app/actions'
+// import { togglePwaOpen } from '../app/actions'
 
 export const error = createAction(`LOCALIFY/ERROR`)
 export const initting = createAction(`LOCALIFY/INITTING`)
@@ -228,7 +228,7 @@ export const getDeviceStr = individual => {
 export const acceptGDPR = gdpr => { 
     const store = getStore()
     store.dispatch({type: `LOCALIFY/GDPR`, gdpr })
-    togglePwaOpen( false )
+    // togglePwaOpen( false )
     return false
 }
 

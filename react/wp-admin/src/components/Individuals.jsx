@@ -16,7 +16,7 @@ import {
 import { 
 	subscribe, 
 	getDeviceStr, 
-	getLocationStr,
+	// getLocationStr,
 	getFlagSrc,
 	setSelected,
 	selectDefault,
@@ -24,10 +24,10 @@ import {
 
 const useStyles = makeStyles(theme => ({
 	individuals:{
-		// margin: theme.spacing(),
-		// border: '1px solid rgba(0,0,0,0.25)',
+		margin: theme.spacing(),
 		boxShadow: 'none',
-		borderRadius: 0,
+		border: '1px solid rgba(255,255,255,0.75)',
+		background: 'rgba(255,255,255,0.25)',
 	},
 }))
 
@@ -82,10 +82,10 @@ export default function Individuals( props ) {
 											<Avatar src={ getFlagSrc( item ) } />
 										</ListItemAvatar>
 										<ListItemText 
-											primary={ getLocationStr(item) }
+											primary={ item.fingerprint }
+											// primary={ getLocationStr(item) }
 											secondary={ getDeviceStr( item ) }
 										/>
-										
 									</ListItem>
 						})}
 					</List>
@@ -99,6 +99,6 @@ export default function Individuals( props ) {
 
 /*
 <pre>
-						{ JSON.stringify( individualsSlice, null, 2) }
-					</pre>
+{ JSON.stringify( individualsSlice, null, 2) }
+</pre>
 */

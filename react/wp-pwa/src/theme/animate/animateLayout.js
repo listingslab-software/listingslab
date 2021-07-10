@@ -12,21 +12,15 @@ const setup = ( div, size, timeout, callback ) => {
 }
 
 const step2 = ( div, size, timeout, callback ) => {
-    // gsap.to(`#branding`, {
-    //     duration,
-    //     ease: Power1.easeOut,
-    //     opacity: 0,
-    //     onComplete: () => {
-    //         console.log ( 'DONE' )
-    //         // gsap.delayedCall( 1, step3, [ div, size, timeout, callback ])
-    //     },
-    // })
      gsap.to(`#localify`, {
         duration,
         ease: Power1.easeOut,
         opacity: 1,
+        onComplete: () => {
+            console.log ( 'DONE' )
+            // gsap.delayedCall( 1, step3, [ div, size, timeout, callback ])
+        },
     })
-
 }
 
 const step1 = ( div, size, timeout, callback ) => {
@@ -44,7 +38,6 @@ const step1 = ( div, size, timeout, callback ) => {
     } = size
     gsap.set(`#branding`, {
         x: w/2 - brandingW/2,
-        // y: h/2 - brandingH/2,
         y: 50,
     })
     gsap.set(`#timeMachine`, {
@@ -58,8 +51,7 @@ const step1 = ( div, size, timeout, callback ) => {
         duration,
         ease: Power1.easeOut, 
         rotation: 0,
-        // x: w/2 - timeMachineW/2 - 36,
-        x: 0,
+        x: -50,
         y: h - timeMachineH/1.4 ,
         scale: 0.33,
         
