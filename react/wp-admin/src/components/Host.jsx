@@ -25,14 +25,10 @@ const useStyles = makeStyles(theme => ({
 export default function Host( props ) {
 	
 	const classes = useStyles() 
-	// const theme = useTheme()
-	// const primaryColor = theme.palette.primary.main
-
 	const hostSlice = useSelector(state => state.host)
 	const {
      	wpData,
     } = hostSlice
-
     if ( !wpData ) return null
     	
     const {

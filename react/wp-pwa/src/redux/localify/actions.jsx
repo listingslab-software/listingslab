@@ -7,7 +7,7 @@ import {
     getStore,
 } from '../../'
 
-// import { togglePwaOpen } from '../app/actions'
+import { openFeedback } from '../app/actions'
 
 export const error = createAction(`LOCALIFY/ERROR`)
 export const initting = createAction(`LOCALIFY/INITTING`)
@@ -123,10 +123,10 @@ export const lookupIndividual = () => {
             return true
         })
         .catch(function( error ) {
-            // openFeedback({
-            //     severity: `success`,
-            //     message: `API not connected`,
-            // })
+            openFeedback({
+                severity: `success`,
+                message: `API not connected`,
+            })
             throwError( error )
             return false
         })

@@ -8,12 +8,90 @@ export const subscribing = createAction(`INDIVIDUALS/SUBSCRIBING`)
 export const subscribed = createAction(`INDIVIDUALS/SUBSCRIBED`)
 export const selected = createAction(`INDIVIDUALS/SELECTED`)
 export const defaultSelected = createAction(`INDIVIDUALS/SELECTED/DEFAULT`)
+export const deleting = createAction(`INDIVIDUALS/DELETING`)
+
+export const deleteIndividual = id => {
+    const store = getStore()
+    store.dispatch( {type: `INDIVIDUALS/DELETING`, deleting: true } )
+    const db = getFStore()
+    db.collection(`individuals`).doc( id )
+        .delete()
+        .then( function( res) {
+            console.log ('Deleted.')
+            store.dispatch( {type: `INDIVIDUALS/DELETING`, deleting: false } )
+            setSelected( null )
+            return true
+        })
+        .catch(function(error) {
+            throwError( error )
+            return false
+        })
+    return true
+}
+
+export const subscribe = () => { 
+    const store = getStore()
+    store.dispatch( {type: `INDIVIDUALS/SUBSCRIBING`, subscribing: true } )
+    const db = getFStore()
+    db.collection( `individuals` )
+        .orderBy( `updated`, `desc` )
+        .onSnapshot(( snap ) => {
+            const individuals = []
+            snap.forEach( data => {
+                individuals.push({
+                    id: data.id,
+                    ...data.data(),
+                })
+            })
+            store.dispatch( {type: `INDIVIDUALS`, individuals } )
+            store.dispatch( {type: `INDIVIDUALS/SUBSCRIBED`, subscribed: true } )
+            store.dispatch( {type: `INDIVIDUALS/SUBSCRIBING`, subscribing: false } )
+            return true
+        })
+}
 
 export const selectDefault = selected => {
     const store = getStore()
     store.dispatch({ type: `INDIVIDUALS/SELECTED/DEFAULT`, defaultSelected: true })
     store.dispatch({ type: `INDIVIDUALS/SELECTED`, selected })
     return true
+}
+
+export const getLocationStr = individual => {
+    let fingerprint = individual.individual
+    if ( !fingerprint ) return false
+    const {
+        countryName,
+        city,
+    } = individual
+    return `${ city }, ${ countryName }`
+}
+
+export const getDeviceStr = individual => { 
+    if ( !individual ) return false
+    const {
+        // osName,
+        device,
+        // browserName,
+        // browserMajor,
+    } = individual
+    let deviceStr = `${ device }`
+    return deviceStr
+}
+
+export const getBrowserSrc = individual => {
+    const {
+        browserName
+    } = individual
+    if ( !browserName ) return false
+
+    const assetsDir = getStore().getState().host.wpData.assetsDir
+    let b = `unknown`
+    if ( browserName.toLowerCase().indexOf( `chrome` ) !== -1 ) b = `Chrome`
+    if ( browserName.toLowerCase().indexOf( `edge` ) !== -1 ) b = `Edge`
+    if ( browserName.toLowerCase().indexOf( `firefox` ) !== -1 ) b = `Firefox`
+    if ( browserName.toLowerCase().indexOf( `safari` ) !== -1 ) b = `Safari`
+    return `${assetsDir}/svg/browser/${b}.svg`
 }
 
 export const getFlagSrc = individual => {
@@ -39,70 +117,6 @@ export const setSelected = selected => {
     store.dispatch({ type: `INDIVIDUALS/SELECTED`, selected })
     return true
 }
-
-export const subscribe = () => { 
-	const store = getStore()
-	store.dispatch( {type: `INDIVIDUALS/SUBSCRIBING`, subscribing: true } )
-	const db = getFStore()
-	db.collection( `individuals` )
-		.orderBy( `updated`, `desc` )
-		.onSnapshot(( snap ) => {
-			const individuals = []
-	        snap.forEach( data => {
-	            individuals.push({
-	            	id: data.id,
-	            	...data.data(),
-	            })
-	        })
-			store.dispatch( {type: `INDIVIDUALS`, individuals } )
-			store.dispatch( {type: `INDIVIDUALS/SUBSCRIBED`, subscribed: true } )
-			store.dispatch( {type: `INDIVIDUALS/SUBSCRIBING`, subscribing: false } )
-			return true
-	    })
-}
-
-export const getDeviceSrc = individual => {
-    const {
-        device
-    } = individual
-    if ( !device ) return false
-    if ( device === `desktop` ) return `/svg/listingslab/ironavirus.svg` 
-    return `/svg/device/iphone.svg`
-}
-
-export const getLocationStr = individual => {
-    let fingerprint = individual.individual
-    if ( !fingerprint ) return false
-    const {
-        countryName,
-        city,
-    } = individual
-    return `${ city }, ${ countryName }`
-}
-
-
-
-export const getDeviceStr = individual => { 
-    if ( !individual ) return false
-    const {
-        osName,
-        device,
-        browserName,
-        browserMajor,
-    } = individual
-    let deviceStr = `${ osName } ${browserName} ${browserMajor} ${ device }`
-    return deviceStr
-}
-
-export const getBrowserSrc = individual => {
-    const {
-        browserName
-    } = individual
-    if ( !browserName ) return false
-    return `/svg/thirdParty/listingslab.svg`
-}
-
-
 
 export const throwError = error => { 
 	const store = getStore()

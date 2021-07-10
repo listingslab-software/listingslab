@@ -6,6 +6,7 @@ import {
   subscribing,
   selected,
   defaultSelected,
+  deleting,
 } from "./actions"
 
 
@@ -16,9 +17,15 @@ export const individualsSlice = {
   subscribed: false,
   selected: null,
   defaultSelected: false,
+  deleting: false,
 }
 
 const individualsReducer = createReducer( individualsSlice, {
+
+  [deleting]: (state, action) => {
+    state.deleting = action.deleting
+    return state
+  },
 
   [defaultSelected]: (state, action) => {
     state.defaultSelected = action.defaultSelected

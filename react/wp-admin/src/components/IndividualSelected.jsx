@@ -4,16 +4,18 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Avatar,
+    Button,
     Card,
     CardHeader,
-    CardContent,
+    CardActions,
 } from '@material-ui/core/'
-// import { Icon } from '../theme'
+import { Icon } from '../theme'
 import { 
 	getIndividualById,
 	getDeviceStr, 
-	// getLocationStr,
-	getFlagSrc,
+	deleteIndividual,
+	// getFlagSrc,
+	getBrowserSrc,
 } from '../redux/individuals/actions'
 
 const useStyles = makeStyles(theme => ({
@@ -21,9 +23,13 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(),
 		margin: theme.spacing(),
 		border: '1px solid rgba(255,255,255,0.75)',
-		background: 'rgba(255,255,255,0.25)',
+		background: 'rgba(255,255,255,0.5)',
 		boxShadow: 'none',
 	},
+	btnTxt:{
+		marginRight: theme.spacing(),
+		marginLeft: theme.spacing(),
+	}
 }))
 
 export default function IndividualSelected( props ) {
@@ -37,16 +43,30 @@ export default function IndividualSelected( props ) {
  	let individual = getIndividualById( selected )
  	if ( !individual ) return null
 
+ 	const { id } = individual
+
 	return	<Card className={ clsx( classes.individual ) }>
 				<CardHeader 
-					avatar={ <Avatar src={ getFlagSrc( individual ) } /> }
+					avatar={ <Avatar src={ getBrowserSrc( individual ) } /> }
 					title={ individual.fingerprint }
 					// title={ getLocationStr( individual ) }
 					subheader={ getDeviceStr( individual ) }
 				/>
-				<CardContent>
-					selected { individual.lat }
-				</CardContent>
+				<CardActions>
+					<Button 
+						color={ `secondary` }
+						variant={ `contained` }
+						onClick={ ( e ) => {
+							e.preventDefault()
+							// console.log ('delete', id)
+							deleteIndividual( id )
+						}}>
+						<Icon icon={ `delete` } />
+						<span className={ clsx( classes.btnTxt ) }>
+							Delete
+						</span>
+					</Button>
+				</CardActions>
 			</Card>
 }
 
