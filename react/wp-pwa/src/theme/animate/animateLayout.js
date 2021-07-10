@@ -6,6 +6,12 @@ import { getStore } from '../../'
 // import { togglePwaOpen } from '../../redux/app/actions'
 
 const duration = 1
+const callbackTimeout = 10
+
+const finish = (callback) => {
+    callback()
+    return
+}
 
 const setup = ( div, size, timeout, callback ) => {
     gsap.delayedCall( 1, step1, [ div, size, timeout, callback ])
@@ -17,8 +23,7 @@ const step2 = ( div, size, timeout, callback ) => {
         ease: Power1.easeOut,
         opacity: 1,
         onComplete: () => {
-            console.log ( 'DONE' )
-            // gsap.delayedCall( 1, step3, [ div, size, timeout, callback ])
+            gsap.delayedCall( callbackTimeout, finish, [ callback ])
         },
     })
 }
@@ -38,7 +43,7 @@ const step1 = ( div, size, timeout, callback ) => {
     } = size
     gsap.set(`#branding`, {
         x: w/2 - brandingW/2,
-        y: 50,
+        y: 45,
     })
     gsap.set(`#timeMachine`, {
         x: 0 - timeMachineW,
@@ -56,9 +61,11 @@ const step1 = ( div, size, timeout, callback ) => {
         scale: 0.33,
         
     })
+
     gsap.set(`#localify`, {
-        x: 0,
-        y: 115,
+        x: '5%',
+        width: '90%',
+        y: 110,
     })
 
     gsap.to(`#branding`, {

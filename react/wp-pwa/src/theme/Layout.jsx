@@ -58,7 +58,7 @@ export default function Layout() {
             },
             3,
             () => {
-              // console.log ('Finished Time out()')
+              // console.log ('Done')
             },
           )
           animationInitted( true )

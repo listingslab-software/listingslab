@@ -27,10 +27,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Courier',
     fontSize: 10,
   },
+  thin:{
+    fontWeight: 'lighter',
+  },
   link: {
     color: theme.palette.primary.main,
     textDecoration: 'none',
     fontWeight: 'bold',
+    cursor: 'pointer',
   },
   btnTxt:{
     marginLeft: theme.spacing(),
@@ -41,8 +45,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Localify() {
   
   const classes = useStyles()
-  // const [expanded, setExpanded] = React.useState( false )
-  const expanded = false
+  const [expanded, setExpanded] = React.useState( false )
   const appSlice = useSelector(state => state.app)
   const {
     isMobile,
@@ -57,9 +60,6 @@ export default function Localify() {
 
   return <div id={`localify`}
               style={{
-                  // border: '1px solid #ddd',
-                  // height: 55,
-                  maxWidth: isMobile ? 350 : 1000,
                   position: 'absolute',
                   zIndex: 100,
                   opacity: 0,
@@ -68,24 +68,33 @@ export default function Localify() {
               
                   <CardContent>
                     
-                    <Typography variant={ `h2` } gutterBottom>
+                    <Typography variant={ `h4` } className={ classes.thin } gutterBottom>
                       Hello
                     </Typography>
                     
                     <Typography variant={ `body1` } gutterBottom>
-                      This is what your web request has told us about you. 
-                      Are you OK with us storing that kind of info in a 
-                      database? We don't use cookies. 
-                      See <a className={ classes.link } href={ `/privacy` }>
-                      privacy</a> page 
-                      for more information
+                      <span 
+                        onClick={ (e) => {
+                          e.preventDefault()
+                          setExpanded( true )
+                        }}
+                        className={ classes.link }>
+                      This</span> is what your web request told us about you.  
+                      Are you OK with us storing that kind of info in a database? 
+                      We don't use cookies. 
+                      See the <a className={ classes.link } href={ `/privacy` }>
+                      privacy</a> page for more information
                     </Typography>
 
                   { !individual ? null : <React.Fragment>
                           <CardHeader
                               subheader={ getDeviceStr( individual ) }
                               title={ getLocationStr ( individual ) }
-                              avatar={ <IconButton>
+                              avatar={ <IconButton
+                                          onClick={ (e) => {
+                                            e.preventDefault()
+                                            setExpanded( !expanded )
+                                          }}>
                                             <Avatar src={ getFlagSrc( individual ) } />
                                           </IconButton>
                                       }
