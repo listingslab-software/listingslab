@@ -10,7 +10,6 @@ import {
 } from "./actions"
 
 export const localifySlice = {
-  
   error: null,
   ting: null,
   initting: false,

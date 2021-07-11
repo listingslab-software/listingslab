@@ -87,6 +87,7 @@ export const getFlagSrc = individual => {
 export const updateIndividual = ( attribute, value ) => {
     const store = getStore()
     const { id } = store.getState().localify
+    if ( !id ) return false
     const db = firebase.firestore()
     db.collection(`individuals`).doc( id )
         .set({ [attribute]: value }, { merge: true })
@@ -226,8 +227,10 @@ export const getDeviceStr = individual => {
 }
 
 export const acceptGDPR = gdpr => { 
+    // console.log ('acceptGDPR', gdpr)
     const store = getStore()
-    store.dispatch({type: `LOCALIFY/GDPR`, gdpr })
+    store.dispatch({ type: `LOCALIFY/GDPR`, gdpr })
+    updateIndividual(`gdpr`, gdpr)
     // togglePwaOpen( false )
     return false
 }

@@ -43,29 +43,28 @@ const step1 = ( div, size, timeout, callback ) => {
     } = size
     gsap.set(`#branding`, {
         x: w/2 - brandingW/2,
-        y: 45,
+        y: 65,
     })
     gsap.set(`#timeMachine`, {
         x: 0 - timeMachineW,
         y: timeMachineH ,
         scale: 0.35,
-        rotation: 15,
+        rotation: -25,
         opacity: 1,
     })
     gsap.to(`#timeMachine`, {
-        duration,
+        duration: duration * 2,
         ease: Power1.easeOut, 
         rotation: 0,
-        x: -50,
+        x: w/2 - timeMachineW/1.5,
         y: h - timeMachineH/1.4 ,
         scale: 0.33,
-        
     })
 
     gsap.set(`#localify`, {
-        x: '5%',
-        width: '90%',
-        y: 110,
+        x: '6%',
+        width: '88%',
+        y: 125,
     })
 
     gsap.to(`#branding`, {

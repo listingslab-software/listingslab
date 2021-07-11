@@ -2,22 +2,25 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Avatar,
+    // Avatar,
     Button,
     CardActions,
-    CardHeader,
+    // CardHeader,
     CardContent,
     Collapse,
-    IconButton,
+    // IconButton,
     Typography,
 } from '@material-ui/core/'
 import {
-    getFlagSrc,
-    getDeviceStr,
-    getLocationStr,
+    // getFlagSrc,
+    // getDeviceStr,
+    // getLocationStr,
     // getBrowserSrc,
     acceptGDPR,
 } from '../../redux/localify/actions'
+import {
+    togglePwaOpen
+} from '../../redux/app/actions'
 
 import { Icon } from '../../theme'
 
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   isCode: {
     // border: '1px solid red',
     fontFamily: 'Courier',
-    fontSize: 10,
+    fontSize: 12,
   },
   thin:{
     fontWeight: 'lighter',
@@ -58,6 +61,12 @@ export default function Localify() {
       individual,
   } = localifySlice
 
+  let gdpr = false
+  if (individual){
+    gdpr = individual.gdpr
+  }
+  if (!gdpr) gdpr = false
+
   return <div id={`localify`}
               style={{
                   position: 'absolute',
@@ -65,28 +74,95 @@ export default function Localify() {
                   opacity: 0,
               }}>
               
-              
-                  <CardContent>
-                    
-                    <Typography variant={ `h4` } className={ classes.thin } gutterBottom>
-                      Hello
-                    </Typography>
-                    
-                    <Typography variant={ `body1` } gutterBottom>
-                      <span 
-                        onClick={ (e) => {
-                          e.preventDefault()
-                          setExpanded( true )
-                        }}
-                        className={ classes.link }>
-                      This</span> is what your web request told us about you.  
-                      Are you OK with us storing that kind of info in a database? 
-                      We don't use cookies. 
-                      See the <a className={ classes.link } href={ `/privacy` }>
-                      privacy</a> page for more information
-                    </Typography>
+                  { !gdpr ? <div>
 
-                  { !individual ? null : <React.Fragment>
+                      <CardContent>
+
+                      <Typography variant={ `button` } className={ classes.thin } gutterBottom>
+                        General Data Protection Regulation
+                      </Typography>
+
+
+                      <Typography variant={ `body2` } gutterBottom>
+                        Know your <a 
+                                    className={ classes.link } 
+                                    href={ `https://gdpr-info.eu` }
+                                    target={ `_blank` }
+                                  >
+                                    rights. 
+                                  </a> Do you know what information 
+                        your browser gave us? <span 
+                          onClick={ (e) => {
+                            e.preventDefault()
+                            setExpanded( !expanded )
+                          }}
+                          className={ classes.link }>This</span> is what it told us about you.  
+                        Are you OK with us storing that kind of info in a database? 
+                        We don't use cookies, so really the whole GDPR thing is a bit 
+                        pointless. Ho Hum. 
+                        See our <a className={ classes.link } href={ `/privacy` }>
+                        privacy</a> page for more information
+                      </Typography>
+
+                      <Collapse 
+                        unmountOnExit
+                        in={expanded} 
+                        timeout={ `auto` }>
+                        <Typography variant={ `body2` } 
+                        className={ classes.isCode } gutterBottom>
+                          { JSON.stringify( individual, null, 2 ) }
+                        </Typography>
+                      </Collapse>
+
+                   <CardActions> 
+
+                      <Button
+                         variant={ `text` }
+                         color={ `default` }
+                         onClick={ ( e ) => {
+                           e.preventDefault()
+                           togglePwaOpen( false )
+                           // acceptGDPR( false )
+                         }}>
+                         <Icon icon={ `previous` } />
+                         <span className={ classes.btnTxt }>
+                           Yeh, nah.
+                         </span>
+                      </Button>
+                      
+                      <Button
+                        variant={ `contained` }
+                        color={ `secondary` }
+                        onClick={ ( e ) => {
+                          e.preventDefault()
+                          acceptGDPR( true )
+                        }}>
+                        <span className={ classes.btnTxt }>
+                          Yes
+                        </span>
+                        <Icon icon={ `tick` } />
+                      </Button>
+      
+                  </CardActions>
+              
+              </CardContent>
+
+            </div> : <div>Let's start</div> }
+
+
+          </div>
+}
+
+/*
+action={ <div style={{ display: 'flex', }}>
+                                      
+                                      <IconButton>
+                                        <Avatar src={ getBrowserSrc( individual ) } />
+                                      </IconButton>
+                                    </div> }
+
+
+{ !individual ? null : <React.Fragment>
                           <CardHeader
                               subheader={ getDeviceStr( individual ) }
                               title={ getLocationStr ( individual ) }
@@ -101,61 +177,16 @@ export default function Localify() {
                           /> 
                       </React.Fragment>
                   }
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
 
-                      <Typography variant={ `body2` } 
-                      className={ classes.isCode } gutterBottom>
-                        { JSON.stringify( individual, null, 2 ) }
-                      </Typography>
 
-                    </Collapse>
+
+
+<Typography variant={ `body2` }>
+                      GDPR? { JSON.stringify( gdpr, null, 2 ) }
+                    </Typography>
                     
-                  </CardContent>
-                  
-                  <CardActions>
-                    
-                    
-                    <Button
-                      variant={ `outlined` }
-                      color={ `primary` }
-                      onClick={ ( e ) => {
-                        e.preventDefault()
-                        acceptGDPR( true )
-                      }}>
-                      
-                      <span className={ classes.btnTxt }>
-                        I'm OK with that
-                      </span>
-                      <Icon icon={ `next` } />
-                    </Button>
 
 
-                    <Button
-                       variant={ `text` }
-                       color={ `default` }
-                       onClick={ ( e ) => {
-                         e.preventDefault()
-                         acceptGDPR( false )
-                       }}>
-                       
-                       <span className={ classes.btnTxt }>
-                         Yeh, nah.
-                       </span>
-                       
-                    </Button>
-
-                  </CardActions>
-               
 
 
-          </div>
-}
-
-/*
-action={ <div style={{ display: 'flex', }}>
-                                      
-                                      <IconButton>
-                                        <Avatar src={ getBrowserSrc( individual ) } />
-                                      </IconButton>
-                                    </div> }
 */

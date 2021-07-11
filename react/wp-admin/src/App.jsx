@@ -34,14 +34,17 @@ export default function App() {
   
   return <MuiThemeProvider theme={createMuiTheme(theme)}>
           <div className={ clsx( classes.app ) } >
-            <Grid container>  
+            <Grid container> 
+             
+              { !selected ? null : <Grid item xs={ 12 } sm={ 6 } >
+                <IndividualSelected />
+              </Grid> }
+
               <Grid item xs={ 12 } sm={ 6 } >
                 { wpData.assetsDir !== `` ? <Host /> : null }
                 <Individuals />
               </Grid>
-              { !selected ? null : <Grid item xs={ 12 } sm={ 6 } >
-                <IndividualSelected />
-              </Grid>}
+              
            </Grid>
            </div>
          </MuiThemeProvider> 

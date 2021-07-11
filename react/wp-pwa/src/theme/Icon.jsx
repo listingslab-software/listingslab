@@ -9,6 +9,7 @@ import IconGithub from '@material-ui/icons/GitHub'
 import IconToolKit from '@material-ui/icons/Extension'
 import IconPlugins from '@material-ui/icons/Extension'
 import IconGDPR from '@material-ui/icons/Security'
+import IconTick from '@material-ui/icons/CheckBox'
 import IconDocs from '@material-ui/icons/Description'
 import IconSend from '@material-ui/icons/Send'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
@@ -177,6 +178,9 @@ class Icon extends Component {
 
             case `social`:
                 return (<IconSocial color={iconColor} />)
+
+            case `tick`:
+                return (<IconTick color={iconColor} />)
 
             case `settings`:
                 return (<IconSettings color={iconColor} />) 
