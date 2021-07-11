@@ -52,6 +52,19 @@ const step1 = ( div, size, timeout, callback ) => {
         rotation: -25,
         opacity: 1,
     })
+
+    gsap.set(`#cannatown`, {
+        y: 50,
+        width: '100%',
+    })
+
+    gsap.to(`#cannatown`, {
+        duration: duration,
+        opacity: 1,
+        y: 25,
+        width: '100%',
+    })
+
     gsap.to(`#timeMachine`, {
         duration: duration * 2,
         ease: Power1.easeOut, 

@@ -8,12 +8,9 @@ import {
 import { 
     Blokey,
 } from'../'
-
 import {
     navigateTo,
 } from '../../redux/app/actions'
-
-
 
 export default function Branding() {
   

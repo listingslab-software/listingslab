@@ -7,6 +7,7 @@ import { SVGTimeMachine } from '../'
 import {
     togglePwaOpen,
 } from '../../redux/app/actions'
+// import BGEffects from './BGEffects'
 
 export default function TimeMachine() {
   
@@ -17,7 +18,6 @@ export default function TimeMachine() {
   } = appSlice
   const suppress = true
   if ( !suppress ) console.log ( 'isMobile', isMobile )
-
   return <div id={`timeMachine`}
               style={{ 
                   zIndex: 200,
@@ -36,6 +36,8 @@ export default function TimeMachine() {
                   cursor: 'pointer',
                 }} 
               />
+
+              
           </div>
 }
  

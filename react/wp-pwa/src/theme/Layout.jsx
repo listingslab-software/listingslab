@@ -9,6 +9,7 @@ import {
     Branding,
     TimeMachine,
     Localify,
+    Cannatown,
 } from'./'
 import {
   setClient,
@@ -87,6 +88,7 @@ export default function Layout() {
              <Branding />
              <TimeMachine />
              <Localify />
+             <Cannatown />
            </div>
         </Dialog>
 }

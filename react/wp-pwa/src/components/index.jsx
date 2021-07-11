@@ -9,6 +9,9 @@ import SiteHeader from './SiteHeader'
 import Sidebar from './Sidebar'
 import SidebarBtn from './SidebarBtn'
 
+import RecentPosts from './WordPress/RecentPosts'
+
+
 export {
 	Overlay,
 	PWAMenu,
@@ -20,4 +23,6 @@ export {
 	SiteHeader,
 	Sidebar,
 	SidebarBtn,
+
+	RecentPosts,
 }

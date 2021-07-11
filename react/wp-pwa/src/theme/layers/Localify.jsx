@@ -2,26 +2,19 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    // Avatar,
     Button,
     CardActions,
-    // CardHeader,
     CardContent,
     Collapse,
-    // IconButton,
     Typography,
 } from '@material-ui/core/'
 import {
-    // getFlagSrc,
-    // getDeviceStr,
-    // getLocationStr,
-    // getBrowserSrc,
     acceptGDPR,
 } from '../../redux/localify/actions'
 import {
     togglePwaOpen
 } from '../../redux/app/actions'
-
+import { RecentPosts } from '../../components'
 import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
@@ -147,9 +140,10 @@ export default function Localify() {
               
               </CardContent>
 
-            </div> : <div>Let's start</div> }
+            </div> : null }
 
-
+            <RecentPosts />
+            
           </div>
 }
 

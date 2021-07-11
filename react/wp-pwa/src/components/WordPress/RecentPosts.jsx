@@ -1,5 +1,5 @@
 import React from 'react'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
     makeStyles,
     AppBar,
@@ -8,7 +8,7 @@ import {
     // Button,
     IconButton,
 } from '@material-ui/core/'
-import { Icon } from '../theme'
+import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
   pwaNav: {
@@ -27,12 +27,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function PWANav() {
+export default function RecentPosts() {
   const classes = useStyles()
-  // const wordpressSlice = useSelector(state => state.wordpress)
-  // const {
-  //   pwaData,
-  // } = wordpressSlice
+  const wordpressSlice = useSelector(state => state.wordpress)
+  const {
+    pwaData,
+  } = wordpressSlice
+  let suppress = true
+  if ( !suppress ) console.log ( 'pwaData', pwaData )
   // const {
   //   // logo,
   //   post,
@@ -40,13 +42,13 @@ export default function PWANav() {
   // const {
   //   post_title
   // } = post
-  // console.log ('wordpressSlice', wordpressSlice)
+  // console.log ('pwaData', pwaData)
 
   return <div className={ classes.pwaNav }>
           <AppBar position={ `static` } className={ classes.appBar } >
             <Toolbar>
               <Typography variant={ `h6` } className={ classes.title }>
-                { `post_title` }
+                Recent Posts
               </Typography>
               <IconButton 
                 color={ `primary`}>

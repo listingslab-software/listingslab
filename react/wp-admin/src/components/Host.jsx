@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 		margin: theme.spacing(),
 		boxShadow: 'none',
 		border: '1px solid rgba(255,255,255,0.75)',
-		background: 'rgba(255,255,255,0.25)',
+		background: 'none',
 	},
 	avatar: {
 	},
