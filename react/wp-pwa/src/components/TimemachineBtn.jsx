@@ -5,8 +5,13 @@ import {
 } from '@material-ui/core/'
 import { noPwa } from '../theme/animate'
 import {
-  initNonPwa
+  initNonPwa,
 } from '../redux/animation/actions'
+import {
+  togglePwaOpen,
+} from '../redux/app/actions'
+
+
 import SVGTimeMachine from '../theme/jsxSVG/SVGTimeMachine'
 
 const useStyles = makeStyles((theme) => ({
@@ -38,15 +43,9 @@ export default function TimemachineBtn() {
     } = animationSlice
     if ( !nonPwaInitted && !nonPwaInitting && individual ){
       initNonPwa()
-      noPwa(
-          `start`, 
-          `#time-machine`,  
-          {},
-          4.5,
-          () => {
-            console.log ('izzz good.')
-          },
-        )
+      noPwa(`start`, `#time-machine`, {}, 5, () => {
+              console.log ('iz good.')
+            })
     }
   }, [ animationSlice, individual ])
   if ( !individual ) return <div id={`timemachineBtn`} />
@@ -55,7 +54,7 @@ export default function TimemachineBtn() {
             className={ classes.mightyBtn }
             onClick={ ( e ) => {
               e.preventDefault()
-              console.log ('!!')
+              togglePwaOpen( true )
             }}>
             <div style={{
                   left: -500,

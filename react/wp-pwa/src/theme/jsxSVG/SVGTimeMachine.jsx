@@ -1,13 +1,15 @@
 import React from "react"
-import {
-    useTheme,
-} from '@material-ui/core/'
+// import {
+//     useTheme,
+// } from '@material-ui/core/'
 
 const SVGTimeMachine = props => {
 
-    const theme = useTheme()
-    const primaryColor = theme.palette.primary.main
-    const secondaryColor = theme.palette.secondary.main
+    // const theme = useTheme()
+    // const primaryColor = theme.palette.primary.main
+    // const secondaryColor = theme.palette.secondary.main
+    const primaryColor = `#000`
+    const secondaryColor = `#000`
     // const { color } = props
     // let c = `black`
     // if (color) {

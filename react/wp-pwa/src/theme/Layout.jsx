@@ -7,7 +7,6 @@ import {
 } from '@material-ui/core/'
 import { 
     Branding,
-    TimeMachine,
     Localify,
     Cannatown,
 } from'./'
@@ -93,7 +92,6 @@ export default function Layout() {
            }}>
            <div id={ `layout` }>
              <Branding />
-             <TimeMachine />
              <Localify />
              <Cannatown />
            </div>
