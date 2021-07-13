@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
+    Tooltip,
 } from '@material-ui/core/'
 import { noPwa } from '../theme/animate'
 import {
@@ -50,21 +51,27 @@ export default function TimemachineBtn() {
   }, [ animationSlice, individual ])
   if ( !individual ) return <div id={`timemachineBtn`} />
 
-  return <div id={`timemachineBtn`}
-            className={ classes.mightyBtn }
-            onClick={ ( e ) => {
-              e.preventDefault()
-              togglePwaOpen( true )
-            }}>
-            <div style={{
-                  left: -500,
-                  height: 326,
-                  width: 254,
-                  position: 'absolute',
-                  zIndex: 1234567,
-                  // opacity: 0,
+  return <Tooltip 
+            title="Open PWA" 
+            aria-label="open-pwa"
+            placement="left-end"
+         >
+            <div id={`timemachineBtn`}
+              className={ classes.mightyBtn }
+              onClick={ ( e ) => {
+                e.preventDefault()
+                togglePwaOpen( true )
               }}>
-              <SVGTimeMachine />
+              <div style={{
+                    left: -500,
+                    height: 326,
+                    width: 254,
+                    position: 'absolute',
+                    zIndex: 1234567,
+                    // opacity: 0,
+                }}>
+                <SVGTimeMachine />
+              </div>
             </div>
-          </div>
+          </Tooltip>
 }
