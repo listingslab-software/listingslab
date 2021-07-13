@@ -71,7 +71,10 @@ export default function Localify() {
 
                       <CardContent>
 
-                      <Typography variant={ `button` } className={ classes.thin } gutterBottom>
+                      <Typography 
+                        variant={ `button` } 
+                        className={ classes.thin } 
+                        gutterBottom>
                         General Data Protection Regulation
                       </Typography>
 

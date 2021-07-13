@@ -8,9 +8,8 @@ import PWANav from './PWANav'
 import SiteHeader from './SiteHeader'
 import Sidebar from './Sidebar'
 import SidebarBtn from './SidebarBtn'
-
 import RecentPosts from './WordPress/RecentPosts'
-
+import TimemachineBtn from './TimemachineBtn'
 
 export {
 	Overlay,
@@ -23,6 +22,6 @@ export {
 	SiteHeader,
 	Sidebar,
 	SidebarBtn,
-
+	TimemachineBtn,
 	RecentPosts,
 }

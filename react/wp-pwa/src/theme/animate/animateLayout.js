@@ -30,11 +30,12 @@ const step2 = ( div, size, timeout, callback ) => {
 
 const step1 = ( div, size, timeout, callback ) => {
     const client = getStore().getState().app.client
+    const { w, h } = client
     gsap.to( div , {
         onComplete: callback,
         duration: timeout,
     })
-    const { w, h } = client
+    
     const { 
         brandingW, 
         // brandingH,

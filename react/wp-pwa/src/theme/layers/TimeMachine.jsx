@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 // } from '@material-ui/core/'
 import { SVGTimeMachine } from '../'
 import {
-    togglePwaOpen,
+    navigateTo,
 } from '../../redux/app/actions'
 // import BGEffects from './BGEffects'
 
@@ -29,10 +29,9 @@ export default function TimeMachine() {
               <SVGTimeMachine 
                 onClick={ (e) => {
                   e.preventDefault()
-                  togglePwaOpen( false )
+                  navigateTo( `/wp-admin/admin.php?page=listingslab%2Fphp%2FListingslab.php`, `_blank` )
                 }}
                 style={{
-                  // border: '1px solid red',
                   cursor: 'pointer',
                 }} 
               />

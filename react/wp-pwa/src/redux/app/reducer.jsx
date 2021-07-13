@@ -11,7 +11,7 @@ import {
 
 export const appSlice = {
   error: null,
-  pwaOpen: true,
+  pwaOpen: false,
   terminalOpen: false,
   overlay: false,
   client: null,

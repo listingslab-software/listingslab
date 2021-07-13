@@ -11,6 +11,9 @@ import {
     Localify,
     Cannatown,
 } from'./'
+import { 
+  TimemachineBtn 
+} from '../components'
 import {
   setClient,
   togglePwaOpen,
@@ -28,8 +31,8 @@ const useStyles = makeStyles(( theme ) => ({
   layout: {
   },
   isMobile:{
-    margin: theme.spacing( 10 ) 
-  }  
+    margin: theme.spacing( 10 ), 
+  }, 
 }))
 
 export default function Layout() {
@@ -75,6 +78,10 @@ export default function Layout() {
       } = appSlice
       if (!client) setClient ()        
   }, [ appSlice ])
+
+  if ( !pwaOpen ) {
+    return <TimemachineBtn />
+  }
   
   return <Dialog 
            className={ clsx( classes.layout) } 

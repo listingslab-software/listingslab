@@ -6,6 +6,7 @@ import { mapboxReducer, mapboxSlice } from './mapbox/reducer'
 import { hostReducer, hostSlice } from './host/reducer'
 import { layoutReducer, layoutSlice } from './layout/reducer'
 import { localifyReducer, localifySlice } from './localify/reducer'
+import { animationReducer, animationSlice } from './animation/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
@@ -15,6 +16,7 @@ const reduxStore = () => {
     host: hostReducer,
     layout: layoutReducer,
     localify: localifyReducer,
+    animation: animationReducer,
   })
 
   const preloadedState = {
@@ -24,6 +26,7 @@ const reduxStore = () => {
     host: hostSlice,
     layout: layoutSlice,
     localify: localifySlice,
+    animation: animationSlice,
   }
   
   const middleware = [
