@@ -5,7 +5,7 @@
  * @package           listingslab
  *
  * @wordpress-plugin
- * Version:           14.3.7
+ * Version:           14.3.9
  * Plugin Name:       @listingslab
  * Description:       Magically turns any WordPress Site into a much better React Progressive WordPress App
  * Plugin URI:        https://github.com/listingslab-software/listingslab

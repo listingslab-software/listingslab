@@ -36,19 +36,19 @@ export default function App() {
           <div className={ clsx( classes.app ) } >
             <Grid container> 
 
-
-            { wpData.assetsDir !== `` ? <Grid item xs={ 12 } >
+              { wpData.assetsDir !== `` ? <Grid item xs={ 12 } >
                                           <Host />
                                         </Grid> : null }
+
+              <Grid item xs={ 12 } sm={ 6 } >
+                <Individuals />
+              </Grid>
              
               { !selected ? null : <Grid item xs={ 12 } sm={ 6 } >
                 <IndividualSelected />
               </Grid> }
 
-              <Grid item xs={ 12 } sm={ 6 } >
-                
-                <Individuals />
-              </Grid>
+              
               
            </Grid>
            </div>

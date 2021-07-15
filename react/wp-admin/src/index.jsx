@@ -8,7 +8,7 @@ import { createBrowserHistory } from 'history'
 import { Provider } from 'react-redux'
 import reduxStore from './redux'
 
-console.log(`${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})`)
+console.warn( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
 
 const fireConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,

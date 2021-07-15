@@ -17,7 +17,7 @@ export const deleteIndividual = id => {
     db.collection(`individuals`).doc( id )
         .delete()
         .then( function( res) {
-            console.log ('Deleted.')
+            // console.log ('Deleted.')
             store.dispatch( {type: `INDIVIDUALS/DELETING`, deleting: false } )
             setSelected( null )
             return true

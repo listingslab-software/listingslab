@@ -66,6 +66,7 @@ export default function Layout() {
           )
           animationInitted( true )
           animationRestart( false )
+          
       }
     }
     

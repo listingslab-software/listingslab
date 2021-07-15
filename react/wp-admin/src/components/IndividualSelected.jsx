@@ -46,16 +46,11 @@ export default function IndividualSelected( props ) {
  	const { id } = individual
 
 	return	<Card className={ clsx( classes.individual ) }>
-				<CardHeader 
-					avatar={ <Avatar src={ getBrowserSrc( individual ) } /> }
-					title={ individual.fingerprint }
-					// title={ getLocationStr( individual ) }
-					subheader={ getDeviceStr( individual ) }
-				/>
+				
 				<CardActions>
 					<Button 
 						color={ `secondary` }
-						variant={ `contained` }
+						variant={ `outlined` }
 						onClick={ ( e ) => {
 							e.preventDefault()
 							// console.log ('delete', id)
@@ -67,6 +62,12 @@ export default function IndividualSelected( props ) {
 						</span>
 					</Button>
 				</CardActions>
+				<CardHeader 
+					avatar={ <Avatar src={ getBrowserSrc( individual ) } /> }
+					title={ individual.fingerprint }
+					// title={ getLocationStr( individual ) }
+					subheader={ getDeviceStr( individual ) }
+				/>
 			</Card>
 }
 

@@ -22,11 +22,10 @@ const startingPositions = ( div, size, timeout, callback ) => {
     // console.warn ('startingPositions please', w, h)
 
     gsap.set(`#timemachineBtn`, {
-        x: -100,
-        y: h - h/2.5,
+        x: -220,
+        y: h,
         rotation: 45,
-        scale: 0.1,
-        
+        scale: 0.2,
     })
 
     gsap.to(`#timemachineBtn`, {
@@ -34,7 +33,7 @@ const startingPositions = ( div, size, timeout, callback ) => {
         ease: Power1.easeOut,
         scale: 0.33,
         x: w/1.02,
-        y: h/1.6,
+        y: h - 220,
         rotation: 0,
         opacity: 1,
         onComplete: () => {
